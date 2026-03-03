@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     siteName: "Octógonos",
     images: [
       {
-        url: "/opengraph-image",
+        url: "https://octogonos.vercel.app/api/og-image",
         width: 1200,
         height: 630,
         alt: "Octógonos de candidatos + IA",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Octógonos de candidatos + IA",
     description: "Educación, historial legal y plan de gobierno. Con IA.",
-    images: ["/opengraph-image"],
+    images: ["https://octogonos.vercel.app/api/og-image"],
   },
 };
 
