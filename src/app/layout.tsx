@@ -26,11 +26,20 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://octogonos.vercel.app",
     siteName: "Octógonos",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Octógonos de candidatos + IA",
+      },
+    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Octógonos de candidatos + IA",
     description: "Educación, historial legal y plan de gobierno. Con IA.",
+    images: ["/opengraph-image"],
   },
 };
 
