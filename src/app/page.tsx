@@ -54,7 +54,7 @@ export default function Home() {
               Octógonos de candidatos <span className="text-voraz-red">+ IA</span>
             </span>
             <span className="text-[10px] font-medium uppercase tracking-wider text-voraz-red">
-              Elecciones 2026
+              🇵🇪 Elecciones 2026
             </span>
           </div>
         </div>
