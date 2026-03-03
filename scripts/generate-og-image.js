@@ -3,31 +3,83 @@
 const fs = require('fs');
 const path = require('path');
 
-// Create SVG with Peru colors (red and white)
-// Peru national colors: red (#CF142B) and white
+// Create SVG with Peru design - octagon with flag and text layout
 const width = 1200;
 const height = 630;
 
 const svg = `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
-  <!-- Red background (Peru color) -->
+  <!-- Red background (Peru color #CF142B) -->
   <rect width="${width}" height="${height}" fill="#CF142B"/>
 
-  <!-- White decorative left stripe -->
-  <rect x="0" y="0" width="120" height="${height}" fill="white" opacity="0.15"/>
+  <!-- Cream/beige left section background -->
+  <rect x="0" y="0" width="700" height="${height}" fill="#F5F1ED"/>
 
-  <!-- Main title -->
-  <text x="${width / 2}" y="240" font-family="Arial, sans-serif" font-size="64" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">
-    Octógonos de candidatos
+  <!-- Left section content -->
+  <!-- "ELECCIONES 2026" label -->
+  <text x="70" y="80" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#CF142B" letter-spacing="3">
+    ELECCIONES 2026
   </text>
 
-  <!-- Subtitle -->
-  <text x="${width / 2}" y="340" font-family="Arial, sans-serif" font-size="56" font-weight="normal" fill="white" text-anchor="middle" dominant-baseline="middle">
-    Educación, historial legal y plan de gobierno
+  <!-- Main title "OCTÓGONOS" -->
+  <text x="70" y="180" font-family="Arial, sans-serif" font-size="82" font-weight="900" fill="#000000">
+    OCTÓGONOS
   </text>
 
-  <!-- Small accent line -->
-  <rect x="${width / 2 - 100}" y="380" width="200" height="3" fill="white" opacity="0.6"/>
+  <!-- Subtitle "DE CANDIDATOS" -->
+  <text x="70" y="260" font-family="Arial, sans-serif" font-size="78" font-weight="900" fill="#888888">
+    DE CANDIDATOS
+  </text>
+
+  <!-- "+ IA" -->
+  <text x="70" y="330" font-family="Arial, sans-serif" font-size="76" font-weight="bold" fill="#CF142B">
+    + IA
+  </text>
+
+  <!-- Red horizontal line -->
+  <rect x="70" y="350" width="100" height="4" fill="#CF142B"/>
+
+  <!-- Description text -->
+  <text x="70" y="400" font-family="Arial, sans-serif" font-size="16" font-weight="normal" fill="#666666">
+    Toda la info de cada candidato
+  </text>
+  <text x="70" y="425" font-family="Arial, sans-serif" font-size="16" font-weight="normal" fill="#666666">
+    presidencial en un solo lugar.
+  </text>
+  <text x="70" y="450" font-family="Arial, sans-serif" font-size="16" font-weight="normal" fill="#666666">
+    Educación, historial legal y plan
+  </text>
+  <text x="70" y="475" font-family="Arial, sans-serif" font-size="16" font-weight="normal" fill="#666666">
+    de gobierno — con fuentes oficiales.
+  </text>
+
+  <!-- Badge: "IA + fuentes públicas oficiales" -->
+  <circle cx="85" cy="545" r="7" fill="#CF142B"/>
+  <text x="105" y="550" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#333333">
+    IA + fuentes públicas oficiales
+  </text>
+
+  <!-- Right section - Octagon with Peru flag (rounded corners) -->
+  <!-- Black octagon background with rounded corners -->
+  <g id="octagon">
+    <path d="M 920,140 L 1020,100 Q 1080,100 1110,140 L 1150,240 Q 1160,280 1130,310 L 1030,350 Q 970,370 920,350 L 820,310 Q 790,280 800,240 Z" fill="#000000"/>
+  </g>
+
+  <!-- Peru flag inside octagon (vertical stripes: red-white-red) -->
+  <rect x="895" y="195" width="45" height="140" fill="#CF142B" rx="8"/>
+  <rect x="945" y="195" width="60" height="140" fill="white"/>
+  <rect x="1010" y="195" width="45" height="140" fill="#CF142B" rx="8"/>
+
+  <!-- Red button "EXPLORAR CANDIDATOS" at bottom right -->
+  <rect x="700" y="530" width="450" height="65" fill="#CF142B" rx="12"/>
+  <text x="925" y="575" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">
+    EXPLORAR CANDIDATOS
+  </text>
+
+  <!-- Demo text at bottom left -->
+  <text x="70" y="600" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#999999">
+    Demo: octogonos.vercel.app
+  </text>
 </svg>`;
 
 // Convert SVG to PNG using a simple approach
