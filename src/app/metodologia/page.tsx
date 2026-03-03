@@ -82,7 +82,7 @@ export default function MetodologiaPage() {
               {
                 abbrev: "PLAN",
                 title: "Plan de Gobierno",
-                desc: "¿Tiene plan de gobierno? Verificamos si el candidato registró un plan ante el JNE y si los documentos están disponibles para descargar.",
+                desc: "¿Tiene plan de gobierno? Verificamos si el candidato registró un plan ante el JNE y si los documentos están disponibles. Además, analizamos la viabilidad del plan con IA.",
               },
             ].map((p) => (
               <div
@@ -204,6 +204,47 @@ export default function MetodologiaPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Viabilidad con IA */}
+        <section>
+          <span className="mb-4 block font-display text-[10px] font-bold uppercase tracking-[0.2em] text-voraz-gray-400">
+            Viabilidad del plan (evaluación IA)
+          </span>
+          <div className="rounded-2xl bg-voraz-white p-6 shadow-[var(--shadow-card)]">
+            <p className="mb-4 text-sm leading-relaxed text-voraz-gray-600">
+              Además de verificar si existe el plan, usamos inteligencia artificial para evaluar su viabilidad. Este análisis indica qué tan realista y alcanzable es el plan propuesto.
+            </p>
+            <div className="space-y-4">
+              <div>
+                <h4 className="mb-2 font-display text-xs font-bold uppercase tracking-tight text-voraz-black">
+                  Criterios de evaluación
+                </h4>
+                <ul className="space-y-2.5">
+                  {[
+                    { label: "Especificidad", desc: "¿El plan describe acciones concretas o es muy vago?" },
+                    { label: "Viabilidad fiscal", desc: "¿Es financieramente sostenible?" },
+                    { label: "Capacidad institucional", desc: "¿Las instituciones pueden ejecutarlo?" },
+                    { label: "Precedentes", desc: "¿Hay casos similares exitosos?" },
+                    { label: "Coherencia", desc: "¿Es consistente con otras propuestas?" },
+                  ].map((c) => (
+                    <li key={c.label} className="flex items-start gap-3">
+                      <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-voraz-red" />
+                      <div>
+                        <span className="text-[11px] font-bold text-voraz-black">{c.label}</span>
+                        <p className="text-[12px] text-voraz-gray-500">{c.desc}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="border-t border-voraz-gray-200 pt-4">
+                <p className="text-[12px] leading-relaxed text-voraz-gray-500">
+                  Cada criterio se evalúa de 0 a 10, y se promedian para obtener la viabilidad general. Esta evaluación es <strong>indicativa y aproximada</strong>, basada en el análisis de fuentes públicas. No representa una opinión editorial ni sustituye el análisis independiente del lector.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
