@@ -26,14 +26,6 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://octogonos.vercel.app",
     siteName: "Octógonos",
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1557804506-669714531e83?w=1200&h=630&fit=crop",
-        width: 1200,
-        height: 630,
-        alt: "Octógonos de candidatos + IA",
-      },
-    ],
   },
   twitter: {
     card: "summary",
