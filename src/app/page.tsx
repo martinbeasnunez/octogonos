@@ -69,36 +69,61 @@ export default function Home() {
         <SearchBar />
       </div>
 
-      {/* Pillar preview — compact, below candidates */}
-      <div className="mb-8 grid grid-cols-1 gap-2 sm:grid-cols-3 sm:gap-3 animate-fade-in" style={{ animationDelay: "500ms" }}>
-        {[
-          { abbrev: "EDU", title: "Educación", desc: "¿Qué estudió?" },
-          { abbrev: "LEG", title: "Sit. Legal", desc: "¿Tiene alertas legales?" },
-          { abbrev: "PLAN", title: "Plan Gob.", desc: "¿Tiene plan de gobierno?" },
-        ].map((p) => (
-          <div
-            key={p.abbrev}
-            className="flex items-center gap-2.5 rounded-lg bg-voraz-white p-3 shadow-[var(--shadow-soft)]"
-          >
-            <span className="clip-octagon flex h-8 w-8 shrink-0 items-center justify-center bg-voraz-black font-display text-[9px] font-black text-voraz-white">
-              {p.abbrev}
-            </span>
-            <div className="min-w-0">
-              <span className="block font-display text-[11px] font-bold uppercase tracking-wide text-voraz-black sm:text-xs">
-                {p.title}
-              </span>
-              <span className="block text-[10px] leading-snug text-voraz-gray-400 sm:text-[11px]">
-                {p.desc}
-              </span>
-            </div>
-          </div>
-        ))}
-      </div>
+      {/* How octógonos work */}
+      <div className="mb-10 animate-fade-in" style={{ animationDelay: "500ms" }}>
+        <div className="mb-4">
+          <a href="/metodologia" className="font-display text-[10px] font-bold uppercase tracking-[0.2em] text-voraz-gray-400 transition-colors hover:text-voraz-red">
+            ¿Cómo funciona? →
+          </a>
+        </div>
 
-      {/* Microcopy */}
-      <p className="pb-8 text-center text-[11px] text-voraz-gray-400">
-        Información de fuentes públicas oficiales. Siempre revisa los links.
-      </p>
+        <div className="rounded-2xl bg-voraz-white p-5 shadow-[var(--shadow-card)] sm:p-6">
+          <p className="mb-5 text-sm leading-relaxed text-voraz-gray-600">
+            Cada candidato tiene <strong className="text-voraz-black">3 octógonos</strong> que resumen lo más importante de su perfil.
+          </p>
+
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+            {[
+              {
+                abbrev: "EDU",
+                title: "Educación",
+                desc: "¿Qué estudió? Títulos y grados verificados.",
+              },
+              {
+                abbrev: "LEG",
+                title: "Justicia",
+                desc: "¿Tiene problemas legales? Procesos y alertas.",
+              },
+              {
+                abbrev: "PLAN",
+                title: "Propuestas",
+                desc: "¿Qué propone? Plan de gobierno evaluado por IA.",
+              },
+            ].map((p) => (
+              <div
+                key={p.abbrev}
+                className="flex flex-col gap-2 rounded-xl bg-voraz-cream/60 p-4 ring-1 ring-voraz-black/5"
+              >
+                <div className="flex items-center gap-2.5">
+                  <span className="clip-octagon flex h-9 w-9 shrink-0 items-center justify-center bg-voraz-black font-display text-[9px] font-black text-voraz-white">
+                    {p.abbrev}
+                  </span>
+                  <span className="font-display text-xs font-bold uppercase tracking-wide text-voraz-black">
+                    {p.title}
+                  </span>
+                </div>
+                <p className="text-[12px] leading-relaxed text-voraz-gray-500">
+                  {p.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-4 text-center text-[11px] text-voraz-gray-400">
+            Fuentes: JNE, SUNEDU, Poder Judicial, RENIEC. Siempre revisa los links originales.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

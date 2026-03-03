@@ -14,6 +14,7 @@ import {
 } from "@/data/candidates";
 import OctagonSeal from "@/components/OctagonSeal";
 import StickyBar from "@/components/StickyBar";
+import CandidateTracker from "@/components/CandidateTracker";
 import type { Metadata } from "next";
 
 export function generateStaticParams() {
@@ -64,6 +65,7 @@ export default async function CandidatePage({
 
   return (
     <div>
+      <CandidateTracker slug={candidate.slug} name={candidate.name} />
       {/* Candidate header */}
       <div className="mx-auto max-w-4xl px-4 pb-10 pt-6 sm:px-6 sm:pb-12 sm:pt-8">
         <Link
