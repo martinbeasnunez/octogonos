@@ -5,7 +5,8 @@ const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 let supabaseClient: ReturnType<typeof createClient> | null = null;
 
-export const supabase = (() => {
+// Initialize at module load time (returns null if env vars missing)
+function initializeSupabase() {
   if (!supabaseUrl || !supabaseAnonKey) {
     return null;
   }
@@ -13,7 +14,13 @@ export const supabase = (() => {
     supabaseClient = createClient(supabaseUrl, supabaseAnonKey);
   }
   return supabaseClient;
-})();
+}
+
+export const supabase = initializeSupabase();
+
+export function isSupabaseConfigured(): boolean {
+  return supabase !== null;
+}
 
 export interface Correction {
   id?: string;
