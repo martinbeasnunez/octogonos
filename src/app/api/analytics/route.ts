@@ -3,6 +3,10 @@ import { NextResponse } from 'next/server';
 
 export async function GET() {
   try {
+    if (!supabase) {
+      throw new Error('Supabase not configured');
+    }
+
     // Fetch page views
     const { data: pageViews, error: pvError } = await supabase
       .from('page_views')

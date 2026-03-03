@@ -3,6 +3,13 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {
   try {
+    if (!supabase) {
+      return NextResponse.json(
+        { error: 'Corrections feature is not available' },
+        { status: 503 }
+      );
+    }
+
     const body = await request.json();
 
     const { data, error } = await supabase
