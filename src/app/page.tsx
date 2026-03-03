@@ -9,6 +9,7 @@ export default function Home() {
         {/* Overline */}
         <div className="mb-4 animate-fade-in">
           <span className="font-display text-xs font-bold uppercase tracking-[0.2em] text-voraz-red">
+            <span className="mr-1.5" aria-label="Perú">🇵🇪</span>
             Elecciones 2026
           </span>
         </div>
