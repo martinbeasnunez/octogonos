@@ -55,7 +55,7 @@ export default function CandidateCard({
   return (
     <Link
       href={`/c/${candidate.slug}`}
-      className={`group relative block overflow-hidden rounded-xl bg-white p-5 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-card-hover)] ${
+      className={`group relative block overflow-hidden rounded-lg sm:rounded-xl bg-white p-4 sm:p-5 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-card-hover)] ${
         hasAlto ? "ring-1 ring-voraz-red/10" : ""
       }`}
     >
@@ -63,25 +63,25 @@ export default function CandidateCard({
         <div className="absolute left-0 top-0 h-full w-[3px] bg-gradient-to-b from-voraz-red to-voraz-red/30" />
       )}
 
-      <div className="mb-3 flex items-center gap-3">
+      <div className="mb-3 flex items-center gap-2 sm:gap-3">
         <Image
           src={`/photos/${candidate.slug}.jpg`}
           alt={candidate.name}
           width={48}
           height={48}
-          className="h-12 w-12 shrink-0 rounded-full object-cover bg-voraz-gray-100"
+          className="h-10 w-10 sm:h-12 sm:w-12 shrink-0 rounded-full object-cover bg-voraz-gray-100"
         />
         <div className="min-w-0 flex-1">
-          <h3 className="truncate font-display text-lg font-bold uppercase leading-tight tracking-tight text-voraz-black transition-colors group-hover:text-voraz-red">
+          <h3 className="line-clamp-2 font-display text-base sm:text-lg font-bold uppercase leading-tight tracking-tight text-voraz-black transition-colors group-hover:text-voraz-red">
             {candidate.name}
           </h3>
-          <p className="mt-0.5 truncate text-xs tracking-wide text-voraz-gray-500">
+          <p className="mt-0.5 line-clamp-1 text-[11px] sm:text-xs tracking-wide text-voraz-gray-500">
             {candidate.party}
           </p>
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-1.5">
+      <div className="flex flex-wrap gap-1.5 sm:gap-2">
         <PillarBadge pillar="education" score={candidate.education.score} />
         <PillarBadge pillar="legal" score={candidate.legal.score} />
         {feasibility ? (
