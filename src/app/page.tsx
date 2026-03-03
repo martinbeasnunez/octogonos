@@ -48,9 +48,9 @@ export default function Home() {
       {/* Sticky title bar — appears when hero scrolls out */}
       <StickyBar observeId="hero-title">
         <div className="border-b border-voraz-gray-100 bg-voraz-cream/95 backdrop-blur-sm">
-          <div className="mx-auto flex max-w-4xl items-center justify-between px-6 py-2.5">
+          <div className="mx-auto flex max-w-4xl items-center justify-between px-6 py-2.5 lg:max-w-6xl">
             <span className="font-display text-sm font-bold uppercase tracking-tight text-voraz-black">
-              Octógonos de candidatos
+              Octógonos de candidatos <span className="text-voraz-red">+ IA</span>
             </span>
             <span className="text-[10px] font-medium uppercase tracking-wider text-voraz-red">
               Elecciones 2026
@@ -70,7 +70,7 @@ export default function Home() {
       </div>
 
       {/* Pillar preview — compact, below candidates */}
-      <div className="mb-8 grid grid-cols-3 gap-2 sm:gap-3 animate-fade-in" style={{ animationDelay: "500ms" }}>
+      <div className="mb-8 grid grid-cols-1 gap-2 sm:grid-cols-3 sm:gap-3 animate-fade-in" style={{ animationDelay: "500ms" }}>
         {[
           { abbrev: "EDU", title: "Educación", desc: "¿Qué estudió?" },
           { abbrev: "LEG", title: "Sit. Legal", desc: "¿Tiene alertas legales?" },
@@ -84,10 +84,10 @@ export default function Home() {
               {p.abbrev}
             </span>
             <div className="min-w-0">
-              <span className="block font-display text-[11px] font-bold uppercase tracking-wide text-voraz-black">
+              <span className="block font-display text-[11px] font-bold uppercase tracking-wide text-voraz-black sm:text-xs">
                 {p.title}
               </span>
-              <span className="block text-[10px] leading-snug text-voraz-gray-400">
+              <span className="block text-[10px] leading-snug text-voraz-gray-400 sm:text-[11px]">
                 {p.desc}
               </span>
             </div>

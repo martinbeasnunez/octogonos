@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="h-16 bg-gradient-to-b from-voraz-cream to-voraz-dark" />
 
       <div className="bg-voraz-dark">
-        <div className="mx-auto max-w-4xl px-6 pb-10 pt-8">
+        <div className="mx-auto max-w-4xl px-6 pb-10 pt-8 lg:max-w-6xl">
           <div className="mb-6 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <div className="flex items-center gap-2">
@@ -17,7 +17,7 @@ export default function Footer() {
                 <span className="inline-block h-1.5 w-1.5 rounded-full bg-voraz-red" />
               </div>
               <p className="mt-1 text-[10px] text-voraz-gray-500">
-                powered by <span className="font-bold tracking-wider text-voraz-gray-400">VORAZ</span>
+                por <span className="font-bold tracking-wider text-voraz-gray-400">VORAZ</span>
               </p>
               <p className="mt-2 text-xs leading-relaxed text-voraz-gray-400">
                 Información pública organizada por IA. No afirmamos culpabilidad.

@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import {
   candidates,
   getCandidateBySlug,
@@ -44,10 +45,16 @@ export default async function CandidatePage({
 
   const feasibility = getFeasibility(candidate.slug);
 
+  // Filter out "Resumen del plan" PDFs (link to incorrect documents)
+  const filterBrokenSources = (sources: { title: string; url: string }[]) =>
+    sources.filter((s) => !s.title.toLowerCase().includes("resumen del plan"));
+
+  const planSources = filterBrokenSources(candidate.plan.sources);
+
   const allSources = [
     ...candidate.education.sources,
     ...candidate.legal.sources,
-    ...candidate.plan.sources,
+    ...planSources,
   ];
 
   // Deduplicate sources by URL
@@ -58,36 +65,52 @@ export default async function CandidatePage({
   return (
     <div>
       {/* Candidate header */}
-      <div className="mx-auto max-w-4xl px-6 pb-12 pt-8">
+      <div className="mx-auto max-w-4xl px-4 pb-10 pt-6 sm:px-6 sm:pb-12 sm:pt-8">
         <Link
           href="/"
-          className="mb-8 inline-flex items-center gap-1.5 text-sm text-voraz-gray-400 transition-colors hover:text-voraz-black"
+          className="mb-6 inline-flex items-center gap-1.5 text-sm text-voraz-gray-400 transition-colors hover:text-voraz-black sm:mb-8"
         >
           <span className="transition-transform duration-200 hover:-translate-x-0.5">←</span>
           Todos los candidatos
         </Link>
 
-        <div id="candidate-name" className="animate-hero-reveal">
-          <h1 className="font-display text-4xl font-black uppercase leading-[0.95] tracking-tight text-voraz-black sm:text-5xl lg:text-6xl">
-            {candidate.name}
-          </h1>
-          <div className="my-4 h-1 w-12 bg-voraz-red" />
-          <p className="text-sm tracking-wide text-voraz-gray-500">
-            {candidate.party}
-          </p>
+        <div id="candidate-name" className="flex items-start gap-5 animate-hero-reveal sm:gap-6">
+          <Image
+            src={`/photos/${candidate.slug}.jpg`}
+            alt={candidate.name}
+            width={96}
+            height={96}
+            className="h-20 w-20 shrink-0 rounded-full object-cover bg-voraz-gray-100 shadow-[var(--shadow-card)] sm:h-24 sm:w-24"
+          />
+          <div className="min-w-0">
+            <h1 className="font-display text-3xl font-black uppercase leading-[0.95] tracking-tight text-voraz-black sm:text-5xl lg:text-6xl">
+              {candidate.name}
+            </h1>
+            <div className="my-3 h-1 w-12 bg-voraz-red sm:my-4" />
+            <p className="text-sm tracking-wide text-voraz-gray-500">
+              {candidate.party}
+            </p>
+          </div>
         </div>
       </div>
 
       {/* Sticky candidate bar — appears when name scrolls out */}
       <StickyBar observeId="candidate-name">
         <div className="border-b border-voraz-gray-100 bg-voraz-cream/95 backdrop-blur-sm">
-          <div className="mx-auto flex max-w-4xl items-center gap-3 px-6 py-2.5">
+          <div className="mx-auto flex max-w-4xl items-center gap-3 px-6 py-2">
             <Link
               href="/"
               className="shrink-0 text-voraz-gray-400 transition-colors hover:text-voraz-black"
             >
               ←
             </Link>
+            <Image
+              src={`/photos/${candidate.slug}.jpg`}
+              alt=""
+              width={28}
+              height={28}
+              className="h-7 w-7 shrink-0 rounded-full object-cover bg-voraz-gray-100"
+            />
             <span className="truncate font-display text-sm font-bold uppercase tracking-tight text-voraz-black">
               {candidate.name}
             </span>
@@ -99,14 +122,14 @@ export default async function CandidatePage({
       </StickyBar>
 
       {/* Dark band — Octógonos */}
-      <div className="bg-voraz-dark py-16 sm:py-20">
-        <div className="mx-auto max-w-4xl px-6">
+      <div className="bg-voraz-dark py-12 sm:py-16 lg:py-20">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6">
           <div className="mb-8 text-center">
             <span className="font-display text-[10px] font-bold uppercase tracking-[0.2em] text-voraz-gray-500">
               Octógonos
             </span>
           </div>
-          <div className="flex flex-wrap items-start justify-center gap-8 sm:gap-14">
+          <div className="flex flex-wrap items-start justify-center gap-6 sm:gap-14">
             <div className="animate-scale-in" style={{ animationDelay: "100ms" }}>
               <OctagonSeal
                 pillar="education"
@@ -129,6 +152,7 @@ export default async function CandidatePage({
                 score={candidate.plan.score}
                 explanation={candidate.plan.explanation}
                 darkBg
+                feasibilityScore={feasibility?.promedio}
               />
             </div>
           </div>
@@ -136,7 +160,7 @@ export default async function CandidatePage({
       </div>
 
       {/* Detail section */}
-      <div className="mx-auto max-w-4xl px-6 py-16">
+      <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6 sm:py-16">
         {/* Section label */}
         <div className="mb-8">
           <span className="font-display text-[10px] font-bold uppercase tracking-[0.2em] text-voraz-gray-400">
@@ -171,7 +195,7 @@ export default async function CandidatePage({
               subtitle="Real vs. Etéreo"
               score={candidate.plan.score}
               explanation={candidate.plan.explanation}
-              sources={candidate.plan.sources}
+              sources={planSources}
               feasibility={feasibility}
             />
           </div>
@@ -257,7 +281,7 @@ function PillarDetail({
 
   return (
     <div
-      className={`relative overflow-hidden rounded-2xl bg-voraz-white p-6 shadow-[var(--shadow-card)] ${
+      className={`relative overflow-hidden rounded-2xl bg-voraz-white p-4 shadow-[var(--shadow-card)] sm:p-6 ${
         isAlto ? "ring-1 ring-voraz-red/10" : ""
       }`}
     >
@@ -307,11 +331,14 @@ function PillarDetail({
               <h4 className="font-display text-sm font-bold uppercase tracking-tight text-voraz-black">
                 Viabilidad
               </h4>
-              <span className="text-[10px] text-voraz-gray-400">Evaluado con IA — sin sesgo político</span>
+              <span className="text-[10px] text-voraz-gray-400">Evaluado con IA — basado en fuentes</span>
             </div>
-            <span className="rounded-full bg-voraz-gray-100 px-2.5 py-0.5 text-[11px] font-bold text-voraz-gray-700">
-              {feasibility.promedio}/10
-            </span>
+            <div className="flex flex-col items-end">
+              <span className="rounded-full bg-voraz-gray-100 px-2.5 py-0.5 text-[11px] font-bold text-voraz-gray-700">
+                {feasibility.promedio}/10
+              </span>
+              <span className="mt-0.5 text-[9px] text-voraz-gray-400">aproximado</span>
+            </div>
           </div>
 
           <p className="mb-3 text-sm leading-relaxed text-voraz-gray-600">
@@ -345,7 +372,7 @@ function PillarDetail({
           </div>
 
           <p className="mt-3 text-[10px] leading-relaxed text-voraz-gray-400">
-            Análisis generado por IA (GPT-4o) a partir del resumen oficial del plan registrado ante el JNE. No representa una opinión editorial.
+            Análisis indicativo generado por IA a partir del plan oficial registrado ante el JNE. Resultados aproximados. No representa una opinión editorial.
           </p>
         </div>
       )}

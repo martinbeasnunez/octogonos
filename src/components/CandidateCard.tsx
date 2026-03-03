@@ -84,17 +84,18 @@ export default function CandidateCard({
       <div className="flex flex-wrap gap-1.5">
         <PillarBadge pillar="education" score={candidate.education.score} />
         <PillarBadge pillar="legal" score={candidate.legal.score} />
-        <span
-          className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider ${getBadgeColor("plan", candidate.plan.score)}`}
-        >
-          <span className="opacity-50">PLAN</span>
-          {getDisplayLabel("plan", candidate.plan.score)}
-          {feasibility && (
-            <span className={`ml-0.5 font-bold ${feasColor}`}>
-              {feasibility.promedio}
+        {feasibility ? (
+          <span
+            className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider ${getBadgeColor("plan", candidate.plan.score)}`}
+          >
+            <span className="opacity-50">PLAN</span>
+            <span className={`font-black ${feasColor}`}>
+              {feasibility.promedio}/10
             </span>
-          )}
-        </span>
+          </span>
+        ) : (
+          <PillarBadge pillar="plan" score={candidate.plan.score} />
+        )}
       </div>
     </Link>
   );

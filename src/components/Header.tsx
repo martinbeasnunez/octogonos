@@ -8,7 +8,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-voraz-cream/95 backdrop-blur-sm">
-      <div className="mx-auto flex h-11 max-w-4xl items-center justify-between px-6">
+      <div className="mx-auto flex h-11 max-w-4xl items-center justify-between px-6 lg:max-w-6xl">
         {/* Brand — compact */}
         <Link
           href="/"

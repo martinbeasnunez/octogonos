@@ -16,6 +16,7 @@ interface OctagonSealProps {
   score: ScoreLevel;
   explanation: string;
   darkBg?: boolean;
+  feasibilityScore?: number;
 }
 
 export default function OctagonSeal({
@@ -23,12 +24,16 @@ export default function OctagonSeal({
   score,
   explanation,
   darkBg = false,
+  feasibilityScore,
 }: OctagonSealProps) {
   const pillarInfo = pillarLabels[pillar];
   const displayLabel = getDisplayLabel(pillar, score);
   const scoreDesc = getScoreDescription(pillar, score);
   const isAlto = score === "Alto";
   const isNeutro = displayLabel === "NEUTRO";
+
+  // For plan pillar with feasibility, show the score instead of label
+  const showFeasibility = pillar === "plan" && feasibilityScore !== undefined;
 
   // Semáforo: rojo para alto, naranja para neutro, blanco para el resto
   const labelColor = isAlto
@@ -80,13 +85,24 @@ export default function OctagonSeal({
             {pillarInfo.abbrev}
           </span>
           <div className="my-1 h-px w-8 bg-white/15" />
-          <span
-            className={`font-display text-xl font-black tracking-tight sm:text-2xl ${labelColor}`}
-          >
-            {displayLabel}
-          </span>
+          {showFeasibility ? (
+            <>
+              <span className={`font-display text-2xl font-black tracking-tight sm:text-3xl ${labelColor}`}>
+                {feasibilityScore}
+              </span>
+              <span className="font-display text-[9px] font-bold uppercase tracking-[0.1em] text-white/40 sm:text-[10px]">
+                /10
+              </span>
+            </>
+          ) : (
+            <span
+              className={`font-display text-xl font-black tracking-tight sm:text-2xl ${labelColor}`}
+            >
+              {displayLabel}
+            </span>
+          )}
           <span className="mt-0.5 font-display text-[8px] font-bold uppercase tracking-[0.15em] text-white/35 sm:text-[9px]">
-            {pillarInfo.title}
+            {showFeasibility ? "VIABILIDAD" : pillarInfo.title}
           </span>
         </div>
       </div>
@@ -98,14 +114,14 @@ export default function OctagonSeal({
             darkBg ? "text-voraz-gray-500" : "text-voraz-gray-400"
           }`}
         >
-          {pillarInfo.title}
+          {showFeasibility ? "VIABILIDAD DEL PLAN" : pillarInfo.title}
         </span>
         <p
           className={`text-[13px] font-medium leading-snug ${
             darkBg ? "text-voraz-gray-300" : "text-voraz-gray-600"
           }`}
         >
-          {scoreDesc}
+          {showFeasibility ? "Evaluación IA — aproximado" : scoreDesc}
         </p>
       </div>
     </a>

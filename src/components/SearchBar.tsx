@@ -36,7 +36,7 @@ export default function SearchBar() {
           placeholder="Buscar candidato o partido..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="w-full rounded-xl bg-voraz-white py-4 pl-12 pr-24 text-sm text-voraz-dark shadow-[var(--shadow-search)] placeholder:text-voraz-gray-400 transition-shadow duration-300 focus:shadow-[var(--shadow-card-hover)] focus:outline-none"
+          className="w-full rounded-xl bg-voraz-white py-3.5 pl-11 pr-20 text-sm text-voraz-dark shadow-[var(--shadow-search)] placeholder:text-voraz-gray-400 transition-shadow duration-300 focus:shadow-[var(--shadow-card-hover)] focus:outline-none sm:py-4 sm:pl-12 sm:pr-24"
         />
 
         <div className="absolute right-4 top-1/2 flex -translate-y-1/2 items-center gap-3">
