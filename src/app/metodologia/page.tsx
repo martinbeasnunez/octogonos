@@ -33,6 +33,7 @@ export default function MetodologiaPage() {
           <ul className="space-y-4">
             {[
               "Organizamos información de fuentes públicas oficiales (JNE, SUNEDU, Poder Judicial).",
+              "Usamos IA para evaluar la viabilidad de planes de gobierno (especificidad, sostenibilidad, precedentes, etc.).",
               "No hacemos acusaciones ni afirmamos culpabilidad. Mostramos lo que los registros públicos reportan.",
               "Siempre incluimos enlaces a las fuentes originales para que el lector verifique por sí mismo.",
             ].map((text, i) => (
@@ -48,7 +49,7 @@ export default function MetodologiaPage() {
             ))}
             <li className="flex items-start gap-4 text-sm leading-relaxed text-voraz-gray-600">
               <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-voraz-red text-[11px] font-bold text-voraz-white">
-                4
+                5
               </span>
               Si hay un error, lo corregimos públicamente en la sección de{" "}
               <Link
@@ -82,7 +83,7 @@ export default function MetodologiaPage() {
               {
                 abbrev: "PLAN",
                 title: "Plan de Gobierno",
-                desc: "¿Tiene plan de gobierno? Verificamos si el candidato registró un plan ante el JNE y si los documentos están disponibles. Además, analizamos la viabilidad del plan con IA.",
+                desc: "¿Existe y es alcanzable el plan? Verificamos si registró plan ante el JNE y analizamos su viabilidad: especificidad, sostenibilidad fiscal, capacidad institucional, precedentes y coherencia. Puntuado 0-10 con IA.",
               },
             ].map((p) => (
               <div
@@ -166,9 +167,9 @@ export default function MetodologiaPage() {
                 abbrev: "PLAN",
                 title: "Plan de Gobierno",
                 rows: [
-                  { label: "REAL", desc: "Plan completo y resumen disponibles para descargar.", isAlto: false },
-                  { label: "MIXTO", desc: "Plan parcialmente disponible.", isAlto: false },
-                  { label: "ETÉREO", desc: "Sin plan de gobierno registrado.", isAlto: true },
+                  { label: "REAL", desc: "Tiene plan: documentos completos disponibles + viabilidad evaluada por IA.", isAlto: false },
+                  { label: "MIXTO", desc: "Tiene plan parcial: documentos incompletos o viabilidad con restricciones.", isAlto: false },
+                  { label: "ETÉREO", desc: "Sin plan registrado o plan con viabilidad muy baja (≤4/10).", isAlto: true },
                 ],
               },
             ].map((pillar) => (
