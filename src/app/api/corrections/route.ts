@@ -12,7 +12,7 @@ export async function POST(request: NextRequest) {
 
     const body = await request.json();
 
-    const { data, error } = await (supabase as NonNullable<typeof supabase>)
+    const { data, error } = await (supabase as any)
       .from('corrections')
       .insert([
         {

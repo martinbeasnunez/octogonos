@@ -8,14 +8,14 @@ export async function GET() {
     }
 
     // Fetch page views
-    const { data: pageViews, error: pvError } = await (supabase as NonNullable<typeof supabase>)
+    const { data: pageViews, error: pvError } = await (supabase as any)
       .from('page_views')
       .select('*');
 
     if (pvError) throw pvError;
 
     // Fetch candidate views
-    const { data: candidateViews, error: cvError } = await (supabase as NonNullable<typeof supabase>)
+    const { data: candidateViews, error: cvError } = await (supabase as any)
       .from('candidate_views')
       .select('*')
       .order('view_count', { ascending: false })
@@ -24,7 +24,7 @@ export async function GET() {
     if (cvError) throw cvError;
 
     // Fetch corrections
-    const { data: corrections, error: corrError } = await (supabase as NonNullable<typeof supabase>)
+    const { data: corrections, error: corrError } = await (supabase as any)
       .from('corrections')
       .select('*');
 
