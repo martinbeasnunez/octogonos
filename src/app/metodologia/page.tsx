@@ -215,12 +215,12 @@ export default function MetodologiaPage() {
           </span>
           <div className="rounded-2xl bg-voraz-white p-6 shadow-[var(--shadow-card)]">
             <p className="mb-4 text-sm leading-relaxed text-voraz-gray-600">
-              Además de verificar si existe el plan, usamos inteligencia artificial para evaluar su viabilidad. Este análisis indica qué tan realista y alcanzable es el plan propuesto.
+              Además de verificar si existe el plan, usamos GPT (OpenAI) para evaluar su viabilidad de forma objetiva. Este análisis indica qué tan realista y alcanzable es el plan propuesto basándose en criterios técnicos comprobables.
             </p>
             <div className="space-y-4">
               <div>
                 <h4 className="mb-2 font-display text-xs font-bold uppercase tracking-tight text-voraz-black">
-                  Criterios de evaluación
+                  Criterios de evaluación (evaluados por GPT)
                 </h4>
                 <ul className="space-y-2.5">
                   {[
@@ -242,7 +242,7 @@ export default function MetodologiaPage() {
               </div>
               <div className="border-t border-voraz-gray-200 pt-4">
                 <p className="text-[12px] leading-relaxed text-voraz-gray-500">
-                  Cada criterio se evalúa de 0 a 10, y se promedian para obtener la viabilidad general. Esta evaluación es <strong>indicativa y aproximada</strong>, basada en el análisis de fuentes públicas. No representa una opinión editorial ni sustituye el análisis independiente del lector.
+                  GPT evalúa cada criterio de 0 a 10, y se promedian para obtener la viabilidad general. Esta evaluación es <strong>indicativa y aproximada</strong>, basada en análisis de fuentes públicas. No representa una opinión editorial ni sustituye el análisis independiente del lector.
                 </p>
               </div>
             </div>
