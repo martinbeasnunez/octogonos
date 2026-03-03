@@ -1,26 +1,114 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Paleta VORAZ */
+  --color-voraz-black: #000000;
+  --color-voraz-red: #E63946;
+  --color-voraz-red-dark: #C62D3A;
+  --color-voraz-cream: #F5F0E8;
+  --color-voraz-gold: #D4A853;
+  --color-voraz-dark: #1A1A1A;
+  --color-voraz-gray: #6B6B6B;
+  --color-voraz-white: #FFFFFF;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Grises derivados (cálidos, alineados a crema) */
+  --color-voraz-gray-50: #F7F5F2;
+  --color-voraz-gray-100: #EFEBE5;
+  --color-voraz-gray-200: #DDD8D0;
+  --color-voraz-gray-400: #9E9891;
+  --color-voraz-gray-500: #6B6B6B;
+  --color-voraz-gray-600: #4A4A4A;
+  --color-voraz-gray-700: #333333;
+  --color-voraz-gray-800: #1A1A1A;
+
+  /* Scores — semáforo */
+  --color-score-alto: #E63946;
+  --color-score-medio: #D4A853;
+  --color-score-neutro: #D97706;
+  --color-score-bajo: #2A9D6E;
+
+  /* Fonts */
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Barlow Condensed", "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Shadows */
+  --shadow-soft: 0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.04);
+  --shadow-card-hover: 0 2px 8px rgba(0,0,0,0.08), 0 16px 40px rgba(0,0,0,0.06);
+  --shadow-seal: 0 4px 20px rgba(0,0,0,0.15), 0 0 60px rgba(0,0,0,0.05);
+  --shadow-search: 0 2px 8px rgba(0,0,0,0.04), 0 12px 32px rgba(0,0,0,0.06);
+
+  /* Timing */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-voraz-cream);
+  color: var(--color-voraz-dark);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: rgba(230, 57, 70, 0.15);
+  color: var(--color-voraz-black);
+}
+
+/* ── Keyframe Animations ── */
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes hero-reveal {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes seal-pulse {
+  0%, 100% { filter: drop-shadow(0 0 20px rgba(230,57,70,0.1)); }
+  50% { filter: drop-shadow(0 0 30px rgba(230,57,70,0.25)); }
+}
+
+/* ── Tailwind CSS 4 Utilities ── */
+
+@utility animate-fade-in-up {
+  animation: fade-in-up 0.6s var(--ease-out-expo) both;
+}
+
+@utility animate-fade-in {
+  animation: fade-in 0.5s ease both;
+}
+
+@utility animate-scale-in {
+  animation: scale-in 0.5s var(--ease-out-expo) both;
+}
+
+@utility animate-hero-reveal {
+  animation: hero-reveal 0.8s var(--ease-out-expo) both;
+}
+
+@utility animate-seal-pulse {
+  animation: seal-pulse 3s ease-in-out infinite;
+}
+
+@utility clip-octagon {
+  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
 }

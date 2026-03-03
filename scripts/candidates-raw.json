@@ -1,0 +1,1136 @@
+[
+  {
+    "name": "Rosario del Pilar Fernandez Bazan",
+    "slug": "rosario-del-pilar-fernandez-bazan",
+    "party": "Un Camino Diferente",
+    "dni": "18141156",
+    "idOrganizacionPolitica": 2998,
+    "idHojaVida": 252493,
+    "education": {
+      "level": "Universitaria",
+      "details": [
+        "Bachiller en Educacion — Universidad Privada César Vallejo (Concluido)",
+        "Educación Inicial — Instituto Pedagógico Indoamérica"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": []
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29731,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/8334f8be-c20c-4910-b1e3-fcf1a35f8197.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/de662f06-21d5-4523-a3ec-4fcbacabe16c.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/2998/18141156",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/2998"
+    }
+  },
+  {
+    "name": "George Patrick Forsyth Sommer",
+    "slug": "george-patrick-forsyth-sommer",
+    "party": "Partido Democratico Somos Peru",
+    "dni": "41265978",
+    "idOrganizacionPolitica": 14,
+    "idHojaVida": 250363,
+    "education": {
+      "level": "Maestría",
+      "details": [
+        "Maestría: Magíster en Administración — Universidad del Pacífico (Concluido)",
+        "Bachiller en Administración de Empresas — Universidad Peruana de Ciencias Aplicadas S.a.c. (Concluido)",
+        "No Concluido — Universidad de San Martin de Porres (No concluido)"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": []
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29681,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/c1e6b2ab-a51c-4881-9365-033ec7b23577.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/1334ac30-c28e-42a5-8fc5-79a4638ccd2a.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/14/41265978",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/14"
+    }
+  },
+  {
+    "name": "Roberto Helbert Sanchez Palomino",
+    "slug": "roberto-helbert-sanchez-palomino",
+    "party": "Juntos por el Peru",
+    "dni": "16002918",
+    "idOrganizacionPolitica": 1264,
+    "idHojaVida": 246281,
+    "education": {
+      "level": "Maestría",
+      "details": [
+        "Postgrado: Maestria de Politicas Socilaes — Pontificia Universidad Catolica del Perú - Pucp (Concluido)",
+        "Psicologo — Universidad Nacional Mayor de San Marcos (Concluido)",
+        "Bachiller en Psicologia — Universidad Nacional Mayor de San Marcos (Concluido)"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": []
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29688,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/ec164ae5-0cc4-4a12-ac5e-762af886cc9a.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/3dd0e649-061c-4f31-8c3f-7a0836b58bde.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/1264/16002918",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/1264"
+    }
+  },
+  {
+    "name": "Pitter Enrique Valderrama Peña",
+    "slug": "pitter-enrique-valderrama-pena",
+    "party": "Partido Aprista Peruano",
+    "dni": "43632186",
+    "idOrganizacionPolitica": 2930,
+    "idHojaVida": 251216,
+    "education": {
+      "level": "Maestría",
+      "details": [
+        "Postgrado: Maestría — Universidad de la Rioja",
+        "Bachiller en Derecho — Universidad de San Martín de Porres (Concluido)"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": []
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29745,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/ed45f5ef-bec7-427c-b998-f4d5abec0d48.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/4d581919-b090-43d4-89e4-e284fde587b7.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/2930/43632186",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/2930"
+    }
+  },
+  {
+    "name": "Alvaro Gonzalo Paz de la Barra Freigeiro",
+    "slug": "alvaro-gonzalo-paz-de-la-barra-freigeiro",
+    "party": "Fe en el Peru",
+    "dni": "41904418",
+    "idOrganizacionPolitica": 2898,
+    "idHojaVida": 250367,
+    "education": {
+      "level": "Maestría",
+      "details": [
+        "Maestría: Magister en Gestión Pública — Eucim Business School (Concluido)",
+        "Postgrado: Maestria en Derecho Constitucional y Derechos Humanos — Universidad Nacional Mayor de San Marcos",
+        "Bachiller en Derecho — Universidad de San Martín de Porres (Concluido)",
+        "Abogado — Universidad de San Martín de Porres (Concluido)"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": []
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29696,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/f470547e-6200-48b8-8035-7cc227135a93.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/b4869a0b-ff3d-47d7-af7b-62fd1295db83.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/2898/41904418",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/2898"
+    }
+  },
+  {
+    "name": "Ricardo Pablo Belmont Cassinelli",
+    "slug": "ricardo-pablo-belmont-cassinelli",
+    "party": "Partido Civico Obras",
+    "dni": "09177250",
+    "idOrganizacionPolitica": 2941,
+    "idHojaVida": 251773,
+    "education": {
+      "level": "Universitaria",
+      "details": [
+        "Bachiyer Administrador de Empresas — Universidad de Lima (Concluido)"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": []
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29712,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/79008239-1adf-42aa-ae86-7d604e36d2b8.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/5643db28-6dbd-4d35-b79e-30d20d3bed85.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/2941/09177250",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/2941"
+    }
+  },
+  {
+    "name": "Ronald Darwin Atencio Sotomayor",
+    "slug": "ronald-darwin-atencio-sotomayor",
+    "party": "Alianza Electoral Venceremos",
+    "dni": "41373494",
+    "idOrganizacionPolitica": 3025,
+    "idHojaVida": 246962,
+    "education": {
+      "level": "Maestría",
+      "details": [
+        "Maestría: Maestro en Derecho Penal — Pontificia Universidad Católica del Perú (Concluido)",
+        "Abogado — Universidad de San Martín de Porres (Concluido)",
+        "Bachiller en Derecho y Ciencia Politica — Universidad de San Martín de Porres (Concluido)"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": []
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29733,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/d96622ee-a711-4a27-8fb3-639fa8023be7.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/9984addc-e998-43b1-920f-1178d4d973aa.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/3025/41373494",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/3025"
+    }
+  },
+  {
+    "name": "Rafael Bernardo Lopez Aliaga Cazorla",
+    "slug": "rafael-bernardo-lopez-aliaga-cazorla",
+    "party": "Renovacion Popular",
+    "dni": "07845838",
+    "idOrganizacionPolitica": 22,
+    "idHojaVida": 245620,
+    "education": {
+      "level": "Maestría",
+      "details": [
+        "Maestría: Magister en Administracion — Universidad del Pacífico (Concluido)",
+        "Ingeniero Industrial — Universidad de Piura (Concluido)",
+        "Bachiller en Ciencias de la Ingenieria — Universidad de Piura (Concluido)"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": []
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29683,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/5a861148-6867-430a-9308-6eadf2868ed1.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/2096b44a-f3b6-4c81-b03d-94fbfc9ac762.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/22/07845838",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/22"
+    }
+  },
+  {
+    "name": "Cesar Acuña Peralta",
+    "slug": "cesar-acuna-peralta",
+    "party": "Alianza Para el Progreso",
+    "dni": "17903382",
+    "idOrganizacionPolitica": 1257,
+    "idHojaVida": 245682,
+    "education": {
+      "level": "Doctorado",
+      "details": [
+        "Maestría: Maestro en Administracion de la Educacion — Universidad de Lima (Concluido)",
+        "Maestría: Diploma de Magister en Dirección Universitaria — Universidad de los Andes (Concluido)",
+        "Doctorado: Título de Doctor por la Universidad Complutense de Madrid — Universidad Complutense de Madrid (Concluido)",
+        "Bachiller en Ingenieria Quimica — Universidad Nacional de Trujillo (Concluido)",
+        "Ingeniero Quimico — Universidad Nacional de Trujillo (Concluido)"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": []
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29685,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/707fd179-701a-43e6-b814-71d8b9301852.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/72576403-804a-4f28-85d3-bf4c7e648667.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/1257/17903382",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/1257"
+    }
+  },
+  {
+    "name": "Keiko Sofia Fujimori Higuchi",
+    "slug": "keiko-sofia-fujimori-higuchi",
+    "party": "Fuerza Popular",
+    "dni": "10001088",
+    "idOrganizacionPolitica": 1366,
+    "idHojaVida": 245741,
+    "education": {
+      "level": "Maestría",
+      "details": [
+        "Maestría: Título de Máster en Administración de Empresas (grado de Maestro) — Columbia University (Concluido)",
+        "Grado de Licenciada en Administración de Empresas (grado de Bachiller y Título Profesional) — Boston University (Concluido)"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": [
+        {
+          "tipo": "COMPLEMENTARIO",
+          "descripcion": ""
+        }
+      ]
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29690,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/54765cdc-b494-409a-a30c-9e6bb2833566.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/da4b943d-4344-4743-9362-a11ccf3054cb.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/1366/10001088",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/1366"
+    }
+  },
+  {
+    "name": "Napoleon Becerra Garcia",
+    "slug": "napoleon-becerra-garcia",
+    "party": "Partido de los Trabajadores y Emprendedores Pte - Peru",
+    "dni": "08058852",
+    "idOrganizacionPolitica": 2939,
+    "idHojaVida": 252572,
+    "education": {
+      "level": "Universitaria",
+      "details": [
+        "Licenciado en Administracion — Universidad Inca Garcilaso de la Vega Asociación Civil (Concluido)",
+        "Bachiller en Ciencias Administrativas — Universidad Inca Garcilaso de la Vega Asociación Civil (Concluido)"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": []
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29717,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/51124bb5-022b-487d-9afc-78211fe2113d.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/6988c030-5c2b-40d8-b656-dc48899d4d8c.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/2939/08058852",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/2939"
+    }
+  },
+  {
+    "name": "Alfonso Carlos Espa y Garces-Alvear",
+    "slug": "alfonso-carlos-espa-y-garces-alvear",
+    "party": "Partido Sicreo",
+    "dni": "10266270",
+    "idOrganizacionPolitica": 2935,
+    "idHojaVida": 247389,
+    "education": {
+      "level": "Universitaria",
+      "details": [
+        "Bachiller en Derecho — Pontificia Universidad Católica del Perú (Concluido)",
+        "Abogado — Pontificia Universidad Católica del Perú (Concluido)"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": []
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29716,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/158f6b39-7a03-405f-b152-6a5a0af4f395.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/e9d731a4-a79f-42e0-9ff7-29f6abe2bd3f.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/2935/10266270",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/2935"
+    }
+  },
+  {
+    "name": "Francisco Ernesto Diez-Canseco Távara",
+    "slug": "francisco-ernesto-diez-canseco-tavara",
+    "party": "Partido Politico Peru Accion",
+    "dni": "08263758",
+    "idOrganizacionPolitica": 2932,
+    "idHojaVida": 250338,
+    "education": {
+      "level": "Universitaria",
+      "details": [
+        "Abogado — Universidad Nacional Mayor de San Marcos (Concluido)"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": []
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29714,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/04492ff5-792a-43c1-a952-05cc305c79b4.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/f4e5c2c2-b0df-4033-adda-6617af774154.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/2932/08263758",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/2932"
+    }
+  },
+  {
+    "name": "Mario Enrique Vizcarra Cornejo",
+    "slug": "mario-enrique-vizcarra-cornejo",
+    "party": "Partido Politico Peru Primero",
+    "dni": "04411300",
+    "idOrganizacionPolitica": 2925,
+    "idHojaVida": 245614,
+    "education": {
+      "level": "Maestría",
+      "details": [
+        "Maestría: Magister en Administracion — Universidad Esan (Concluido)",
+        "Ingenieria Industrial — Universidad Nacional de Ingenieria (Concluido)"
+      ]
+    },
+    "legal": {
+      "sentencias": [
+        {
+          "expediente": "015-05",
+          "delito": "Peculado",
+          "fallo": "Pena Privativa de la Libertad",
+          "modalidad": "",
+          "cumplimiento": ""
+        }
+      ],
+      "anotaciones": []
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29709,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/db264271-bd78-4c78-af6c-c1fd64a2d6f5.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/f9624874-7cf6-4737-8db3-b73707c98e70.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/2925/04411300",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/2925"
+    }
+  },
+  {
+    "name": "Carlos Ernesto Jaico Carranza",
+    "slug": "carlos-ernesto-jaico-carranza",
+    "party": "Peru Moderno",
+    "dni": "06529088",
+    "idOrganizacionPolitica": 2924,
+    "idHojaVida": 251564,
+    "education": {
+      "level": "Maestría",
+      "details": [
+        "Maestría: Grado de Licenciado en Derecho (máster en Derecho) (grado de Maestro) — University Of Fribourg (Concluido)",
+        "Abogado — Universidad de San Martín de Porres (Concluido)"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": []
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29707,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/c27a6054-ece1-4c00-a3d0-ad3c23b0b9bb.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/12de1a7b-008b-43c5-9159-c62c9b45eab1.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/2924/06529088",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/2924"
+    }
+  },
+  {
+    "name": "Jose Leon Luna Galvez",
+    "slug": "jose-leon-luna-galvez",
+    "party": "Podemos Peru",
+    "dni": "07246887",
+    "idOrganizacionPolitica": 2731,
+    "idHojaVida": 247865,
+    "education": {
+      "level": "Doctorado",
+      "details": [
+        "Doctorado: Doctor en Educacion — Universidad de San Martín de Porres (Concluido)",
+        "Maestría: Maestro en Economia Mencion en Comercio y Finanzas Internacionales — Universidad de San Martín de Porres (Concluido)",
+        "Economista — Universidad de San Martín de Porres (Concluido)",
+        "Bachiller en Ciencias Economicas — Universidad de San Martín de Porres (Concluido)"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": []
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29694,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/57cca898-e581-4019-9be0-dd9c44076703.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/67b637b0-e2f7-47cc-8b23-fa16be709cc2.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/2731/07246887",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/2731"
+    }
+  },
+  {
+    "name": "Charlie Carrasco Salazar",
+    "slug": "charlie-carrasco-salazar",
+    "party": "Partido Democrata Unido Peru",
+    "dni": "40799023",
+    "idOrganizacionPolitica": 2867,
+    "idHojaVida": 252874,
+    "education": {
+      "level": "Doctorado",
+      "details": [
+        "Maestría: Maestro en Derecho Constitucional — Universidad Nacional Federico Villarreal (Concluido)",
+        "Doctorado: Doctor en Derecho — Universidad Nacional Federico Villarreal (Concluido)",
+        "Maestría: Maestro en Gestión Pública — Universidad de San Martín de Porres (Concluido)",
+        "Bachiller en Derecho — Universidad Tecnológica de los Andes (Concluido)",
+        "Abogado — Universidad Tecnológica de los Andes (Concluido)"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": []
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29700,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/0479dbb9-475f-40fe-8288-df630419c7f4.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/2e5235de-e828-45f0-92cc-017a830abc33.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/2867/40799023",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/2867"
+    }
+  },
+  {
+    "name": "Alex Gonzales Castillo",
+    "slug": "alex-gonzales-castillo",
+    "party": "Partido Democrata Verde",
+    "dni": "09307547",
+    "idOrganizacionPolitica": 2895,
+    "idHojaVida": 252943,
+    "education": {
+      "level": "Universitaria",
+      "details": [
+        "Administracion — Universidad Inca Garcilaso de la Vega (No concluido)",
+        "Conciliacion Extrajudicial"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": []
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29702,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/49c261f9-1d57-4d77-a5d3-b3f5b4562ba7.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/3f2a939b-edf2-4505-b709-df775a5e0038.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/2895/09307547",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/2895"
+    }
+  },
+  {
+    "name": "Herbert Caller Gutierrez",
+    "slug": "herbert-caller-gutierrez",
+    "party": "Partido Patriotico del Peru",
+    "dni": "43409673",
+    "idOrganizacionPolitica": 2869,
+    "idHojaVida": 251964,
+    "education": {
+      "level": "Maestría",
+      "details": [
+        "Postgrado: Post Grado — Instituto Nacional de Investigacion y Capacitacion de Telecomunicaciones - Inictel (Concluido)",
+        "Bachiller en Ciencias — Universidad Nacional de Ingeniería (Concluido)",
+        "Bachiller en Derecho — Universidad Alas Peruanas S.a. (Concluido)",
+        "Abogado — Universidad Alas Peruanas S.a. (Concluido)",
+        "Bachiller en Ciencias Marítimo Navales — Escuela Naval del Perú (Concluido)"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": []
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29749,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/a45d799b-a8c3-4505-9d13-73a4289fd9ee.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/6de519cb-bb4d-4319-a11b-be65d4438f4f.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/2869/43409673",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/2869"
+    }
+  },
+  {
+    "name": "Wolfgang Mario Grozo Costa",
+    "slug": "wolfgang-mario-grozo-costa",
+    "party": "Partido Politico Integridad Democratica",
+    "dni": "07260881",
+    "idOrganizacionPolitica": 2985,
+    "idHojaVida": 243593,
+    "education": {
+      "level": "Doctorado",
+      "details": [
+        "Maestría: Maestro en Desarrollo y Defensa Nacional — Centro de Altos Estudios Nacionales - Caen (Concluido)",
+        "Doctorado: Doctor en Desarrollo y Seguridad Estrategica — Centro de Altos Estudios Nacionales - Caen (Concluido)",
+        "Bachiller en Ciencias de la Administracion Aeroespacial — Escuela de Oficiales de la Fuerza Aérea del Perú (Concluido)",
+        "Licenciado en Ciencias de la Administracion Aeroespacial — Escuela de Oficiales de la Fuerza Aérea del Perú (Concluido)"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": [
+        {
+          "tipo": "DATO ERRÓNEO",
+          "descripcion": ""
+        }
+      ]
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29725,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/4229a340-5d25-45c0-87dc-3f18d294c22c.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/ee89ac99-516b-4665-9297-413a0cf104de.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/2985/07260881",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/2985"
+    }
+  },
+  {
+    "name": "Pablo Alfonso Lopez Chau Nava",
+    "slug": "pablo-alfonso-lopez-chau-nava",
+    "party": "Ahora Nacion - An",
+    "dni": "25331980",
+    "idOrganizacionPolitica": 2980,
+    "idHojaVida": 248006,
+    "education": {
+      "level": "Doctorado",
+      "details": [
+        "Doctorado: Grado de Doctor en Economía — Universidad Nacional Autónoma de México (Concluido)",
+        "Maestría: Grado de Maestro en Economía — Universidad Nacional Autónoma de México (Concluido)",
+        "Economista — Universidad Nacional del Callao (Concluido)",
+        "Bachiller en Ciencias Economicas — Universidad Nacional del Callao (Concluido)"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": []
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29723,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/f935e50c-929a-4279-a4de-6c03c6c24b8b.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/7d70c5e1-2246-42e8-90c2-372aa1cf7f52.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/2980/25331980",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/2980"
+    }
+  },
+  {
+    "name": "Armando Joaquin Masse Fernandez",
+    "slug": "armando-joaquin-masse-fernandez",
+    "party": "Partido Democratico Federal",
+    "dni": "08255194",
+    "idOrganizacionPolitica": 2986,
+    "idHojaVida": 244662,
+    "education": {
+      "level": "Maestría",
+      "details": [
+        "Maestría: Magister en Administracion Estrategica de Empresas — Pontificia Universidad Católica del Perú (Concluido)",
+        "Postgrado: Maestria en Propiedad Intelectual y Competencia — Pontificia Universidad Católica del Perú (Concluido)",
+        "Postgrado: Magister Derecho Digital Tecnológico — Universidad Europea de Madrid (Concluido)",
+        "Abogado — Universidad Inca Garcilaso de la Vega Asociación Civil (Concluido)",
+        "Bachiller en Derecho y Ciencias Politicas — Universidad Inca Garcilaso de la Vega Asociación Civil (Concluido)",
+        "Médico Cirujano — Universidad Nacional Mayor de San Marcos (Concluido)"
+      ]
+    },
+    "legal": {
+      "sentencias": [
+        {
+          "expediente": "610-2003",
+          "delito": "Contra el Patrimonio",
+          "fallo": "Sobreseida",
+          "modalidad": "",
+          "cumplimiento": ""
+        },
+        {
+          "expediente": "12424-2015",
+          "delito": "Fraude en la Adm. de las Personas Juridicas",
+          "fallo": "Absuelto",
+          "modalidad": "",
+          "cumplimiento": ""
+        }
+      ],
+      "anotaciones": []
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29729,
+      "urlResumen": null,
+      "urlCompleto": null
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/2986/08255194",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/2986"
+    }
+  },
+  {
+    "name": "Yonhy Lescano Ancieta",
+    "slug": "yonhy-lescano-ancieta",
+    "party": "Partido Politico Cooperacion Popular",
+    "dni": "01211014",
+    "idOrganizacionPolitica": 2995,
+    "idHojaVida": 245572,
+    "education": {
+      "level": "Maestría",
+      "details": [
+        "Maestría: Grado de Magíster en Derecho (grado de Maestro) — Universidad de Chile (Concluido)",
+        "Bachiller en Derecho — Universidad Católica de Santa María (Concluido)",
+        "Abogado — Universidad Católica de Santa María (Concluido)"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": []
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29748,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/690d981f-30bb-4487-8d17-b995579c522b.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/582e0d55-19ee-4a7f-85ef-c254be5bada6.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/2995/01211014",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/2995"
+    }
+  },
+  {
+    "name": "Fiorella Giannina Molinelli Aristondo",
+    "slug": "fiorella-giannina-molinelli-aristondo",
+    "party": "Fuerza y Libertad",
+    "dni": "25681995",
+    "idOrganizacionPolitica": 3024,
+    "idHojaVida": 253520,
+    "education": {
+      "level": "Doctorado",
+      "details": [
+        "Doctorado: Doctora en Gobierno y Politica Publica — Universidad de San Martín de Porres (Concluido)",
+        "Bachiller en Ciencias Sociales Con Mencion en Economia — Pontificia Universidad Católica del Perú (Concluido)",
+        "Licenciado en Economía — Pontificia Universidad Católica del Perú (Concluido)"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": []
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29736,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/de628fd3-12db-4fad-9880-e8614e2359b6.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/d4ab9fba-d366-4083-bbf5-63aa465114d9.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/3024/25681995",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/3024"
+    }
+  },
+  {
+    "name": "Roberto Enrique Chiabra Leon",
+    "slug": "roberto-enrique-chiabra-leon",
+    "party": "Unidad Nacional",
+    "dni": "40728264",
+    "idOrganizacionPolitica": 3023,
+    "idHojaVida": 252200,
+    "education": {
+      "level": "Universitaria",
+      "details": [
+        "Bachiller en Ciencias Militares — Escuela Militar de Chorrillos “coronel Francisco Bolognesi” (Concluido)",
+        "Licenciado en Ciencias Militares — Escuela Militar de Chorrillos “coronel Francisco Bolognesi” (Concluido)"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": []
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29727,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/030f130b-7d76-4e2f-a9f4-99fd09e5c74a.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/ae0c9ba2-6278-4ca7-b077-16ed2cc39e76.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/3023/40728264",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/3023"
+    }
+  },
+  {
+    "name": "Mesias Antonio Guevara Amasifuen",
+    "slug": "mesias-antonio-guevara-amasifuen",
+    "party": "Partido Morado",
+    "dni": "09871134",
+    "idOrganizacionPolitica": 2840,
+    "idHojaVida": 246025,
+    "education": {
+      "level": "Maestría",
+      "details": [
+        "Maestría: Magister en Administracion de Empresas — Universidad Peruana de Ciencias Aplicadas S.a.c. (Concluido)",
+        "Bachiller en Ingenieria Electronica — Universidad Ricardo Palma (Concluido)",
+        "Ingeniero Electronico — Universidad Ricardo Palma (Concluido)",
+        "Mecanica de Producción — Esep Militar Elias Aguirre - Chiclayo"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": []
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29687,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/438a1d07-1ffb-4d88-a044-5e9a73097ce2.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/6eb5d4b8-bd18-4cf0-ae0e-e250ca085f5f.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/2840/09871134",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/2840"
+    }
+  },
+  {
+    "name": "Luis Fernando Olivera Vega",
+    "slug": "luis-fernando-olivera-vega",
+    "party": "Partido Frente de la Esperanza 2021",
+    "dni": "06280714",
+    "idOrganizacionPolitica": 2857,
+    "idHojaVida": 252450,
+    "education": {
+      "level": "Universitaria",
+      "details": [
+        "Bachiller en Ciencias Con Mencion en Administracion — Universidad del Pacífico (Concluido)"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": []
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29699,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/a29bd31b-ba8f-403c-ac52-9d43d3782c7b.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/d656b83f-3177-4053-a381-0f36ec99490a.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/2857/06280714",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/2857"
+    }
+  },
+  {
+    "name": "Jose Daniel Williams Zapata",
+    "slug": "jose-daniel-williams-zapata",
+    "party": "Avanza Pais - Partido de Integracion Social",
+    "dni": "43287528",
+    "idOrganizacionPolitica": 2173,
+    "idHojaVida": 251479,
+    "education": {
+      "level": "Maestría",
+      "details": [
+        "Maestría: Magister en Desarrollo y Defensa Nacional — Centro de Altos Estudios Nacionales - Caen (Concluido)",
+        "Bachiller en Ciencias Militares — Escuela Militar de Chorrillos “coronel Francisco Bolognesi” (Concluido)",
+        "Licenciado en Ciencias Militares — Escuela Militar de Chorrillos “coronel Francisco Bolognesi” (Concluido)"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": [
+        {
+          "tipo": "DATO ERRÓNEO",
+          "descripcion": ""
+        }
+      ]
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29691,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/cb71b186-9375-402c-be01-81fde4a4f3e7.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/5857261c-789e-4599-ac05-4531654b10b4.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/2173/43287528",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/2173"
+    }
+  },
+  {
+    "name": "Vladimir Roy Cerron Rojas",
+    "slug": "vladimir-roy-cerron-rojas",
+    "party": "Partido Politico Nacional Peru Libre",
+    "dni": "06466585",
+    "idOrganizacionPolitica": 2218,
+    "idHojaVida": 244668,
+    "education": {
+      "level": "Doctorado",
+      "details": [
+        "Doctorado: Doctor en Medicina — Universidad Nacional Mayor de San Marcos (Concluido)",
+        "Maestría: Magister en Neurociencias — Universidad Nacional Mayor de San Marcos (Concluido)",
+        "Título de Especialista de Primer Grado en Neurocirugía — Instituto Superior de Ciencias Médicas de Camaguey (Concluido)",
+        "Título de Doctor en Medicina — Instituto Superior de Ciencias Médicas de Camaguey (Concluido)"
+      ]
+    },
+    "legal": {
+      "sentencias": [
+        {
+          "expediente": "01122-2018-27-1501-JR-PE-05",
+          "delito": "Negociación Incompatible",
+          "fallo": "4 Años de Pena Privativa",
+          "modalidad": "",
+          "cumplimiento": ""
+        },
+        {
+          "expediente": "01978-2016-63-1501-JR-PE-01",
+          "delito": "Colusión",
+          "fallo": "3 Años 6 Meses de Pena Privativa",
+          "modalidad": "",
+          "cumplimiento": ""
+        }
+      ],
+      "anotaciones": []
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29744,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/f4681d3f-c1ea-486b-a795-547995c21d33.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/b2d25860-484e-4226-bd13-a57fb83c59cb.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/2218/06466585",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/2218"
+    }
+  },
+  {
+    "name": "Rafael Jorge Belaunde Llosa",
+    "slug": "rafael-jorge-belaunde-llosa",
+    "party": "Libertad Popular",
+    "dni": "10219647",
+    "idOrganizacionPolitica": 2933,
+    "idHojaVida": 244462,
+    "education": {
+      "level": "Universitaria",
+      "details": [
+        "Bachiller en Economia — Universidad de Lima (Concluido)"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": []
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29715,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/77f7d01e-0ae1-4bff-8763-4e18303733c0.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/30bab146-a532-4d1b-87a7-e0f8078dc70b.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/2933/10219647",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/2933"
+    }
+  },
+  {
+    "name": "Maria Soledad Perez Tello de Rodriguez",
+    "slug": "maria-soledad-perez-tello-de-rodriguez",
+    "party": "Primero la Gente - Comunidad, Ecologia, Libertad y Progreso",
+    "dni": "07867789",
+    "idOrganizacionPolitica": 2931,
+    "idHojaVida": 253820,
+    "education": {
+      "level": "Maestría",
+      "details": [
+        "Postgrado: Maestria en Derecho Constitucional — Pontificia Universidad Catolica del Peru (Concluido)",
+        "Abogado — Universidad de San Martín de Porres (Concluido)",
+        "Bachiller en Derecho — Universidad de San Martín de Porres (Concluido)"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": []
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29704,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/1d58a0ed-0df0-4000-9792-df5ddd53ea2f.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/1430b48a-b7d1-4acf-970e-7c5e58f450c2.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/2931/07867789",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/2931"
+    }
+  },
+  {
+    "name": "Antonio Ortiz Villano",
+    "slug": "antonio-ortiz-villano",
+    "party": "Salvemos al Peru",
+    "dni": "08587486",
+    "idOrganizacionPolitica": 2927,
+    "idHojaVida": 248309,
+    "education": {
+      "level": "Técnica",
+      "details": [
+        "Habilidades Gerenciales — Pucp",
+        "I-Week Program en Comunicacion Politica, Gobernabilidad y Derecho"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": []
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29710,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/bf527749-0c7c-4642-a1d5-b8f15b4a8945.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/40877746-e670-42d3-840b-cdf683f46355.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/2927/08587486",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/2927"
+    }
+  },
+  {
+    "name": "Jorge Nieto Montesinos",
+    "slug": "jorge-nieto-montesinos",
+    "party": "Partido del Buen Gobierno",
+    "dni": "06506278",
+    "idOrganizacionPolitica": 2961,
+    "idHojaVida": 247704,
+    "education": {
+      "level": "Maestría",
+      "details": [
+        "Maestría: Maestría en Ciencias Sociales Con Mención en Sociologia. — Facultad Latinoamericana de Ciencias Sociales (Concluido)",
+        "Bachiller en Ciencias Sociales Con Mencion en Sociologia — Pontificia Universidad Católica del Perú (Concluido)"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": [
+        {
+          "tipo": "DATO ERRÓNEO",
+          "descripcion": ""
+        }
+      ]
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29720,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/a8762e2b-b6e6-4d27-84e4-4f0da5fc17b7.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/19bde703-f7f4-4715-92f3-b82e19bbe651.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/2961/06506278",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/2961"
+    }
+  },
+  {
+    "name": "Carlos Gonsalo Alvarez Loayza",
+    "slug": "carlos-gonsalo-alvarez-loayza",
+    "party": "Partido Pais Para Todos",
+    "dni": "06002034",
+    "idOrganizacionPolitica": 2956,
+    "idHojaVida": 247143,
+    "education": {
+      "level": "Educación básica",
+      "details": [
+        "Secundaria completa",
+        "Primaria completa"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": []
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29718,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/fea1dba2-01b1-4831-ab7e-fbd1db6591c9.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/76291ee3-eba2-4c88-adef-2530f2d70bb8.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/2956/06002034",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/2956"
+    }
+  },
+  {
+    "name": "Paul Davis Jaimes Blanco",
+    "slug": "paul-davis-jaimes-blanco",
+    "party": "Progresemos",
+    "dni": "40139245",
+    "idOrganizacionPolitica": 2967,
+    "idHojaVida": 244717,
+    "education": {
+      "level": "Maestría",
+      "details": [
+        "Postgrado: Gobierno y Gestión Publica — Instituto de Gobierno y Gestión Publica Universidad San Martin de Porres (Concluido)",
+        "Bachiller en Derecho y Ciencia Politica — Universidad de San Martín de Porres (Concluido)",
+        "Abogado — Universidad de San Martín de Porres (Concluido)"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": []
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29722,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/ed137d45-cf88-47c0-9f15-4b10fd2107ea.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/b2f303a2-1e0d-4933-9d5f-04682a3710b0.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/2967/40139245",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/2967"
+    }
+  },
+  {
+    "name": "Walter Gilmer Chirinos Purizaga",
+    "slug": "walter-gilmer-chirinos-purizaga",
+    "party": "Partido Politico Prin",
+    "dni": "18870364",
+    "idOrganizacionPolitica": 2921,
+    "idHojaVida": 247615,
+    "education": {
+      "level": "Maestría",
+      "details": [
+        "Postgrado: Maestria en Gestion Publica — Universidad Nacional Enrique Guzman y Valle",
+        "Contador Público — Universidad Privada Telesup S.a.c. (Concluido)",
+        "Bachiller en Contabilidad y Finanzas — Universidad Privada Telesup S.a.c. (Concluido)",
+        "Profesional Técnico en Mercadotecnia — Computron"
+      ]
+    },
+    "legal": {
+      "sentencias": [],
+      "anotaciones": []
+    },
+    "plan": {
+      "available": true,
+      "idPlanGobierno": 29746,
+      "urlResumen": "https://mpesije.jne.gob.pe/docs/4ab0caad-f051-42a3-b3f8-236ba7df2e3b.pdf",
+      "urlCompleto": "https://mpesije.jne.gob.pe/docs/3b89548c-81fa-479d-9ff9-2b7011fec7d2.pdf"
+    },
+    "sources": {
+      "hojaVida": "https://votoinformado.jne.gob.pe/hoja-vida/2921/18870364",
+      "formulaPresidencial": "https://votoinformado.jne.gob.pe/formula-presidencial/2921"
+    }
+  }
+]

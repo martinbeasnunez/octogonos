@@ -1,0 +1,317 @@
+{
+  "rosario-del-pilar-fernandez-bazan": {
+    "especificidad": 7,
+    "viabilidad_fiscal": 6,
+    "capacidad_institucional": 5,
+    "precedentes": 6,
+    "coherencia": 7,
+    "promedio": 6.2,
+    "resumen": "El plan presenta metas específicas y mecanismos de rendición de cuentas, pero enfrenta desafíos en financiamiento y capacidad institucional para su implementación."
+  },
+  "george-patrick-forsyth-sommer": {
+    "especificidad": 8,
+    "viabilidad_fiscal": 5,
+    "capacidad_institucional": 6,
+    "precedentes": 7,
+    "coherencia": 6,
+    "promedio": 6.4,
+    "resumen": "El plan presenta metas específicas y cuantificables, pero su financiamiento y capacidad institucional son cuestionables. Existen precedentes positivos en algunas áreas propuestas."
+  },
+  "roberto-helbert-sanchez-palomino": {
+    "especificidad": 8,
+    "viabilidad_fiscal": 5,
+    "capacidad_institucional": 6,
+    "precedentes": 7,
+    "coherencia": 6,
+    "promedio": 6.4,
+    "resumen": "El plan presenta metas específicas y cuantificables, pero su financiación es cuestionable. La capacidad institucional es moderada, y hay precedentes positivos en políticas similares."
+  },
+  "pitter-enrique-valderrama-pena": {
+    "especificidad": 7,
+    "viabilidad_fiscal": 5,
+    "capacidad_institucional": 6,
+    "precedentes": 6,
+    "coherencia": 7,
+    "promedio": 6.2,
+    "resumen": "El plan presenta metas específicas y cuantificables, pero su financiamiento y capacidad institucional son preocupantes. Hay precedentes mixtos en políticas similares."
+  },
+  "alvaro-gonzalo-paz-de-la-barra-freigeiro": {
+    "especificidad": 8,
+    "viabilidad_fiscal": 6,
+    "capacidad_institucional": 5,
+    "precedentes": 7,
+    "coherencia": 8,
+    "promedio": 6.8,
+    "resumen": "El plan tiene metas específicas y coherentes, pero su implementación enfrenta desafíos fiscales y de capacidad institucional que podrían limitar su viabilidad."
+  },
+  "ricardo-pablo-belmont-cassinelli": {
+    "especificidad": 8,
+    "viabilidad_fiscal": 5,
+    "capacidad_institucional": 6,
+    "precedentes": 7,
+    "coherencia": 6,
+    "promedio": 6.4,
+    "resumen": "El plan tiene metas específicas y medibles, pero su viabilidad fiscal es cuestionable y requiere reformas significativas en la capacidad institucional para su implementación."
+  },
+  "ronald-darwin-atencio-sotomayor": {
+    "especificidad": 6,
+    "viabilidad_fiscal": 5,
+    "capacidad_institucional": 6,
+    "precedentes": 4,
+    "coherencia": 5,
+    "promedio": 5.2,
+    "resumen": "El plan presenta metas y objetivos claros, pero su implementación requiere recursos y reformas significativas. La capacidad institucional es moderada y hay precedentes limitados."
+  },
+  "rafael-bernardo-lopez-aliaga-cazorla": {
+    "especificidad": 6,
+    "viabilidad_fiscal": 5,
+    "capacidad_institucional": 4,
+    "precedentes": 6,
+    "coherencia": 5,
+    "promedio": 5.2,
+    "resumen": "El plan presenta metas específicas y algunos indicadores, pero enfrenta desafíos en financiamiento y capacidad institucional para su implementación efectiva."
+  },
+  "cesar-acuna-peralta": {
+    "especificidad": 8,
+    "viabilidad_fiscal": 6,
+    "capacidad_institucional": 5,
+    "precedentes": 7,
+    "coherencia": 6,
+    "promedio": 6.4,
+    "resumen": "El plan presenta metas concretas y medibles, pero su financiamiento y capacidad institucional son desafiantes. Hay precedentes positivos, aunque la implementación puede ser compleja."
+  },
+  "keiko-sofia-fujimori-higuchi": {
+    "especificidad": 8,
+    "viabilidad_fiscal": 5,
+    "capacidad_institucional": 6,
+    "precedentes": 7,
+    "coherencia": 6,
+    "promedio": 6.4,
+    "resumen": "El plan presenta metas específicas y cuantificables, pero su financiamiento y capacidad institucional son desafiantes. Hay precedentes positivos, aunque la coherencia es moderada."
+  },
+  "napoleon-becerra-garcia": {
+    "especificidad": 4,
+    "viabilidad_fiscal": 5,
+    "capacidad_institucional": 4,
+    "precedentes": 6,
+    "coherencia": 5,
+    "promedio": 4.8,
+    "resumen": "El plan presenta algunas metas concretas, pero carece de detalles específicos sobre su implementación. La viabilidad fiscal es cuestionable y la capacidad institucional es limitada."
+  },
+  "alfonso-carlos-espa-y-garces-alvear": {
+    "especificidad": 6,
+    "viabilidad_fiscal": 5,
+    "capacidad_institucional": 6,
+    "precedentes": 6,
+    "coherencia": 5,
+    "promedio": 5.4,
+    "resumen": "El plan presenta metas específicas y algunos indicadores, pero su viabilidad fiscal y capacidad institucional son moderadas, lo que limita su realizabilidad."
+  },
+  "francisco-ernesto-diez-canseco-tavara": {
+    "especificidad": 6,
+    "viabilidad_fiscal": 5,
+    "capacidad_institucional": 4,
+    "precedentes": 6,
+    "coherencia": 5,
+    "promedio": 5.2,
+    "resumen": "El plan presenta metas cuantificables y plazos, pero su implementación requiere reformas significativas y enfrenta desafíos fiscales y de capacidad institucional."
+  },
+  "mario-enrique-vizcarra-cornejo": {
+    "especificidad": 8,
+    "viabilidad_fiscal": 5,
+    "capacidad_institucional": 6,
+    "precedentes": 7,
+    "coherencia": 6,
+    "promedio": 6.4,
+    "resumen": "El plan presenta metas específicas y medibles, pero su financiamiento y capacidad institucional son cuestionables. Existen precedentes positivos en algunas áreas propuestas."
+  },
+  "carlos-ernesto-jaico-carranza": {
+    "especificidad": 8,
+    "viabilidad_fiscal": 5,
+    "capacidad_institucional": 6,
+    "precedentes": 7,
+    "coherencia": 6,
+    "promedio": 6.4,
+    "resumen": "El plan tiene metas específicas y un enfoque claro, pero su financiamiento y capacidad institucional son desafiantes. Se basa en precedentes positivos, aunque la coherencia presenta algunas tensiones."
+  },
+  "jose-leon-luna-galvez": {
+    "especificidad": 6,
+    "viabilidad_fiscal": 5,
+    "capacidad_institucional": 4,
+    "precedentes": 6,
+    "coherencia": 5,
+    "promedio": 5.2,
+    "resumen": "El plan presenta metas cuantificables y plazos, pero su implementación enfrenta desafíos fiscales e institucionales significativos, lo que limita su viabilidad general."
+  },
+  "charlie-carrasco-salazar": {
+    "especificidad": 8,
+    "viabilidad_fiscal": 5,
+    "capacidad_institucional": 6,
+    "precedentes": 7,
+    "coherencia": 6,
+    "promedio": 6.4,
+    "resumen": "El plan presenta metas específicas y medibles, pero su viabilidad fiscal es cuestionable y requiere reformas significativas en instituciones existentes."
+  },
+  "alex-gonzales-castillo": {
+    "especificidad": 7,
+    "viabilidad_fiscal": 5,
+    "capacidad_institucional": 6,
+    "precedentes": 6,
+    "coherencia": 7,
+    "promedio": 6.2,
+    "resumen": "El plan presenta metas específicas y cuantificables, pero su financiamiento y capacidad institucional son desafiantes. Hay precedentes mixtos en políticas similares."
+  },
+  "herbert-caller-gutierrez": {
+    "especificidad": 6,
+    "viabilidad_fiscal": 5,
+    "capacidad_institucional": 6,
+    "precedentes": 6,
+    "coherencia": 7,
+    "promedio": 5.8,
+    "resumen": "El plan presenta metas concretas y algunas cifras, pero carece de detalles en financiamiento y capacidad institucional. La coherencia es aceptable, aunque se requieren reformas significativas."
+  },
+  "wolfgang-mario-grozo-costa": {
+    "especificidad": 8,
+    "viabilidad_fiscal": 6,
+    "capacidad_institucional": 5,
+    "precedentes": 6,
+    "coherencia": 7,
+    "promedio": 6.4,
+    "resumen": "El plan presenta metas específicas y cuantificables, pero su implementación enfrenta desafíos fiscales y de capacidad institucional. La coherencia es aceptable, aunque requiere reformas significativas."
+  },
+  "pablo-alfonso-lopez-chau-nava": {
+    "especificidad": 6,
+    "viabilidad_fiscal": 4,
+    "capacidad_institucional": 5,
+    "precedentes": 6,
+    "coherencia": 7,
+    "promedio": 5.6,
+    "resumen": "El plan presenta metas específicas, pero su financiamiento es incierto y requiere reformas. La capacidad institucional es moderada, con precedentes mixtos en salud y educación."
+  },
+  "yonhy-lescano-ancieta": {
+    "especificidad": 6,
+    "viabilidad_fiscal": 5,
+    "capacidad_institucional": 6,
+    "precedentes": 4,
+    "coherencia": 5,
+    "promedio": 5.2,
+    "resumen": "El plan presenta metas concretas pero carece de detalles en financiamiento y precedentes claros. La capacidad institucional es moderada, lo que limita su viabilidad."
+  },
+  "fiorella-giannina-molinelli-aristondo": {
+    "especificidad": 8,
+    "viabilidad_fiscal": 6,
+    "capacidad_institucional": 5,
+    "precedentes": 7,
+    "coherencia": 6,
+    "promedio": 6.4,
+    "resumen": "El plan presenta metas concretas y medibles, pero su implementación enfrenta desafíos fiscales y de capacidad institucional. Existen precedentes positivos en algunas áreas."
+  },
+  "roberto-enrique-chiabra-leon": {
+    "especificidad": 6,
+    "viabilidad_fiscal": 5,
+    "capacidad_institucional": 6,
+    "precedentes": 5,
+    "coherencia": 6,
+    "promedio": 5.4,
+    "resumen": "El plan presenta metas concretas y un enfoque en la formalización, pero carece de detalles claros de financiamiento y ejecución, lo que limita su viabilidad."
+  },
+  "mesias-antonio-guevara-amasifuen": {
+    "especificidad": 8,
+    "viabilidad_fiscal": 5,
+    "capacidad_institucional": 6,
+    "precedentes": 7,
+    "coherencia": 6,
+    "promedio": 6.4,
+    "resumen": "El plan presenta metas concretas y medibles, pero su financiamiento y capacidad institucional son cuestionables. Hay precedentes positivos, aunque la coherencia es variable."
+  },
+  "luis-fernando-olivera-vega": {
+    "especificidad": 6,
+    "viabilidad_fiscal": 5,
+    "capacidad_institucional": 4,
+    "precedentes": 6,
+    "coherencia": 5,
+    "promedio": 5.2,
+    "resumen": "El plan presenta metas concretas, pero su implementación enfrenta desafíos fiscales y de capacidad institucional. Existen precedentes mixtos en políticas similares."
+  },
+  "jose-daniel-williams-zapata": {
+    "especificidad": 7,
+    "viabilidad_fiscal": 5,
+    "capacidad_institucional": 6,
+    "precedentes": 6,
+    "coherencia": 7,
+    "promedio": 6.2,
+    "resumen": "El plan presenta metas específicas y coherentes, pero su financiamiento y capacidad institucional son desafiantes. Hay precedentes mixtos en políticas similares."
+  },
+  "vladimir-roy-cerron-rojas": {
+    "especificidad": 8,
+    "viabilidad_fiscal": 5,
+    "capacidad_institucional": 6,
+    "precedentes": 7,
+    "coherencia": 6,
+    "promedio": 6.4,
+    "resumen": "El plan presenta metas específicas y cuantificables, pero su financiamiento y capacidad institucional son desafiantes. Existen precedentes positivos en políticas similares."
+  },
+  "rafael-jorge-belaunde-llosa": {
+    "especificidad": 7,
+    "viabilidad_fiscal": 6,
+    "capacidad_institucional": 5,
+    "precedentes": 6,
+    "coherencia": 7,
+    "promedio": 6.2,
+    "resumen": "El plan tiene metas específicas y coherentes, pero enfrenta desafíos en viabilidad fiscal y capacidad institucional para su implementación efectiva."
+  },
+  "maria-soledad-perez-tello-de-rodriguez": {
+    "especificidad": 8,
+    "viabilidad_fiscal": 6,
+    "capacidad_institucional": 5,
+    "precedentes": 7,
+    "coherencia": 8,
+    "promedio": 6.8,
+    "resumen": "El plan presenta metas específicas y medibles, pero su implementación depende de reformas fiscales y capacidad institucional limitada. Hay precedentes positivos en educación técnica."
+  },
+  "antonio-ortiz-villano": {
+    "especificidad": 8,
+    "viabilidad_fiscal": 5,
+    "capacidad_institucional": 6,
+    "precedentes": 7,
+    "coherencia": 6,
+    "promedio": 6.4,
+    "resumen": "El plan tiene metas específicas y medibles, pero su financiamiento y capacidad institucional son limitados. Existen precedentes positivos en políticas similares."
+  },
+  "jorge-nieto-montesinos": {
+    "especificidad": 8,
+    "viabilidad_fiscal": 5,
+    "capacidad_institucional": 6,
+    "precedentes": 7,
+    "coherencia": 6,
+    "promedio": 6.4,
+    "resumen": "El plan presenta metas específicas y cuantificables, pero su viabilidad fiscal es cuestionable. La capacidad institucional y precedentes son moderados, lo que limita su realización."
+  },
+  "carlos-gonsalo-alvarez-loayza": {
+    "especificidad": 8,
+    "viabilidad_fiscal": 5,
+    "capacidad_institucional": 6,
+    "precedentes": 7,
+    "coherencia": 6,
+    "promedio": 6.4,
+    "resumen": "El plan tiene metas específicas y medibles, pero su financiamiento y capacidad institucional son desafiantes. Existen precedentes positivos en políticas similares."
+  },
+  "paul-davis-jaimes-blanco": {
+    "especificidad": 8,
+    "viabilidad_fiscal": 5,
+    "capacidad_institucional": 6,
+    "precedentes": 7,
+    "coherencia": 6,
+    "promedio": 6.4,
+    "resumen": "El plan presenta metas específicas y cuantificables, pero su financiamiento y capacidad institucional son preocupantes. Existen precedentes positivos en algunas áreas."
+  },
+  "walter-gilmer-chirinos-purizaga": {
+    "especificidad": 8,
+    "viabilidad_fiscal": 5,
+    "capacidad_institucional": 6,
+    "precedentes": 7,
+    "coherencia": 6,
+    "promedio": 6.4,
+    "resumen": "El plan presenta metas concretas y medibles, pero su financiamiento y capacidad institucional son desafiantes. Hay precedentes positivos, aunque la coherencia es moderada."
+  }
+}

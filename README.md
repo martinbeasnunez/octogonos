@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Octógonos
 
-## Getting Started
+Micrositio mobile-first que organiza información pública de candidatos en 3 pilares: **Educación**, **Situación Legal** y **Plan de Gobierno**. Información procesada por IA a partir de fuentes públicas.
 
-First, run the development server:
+## Stack
+
+- Next.js 16 (App Router, SSG)
+- Tailwind CSS 4
+- TypeScript
+
+## Inicio rápido
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abrir [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Estructura de data
 
-To learn more about Next.js, take a look at the following resources:
+Los candidatos se definen en `src/data/candidates.ts`. Cada candidato tiene:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `name`, `slug`, `party`
+- `education` — score + explicación + fuentes
+- `legal` — score + explicación + fuentes
+- `plan` — score + explicación + fuentes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Los scores son: `Alto`, `Medio`, `Bajo`.
 
-## Deploy on Vercel
+Para actualizar candidatos, editar el array `candidates` en ese archivo. En producción, un pipeline de IA generará/actualizará este archivo automáticamente.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Rutas
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Ruta | Descripción |
+|------|-------------|
+| `/` | Home: buscador + lista de candidatos |
+| `/c/[slug]` | Octógonos de un candidato |
+| `/metodologia` | Cómo funciona |
+| `/correcciones` | Changelog de correcciones |
+
+## Deploy en Vercel
+
+1. Push a un repo de GitHub
+2. Ir a [vercel.com/new](https://vercel.com/new)
+3. Importar el repo
+4. Deploy (zero config)
+
+No requiere variables de entorno para V1 (data estática).
