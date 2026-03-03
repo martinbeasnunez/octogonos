@@ -16,9 +16,11 @@ export async function POST(request: NextRequest) {
     const ua = request.headers.get('user-agent') ?? '';
     const visitor_id = btoa(`${ip}:${ua}`).slice(0, 32);
 
+    const db = supabase as any;
+
     // Track page view
     if (page_path) {
-      await supabase.from('page_views').insert({
+      await db.from('page_views').insert({
         page_path,
         referrer: referrer || null,
         visitor_id,
@@ -28,19 +30,19 @@ export async function POST(request: NextRequest) {
 
     // Track candidate view
     if (candidate_slug && candidate_name) {
-      const { data: existing } = await supabase
+      const { data: existing } = await db
         .from('candidate_views')
         .select('id, view_count')
         .eq('candidate_slug', candidate_slug)
         .single();
 
       if (existing) {
-        await supabase
+        await db
           .from('candidate_views')
           .update({ view_count: existing.view_count + 1 })
           .eq('id', existing.id);
       } else {
-        await supabase.from('candidate_views').insert({
+        await db.from('candidate_views').insert({
           candidate_slug,
           candidate_name,
           view_count: 1,
