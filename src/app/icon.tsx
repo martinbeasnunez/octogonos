@@ -12,17 +12,19 @@ export default function Icon() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          background: 'linear-gradient(135deg, #0f172a 0%, #E63946 100%)',
+          background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #E63946 100%)',
           fontFamily: 'system-ui, -apple-system, sans-serif',
         }}
       >
         <div
           style={{
-            fontSize: '60px',
+            fontSize: '140px',
             fontWeight: '900',
             color: '#FFFFFF',
-            textShadow: '0 2px 10px rgba(0,0,0,0.3)',
-            letterSpacing: '-0.02em',
+            textShadow: '0 4px 20px rgba(0,0,0,0.5)',
+            letterSpacing: '-0.05em',
+            margin: 0,
+            lineHeight: 1,
           }}
         >
           O
