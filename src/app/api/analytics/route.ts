@@ -26,7 +26,8 @@ export async function GET() {
     // Fetch corrections
     const { data: corrections, error: corrError } = await (supabase as any)
       .from('corrections')
-      .select('*');
+      .select('*')
+      .order('created_at', { ascending: false });
 
     if (corrError) throw corrError;
 
@@ -57,6 +58,17 @@ export async function GET() {
             .sort((a, b) => b.count - a.count)
             .slice(0, 5)
         : [],
+      corrections:
+        corrections?.map((c: any) => ({
+          id: c.id,
+          candidate_name: c.candidate_name,
+          candidate_slug: c.candidate_slug,
+          email: c.email,
+          message: c.message,
+          correction_text: c.correction_text,
+          status: c.status,
+          created_at: c.created_at,
+        })) || [],
       lastUpdated: new Date().toISOString(),
     });
   } catch (err) {
@@ -67,6 +79,7 @@ export async function GET() {
       uniqueVisitors: 0,
       totalCorrectionsFiled: 0,
       mostViewedCandidates: [],
+      corrections: [],
       topReferrers: [],
       lastUpdated: new Date().toISOString(),
     });

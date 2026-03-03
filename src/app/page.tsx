@@ -119,8 +119,10 @@ export default function Home() {
             ))}
           </div>
 
-          <p className="mt-4 text-center text-[11px] text-voraz-gray-400">
-            Fuentes: JNE, SUNEDU, Poder Judicial, RENIEC. Siempre revisa los links originales.
+          <p className="mt-4 text-center">
+            <a href="/metodologia" className="text-[11px] text-voraz-gray-400 underline transition-colors hover:text-voraz-red">
+              Ver fuentes y metodología →
+            </a>
           </p>
         </div>
       </div>
