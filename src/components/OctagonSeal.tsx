@@ -35,14 +35,13 @@ export default function OctagonSeal({
   // For plan pillar with feasibility, show the score instead of label
   const showFeasibility = pillar === "plan" && feasibilityScore !== undefined;
 
-  // Color por pilar: educación neutral SALVO que tenga contexto notable,
-  // legal/plan según nivel
+  // Color por pilar — contexto público sube a ámbar si el nivel es neutral
+  // Ej: JNE dice "limpio" pero IA encontró investigación → ámbar
   const colorLevel = (() => {
-    // Si educación tiene contexto público (ej: plagio), sube a ámbar
-    if (pillar === "education" && hasContext) return "amber" as const;
-    if (pillar === "education") return "neutral" as const;
     if (score === "Alto") return "red" as const;
     if (score === "Medio") return "amber" as const;
+    // Neutral SALVO que tenga contexto público notable
+    if (hasContext) return "amber" as const;
     return "neutral" as const;
   })();
 
