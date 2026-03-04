@@ -23,7 +23,7 @@ export default function Footer() {
                 Información pública organizada por IA. No afirmamos culpabilidad.
               </p>
             </div>
-            <nav className="flex gap-5 text-xs text-voraz-gray-400">
+            <nav className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-voraz-gray-400">
               <Link
                 href="/metodologia"
                 className="transition-colors hover:text-voraz-cream"
@@ -35,6 +35,18 @@ export default function Footer() {
                 className="transition-colors hover:text-voraz-cream"
               >
                 Correcciones
+              </Link>
+              <Link
+                href="/terminos"
+                className="transition-colors hover:text-voraz-cream"
+              >
+                Términos
+              </Link>
+              <Link
+                href="/privacidad"
+                className="transition-colors hover:text-voraz-cream"
+              >
+                Privacidad
               </Link>
             </nav>
           </div>

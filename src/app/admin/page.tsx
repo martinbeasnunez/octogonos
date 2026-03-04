@@ -1105,12 +1105,161 @@ export default function AdminPage() {
         </div>
       )}
 
+      {/* ── Legal Pages Editor ── */}
+      <div className="mt-12">
+        <div className="mb-4 flex items-center gap-3">
+          <span className="font-display text-[10px] font-bold uppercase tracking-[0.2em] text-voraz-gray-400">
+            Páginas legales
+          </span>
+          <div className="h-px flex-1 bg-voraz-gray-200" />
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <LegalPageEditor slug="terminos" label="Términos y Condiciones" />
+          <LegalPageEditor slug="privacidad" label="Política de Privacidad" />
+        </div>
+      </div>
+
       {/* Footer */}
       <div className="mt-8 text-center">
         <Link href="/" className="text-sm text-voraz-gray-400 transition-colors hover:text-voraz-black">
           ← Volver al inicio
         </Link>
       </div>
+    </div>
+  );
+}
+
+/* ── Legal Page Editor Component ── */
+
+function LegalPageEditor({ slug, label }: { slug: string; label: string }) {
+  const [title, setTitle] = useState(label);
+  const [content, setContent] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'saved' | 'error'>('idle');
+  const [lastUpdated, setLastUpdated] = useState<string | null>(null);
+
+  // Load existing content
+  useEffect(() => {
+    async function load() {
+      setLoading(true);
+      try {
+        const res = await fetch(`/api/pages?slug=${slug}`);
+        if (res.ok) {
+          const data = await res.json();
+          setTitle(data.title || label);
+          setContent(data.content || '');
+          setLastUpdated(data.updated_at || null);
+        }
+      } catch {
+        // Page doesn't exist yet, that's fine
+      }
+      setLoading(false);
+    }
+    load();
+  }, [slug, label]);
+
+  const handleSave = async () => {
+    setSaving(true);
+    setStatus('idle');
+    try {
+      const res = await fetch('/api/pages/update', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ slug, title, content }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setLastUpdated(data.data?.updated_at || new Date().toISOString());
+        setStatus('saved');
+        setTimeout(() => setStatus('idle'), 3000);
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
+    setSaving(false);
+  };
+
+  return (
+    <div className="rounded-2xl bg-voraz-white p-5 shadow-[var(--shadow-card)]">
+      <div className="mb-3 flex items-center justify-between">
+        <h3 className="font-display text-sm font-bold uppercase tracking-tight text-voraz-black">
+          {label}
+        </h3>
+        <a
+          href={`/${slug}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[11px] text-voraz-red hover:underline"
+        >
+          Ver página ↗
+        </a>
+      </div>
+
+      {loading ? (
+        <p className="py-8 text-center text-sm text-voraz-gray-400">Cargando...</p>
+      ) : (
+        <>
+          <div className="mb-3">
+            <label className="mb-1 block text-[10px] font-bold uppercase tracking-wider text-voraz-gray-400">
+              Título
+            </label>
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              className="w-full rounded-lg border border-voraz-gray-200 px-3 py-2 text-sm text-voraz-black placeholder:text-voraz-gray-400 focus:border-voraz-red focus:outline-none focus:ring-1 focus:ring-voraz-red"
+            />
+          </div>
+
+          <div className="mb-3">
+            <label className="mb-1 block text-[10px] font-bold uppercase tracking-wider text-voraz-gray-400">
+              Contenido (HTML)
+            </label>
+            <textarea
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              rows={10}
+              placeholder="Pega aquí el HTML de tu texto legal..."
+              className="w-full rounded-lg border border-voraz-gray-200 px-3 py-2 font-mono text-xs text-voraz-black placeholder:text-voraz-gray-400 focus:border-voraz-red focus:outline-none focus:ring-1 focus:ring-voraz-red"
+            />
+          </div>
+
+          <div className="flex items-center justify-between">
+            <div className="text-[10px] text-voraz-gray-400">
+              {lastUpdated && (
+                <span>
+                  Última actualización:{' '}
+                  {new Date(lastUpdated).toLocaleDateString('es-PE', {
+                    day: 'numeric',
+                    month: 'short',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                  })}
+                </span>
+              )}
+            </div>
+            <div className="flex items-center gap-2">
+              {status === 'saved' && (
+                <span className="text-[11px] font-medium text-score-bajo">Guardado</span>
+              )}
+              {status === 'error' && (
+                <span className="text-[11px] font-medium text-voraz-red">Error al guardar</span>
+              )}
+              <button
+                onClick={handleSave}
+                disabled={saving}
+                className="rounded-lg bg-voraz-red px-4 py-2 text-xs font-bold text-voraz-white transition-colors hover:bg-voraz-red/90 disabled:opacity-50"
+              >
+                {saving ? 'Guardando...' : 'Guardar'}
+              </button>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }
