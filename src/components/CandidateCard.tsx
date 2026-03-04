@@ -19,16 +19,27 @@ const pillarShort: Record<PillarType, string> = {
 function PillarBadge({
   pillar,
   score,
+  hasContext,
 }: {
   pillar: PillarType;
   score: ScoreLevel;
+  hasContext?: boolean;
 }) {
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider ${getBadgeColor(pillar, score)}`}
+      className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider ${
+        hasContext && pillar === "education"
+          ? "bg-voraz-gold/10 text-voraz-gold"
+          : getBadgeColor(pillar, score)
+      }`}
     >
       <span className="opacity-50">{pillarShort[pillar]}</span>
       {getDisplayLabel(pillar, score)}
+      {hasContext && (
+        <span className="flex h-3.5 w-3.5 items-center justify-center rounded-full bg-voraz-gold text-[7px] font-black text-voraz-black">
+          !
+        </span>
+      )}
     </span>
   );
 }
@@ -91,8 +102,8 @@ export default function CandidateCard({
       </div>
 
       <div className="flex flex-wrap gap-1.5 sm:gap-2">
-        <PillarBadge pillar="education" score={candidate.education.score} />
-        <PillarBadge pillar="legal" score={candidate.legal.score} />
+        <PillarBadge pillar="education" score={candidate.education.score} hasContext={!!candidate.education.context} />
+        <PillarBadge pillar="legal" score={candidate.legal.score} hasContext={!!candidate.legal.context} />
         {feasibility ? (
           <span
             className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider ${getBadgeColor("plan", candidate.plan.score)}`}

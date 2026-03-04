@@ -17,6 +17,7 @@ interface OctagonSealProps {
   explanation: string;
   darkBg?: boolean;
   feasibilityScore?: number;
+  hasContext?: boolean;
 }
 
 export default function OctagonSeal({
@@ -25,6 +26,7 @@ export default function OctagonSeal({
   explanation,
   darkBg = false,
   feasibilityScore,
+  hasContext = false,
 }: OctagonSealProps) {
   const pillarInfo = pillarLabels[pillar];
   const displayLabel = getDisplayLabel(pillar, score);
@@ -33,8 +35,11 @@ export default function OctagonSeal({
   // For plan pillar with feasibility, show the score instead of label
   const showFeasibility = pillar === "plan" && feasibilityScore !== undefined;
 
-  // Color por pilar: educación siempre neutral, legal/plan según nivel
+  // Color por pilar: educación neutral SALVO que tenga contexto notable,
+  // legal/plan según nivel
   const colorLevel = (() => {
+    // Si educación tiene contexto público (ej: plagio), sube a ámbar
+    if (pillar === "education" && hasContext) return "amber" as const;
     if (pillar === "education") return "neutral" as const;
     if (score === "Alto") return "red" as const;
     if (score === "Medio") return "amber" as const;
@@ -86,6 +91,13 @@ export default function OctagonSeal({
 
         {/* Inner radial glow for depth */}
         <div className="clip-octagon absolute inset-[5px] bg-gradient-to-br from-white/[0.06] via-transparent to-transparent" />
+
+        {/* Context indicator — dot when AI found notable public info */}
+        {hasContext && (
+          <div className="absolute -right-1 -top-1 z-20 flex h-5 w-5 items-center justify-center rounded-full bg-voraz-gold shadow-lg" title="Hay contexto público notable">
+            <span className="text-[9px] font-black text-voraz-black">!</span>
+          </div>
+        )}
 
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center gap-0.5 px-4 text-center">

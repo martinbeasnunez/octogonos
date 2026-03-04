@@ -255,6 +255,57 @@ export default function MetodologiaPage() {
           </div>
         </section>
 
+        {/* Tecnología */}
+        <section>
+          <span className="mb-4 block font-display text-[10px] font-bold uppercase tracking-[0.2em] text-voraz-gray-400">
+            Tecnología
+          </span>
+          <div className="rounded-2xl bg-voraz-white p-6 shadow-[var(--shadow-card)]">
+            <p className="mb-4 text-sm leading-relaxed text-voraz-gray-600">
+              Este sitio fue construido con asistencia de IA y usa IA para dos funciones específicas:
+            </p>
+            <div className="space-y-4">
+              {[
+                {
+                  label: "Viabilidad del plan",
+                  desc: "GPT (OpenAI) evalúa los planes de gobierno registrados ante el JNE en base a 5 criterios técnicos. Es una evaluación indicativa, no editorial.",
+                },
+                {
+                  label: "Contexto público",
+                  desc: "GPT busca en la web artículos de medios reconocidos (El Comercio, RPP, La República, etc.) para complementar las declaraciones ante el JNE. Cada contexto incluye la fuente y un enlace verificado al artículo original.",
+                },
+              ].map((item) => (
+                <div key={item.label} className="flex items-start gap-4">
+                  <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-voraz-gray-100 font-display text-[10px] font-bold text-voraz-black">
+                    IA
+                  </span>
+                  <div>
+                    <span className="text-[11px] font-bold text-voraz-black">{item.label}</span>
+                    <p className="text-[12px] leading-relaxed text-voraz-gray-500">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-4 border-t border-voraz-gray-200 pt-4">
+              <p className="text-[12px] leading-relaxed text-voraz-gray-500">
+                El desarrollo del sitio fue asistido por{" "}
+                <a href="https://claude.ai" target="_blank" rel="noopener noreferrer" className="text-voraz-red hover:underline">
+                  Claude Code
+                </a>{" "}
+                (Anthropic). Las evaluaciones de IA usan la API de{" "}
+                <a href="https://openai.com" target="_blank" rel="noopener noreferrer" className="text-voraz-red hover:underline">
+                  OpenAI
+                </a>
+                . Todo el contenido generado por IA está claramente marcado con la etiqueta{" "}
+                <span className="rounded bg-voraz-gray-200 px-1 py-0.5 text-[8px] font-bold text-voraz-gray-500">
+                  IA
+                </span>{" "}
+                en la interfaz.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Aviso legal */}
         <section className="rounded-2xl bg-voraz-white p-6 shadow-[var(--shadow-soft)]">
           <div className="border-l-2 border-voraz-red/30 pl-4">

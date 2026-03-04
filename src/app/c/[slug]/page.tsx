@@ -139,6 +139,7 @@ export default async function CandidatePage({
                 score={candidate.education.score}
                 explanation={candidate.education.explanation}
                 darkBg
+                hasContext={!!candidate.education.context}
               />
             </div>
             <div className="animate-scale-in" style={{ animationDelay: "250ms" }}>
@@ -147,6 +148,7 @@ export default async function CandidatePage({
                 score={candidate.legal.score}
                 explanation={candidate.legal.explanation}
                 darkBg
+                hasContext={!!candidate.legal.context}
               />
             </div>
             <div className="animate-scale-in" style={{ animationDelay: "400ms" }}>
