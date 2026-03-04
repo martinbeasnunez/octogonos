@@ -572,12 +572,32 @@ export default function AdminPage() {
                         ) : null}
                       </div>
 
-                      {/* Current text preview (when idle) */}
+                      {/* Current text preview + source links (when idle) */}
                       {fixState.status === 'idle' && !alreadyFixed && (
                         <div className="px-4 pb-3">
                           <p className="text-[11px] leading-relaxed text-voraz-gray-400 italic">
                             &ldquo;{issue.currentText.length > 120 ? issue.currentText.slice(0, 120) + '...' : issue.currentText}&rdquo;
                           </p>
+                          {issue.sourceUrls.length > 0 && (
+                            <div className="mt-2 flex flex-wrap gap-1.5">
+                              {issue.sourceUrls.map((url, si) => {
+                                let domain = '';
+                                try { domain = new URL(url).hostname.replace('www.', ''); } catch { domain = 'link'; }
+                                return (
+                                  <a
+                                    key={si}
+                                    href={url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-1 text-[9px] font-medium text-voraz-gray-400 hover:text-voraz-black transition-colors"
+                                  >
+                                    <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-40"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                    {domain}
+                                  </a>
+                                );
+                              })}
+                            </div>
+                          )}
                         </div>
                       )}
 
@@ -620,6 +640,42 @@ export default function AdminPage() {
                               </p>
                             </div>
                           </div>
+
+                          {/* Verify sources — so you can fact-check before approving */}
+                          {issue.sourceUrls.length > 0 && (
+                            <div className="mt-2.5 rounded-lg bg-voraz-cream/50 px-3 py-2.5">
+                              <p className="mb-1.5 text-[9px] font-bold uppercase tracking-wider text-voraz-gray-400">
+                                Verificar antes de aprobar
+                              </p>
+                              <div className="flex flex-wrap gap-2">
+                                {issue.sourceUrls.map((url, si) => {
+                                  let label = issue.sourceTitles[si] || 'Fuente';
+                                  // Shorten label
+                                  if (label.length > 35) label = label.slice(0, 32) + '…';
+                                  return (
+                                    <a
+                                      key={si}
+                                      href={url}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="inline-flex items-center gap-1 rounded-full bg-voraz-white px-2.5 py-1 text-[10px] font-medium text-voraz-gray-600 ring-1 ring-voraz-black/10 transition-all hover:ring-voraz-black/25 hover:text-voraz-black"
+                                    >
+                                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-40"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                      {label}
+                                    </a>
+                                  );
+                                })}
+                                <a
+                                  href={`/c/${issue.candidateSlug}`}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center gap-1 rounded-full bg-voraz-black/5 px-2.5 py-1 text-[10px] font-medium text-voraz-gray-500 transition-all hover:bg-voraz-black/10 hover:text-voraz-black"
+                                >
+                                  Ver ficha en Octógonos →
+                                </a>
+                              </div>
+                            </div>
+                          )}
 
                           {/* Actions */}
                           <div className="mt-3 flex items-center gap-2">
