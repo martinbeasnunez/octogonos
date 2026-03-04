@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
+import RichTextEditor from '@/components/RichTextEditor';
 
 // ── Types ──────────────────────────────────────────────────────
 
@@ -1113,7 +1114,7 @@ export default function AdminPage() {
           </span>
           <div className="h-px flex-1 bg-voraz-gray-200" />
         </div>
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="space-y-4">
           <LegalPageEditor slug="terminos" label="Términos y Condiciones" />
           <LegalPageEditor slug="privacidad" label="Política de Privacidad" />
         </div>
@@ -1216,14 +1217,12 @@ function LegalPageEditor({ slug, label }: { slug: string; label: string }) {
 
           <div className="mb-3">
             <label className="mb-1 block text-[10px] font-bold uppercase tracking-wider text-voraz-gray-400">
-              Contenido (HTML)
+              Contenido
             </label>
-            <textarea
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-              rows={10}
-              placeholder="Pega aquí el HTML de tu texto legal..."
-              className="w-full rounded-lg border border-voraz-gray-200 px-3 py-2 font-mono text-xs text-voraz-black placeholder:text-voraz-gray-400 focus:border-voraz-red focus:outline-none focus:ring-1 focus:ring-voraz-red"
+            <RichTextEditor
+              content={content}
+              onChange={setContent}
+              placeholder="Pega aquí tu texto legal (acepta copy-paste con estilos)..."
             />
           </div>
 
