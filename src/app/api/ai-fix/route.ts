@@ -15,53 +15,59 @@ interface AiFixRequest {
 
 const SYSTEM_PROMPT = `Eres un editor de datos electorales para un sitio web peruano sobre candidatos presidenciales 2026.
 
-Tu tarea es mejorar las descripciones de cada candidato que aparecen en su ficha.
-Las descripciones son cortas (1-3 oraciones) y resumen información factual de fuentes oficiales del JNE (Jurado Nacional de Elecciones), SUNEDU y el Poder Judicial.
+Tu trabajo: escribir descripciones cortas y factuales para la ficha de cada candidato.
 
-Reglas:
-- Escribe SOLO el texto de reemplazo, sin explicaciones, sin comillas, sin prefijos.
-- Mantén un tono neutral, periodístico y factual.
-- No inventes datos. Si no tienes información suficiente, describe lo que sí se sabe según las fuentes.
-- Usa el mismo estilo de los textos existentes: oraciones cortas, datos concretos.
-- El texto debe ser específico para el candidato mencionado.
-- Máximo 2-3 oraciones.
-- Escribe en español.`;
+REGLAS CRÍTICAS:
+1. NO repitas el nombre del candidato ni su partido. El usuario ya está viendo su ficha — sería redundante. Ve directo a la información.
+2. Escribe SOLO el texto de reemplazo. Sin comillas, sin prefijos, sin explicaciones tuyas.
+3. Máximo 2-3 oraciones cortas. Estilo periodístico neutral.
+4. SOLO usa datos que puedas respaldar con las fuentes oficiales indicadas. NUNCA inventes datos.
+5. Si no tienes info suficiente de las fuentes, di exactamente qué se verificó y qué resultado dio (ej: "No registra sentencias penales según el Poder Judicial" en vez de inventar un historial).
+6. Escribe en español.
+
+EJEMPLOS DE BUEN FORMATO:
+- Educación: "Bachiller en Derecho — Universidad Nacional Mayor de San Marcos (concluido). Maestría en Gestión Pública — ESAN (en curso)."
+- Legal: "No registra sentencias penales según el Poder Judicial. Declaró una anotación por proceso civil ante el JNE."
+- Plan: "Propone reforma del sistema de pensiones y ampliación de Pensión 65. Incluye plan de infraestructura vial para zonas rurales."
+
+EJEMPLOS DE MAL FORMATO (no hagas esto):
+- "Rosario Fernández es candidata por Un Camino Diferente..." ← REDUNDANTE, ya se sabe
+- "Según las fuentes consultadas, este candidato..." ← RELLENO, ve al grano
+- "Es un político con amplia trayectoria..." ← VAGO, datos concretos`;
 
 function buildUserPrompt(req: AiFixRequest): string {
   const sourcesText = req.sourceUrls
     .map((url, i) => `  - ${req.sourceTitles[i] || 'Fuente'}: ${url}`)
     .join('\n');
 
-  const base = `Candidato: ${req.candidateName} (${req.candidateParty})
+  const context = `Candidato: ${req.candidateName} (${req.candidateParty})
 Pilar: ${req.pillarLabel}
-Score actual: ${req.score}
-Fuentes disponibles:
+Score: ${req.score}
+Fuentes oficiales:
 ${sourcesText || '  (sin fuentes)'}`;
 
   switch (req.issueType) {
     case 'truncated_text':
-      return `${base}
+      return `${context}
 
 Texto actual (CORTADO, termina en "..."): "${req.currentText}"
 
-El texto está incompleto porque se cortó al extraer los datos automáticamente.
-Completa el texto de forma natural, manteniendo toda la información existente y completando lo que falta para que la oración termine correctamente.`;
+Completa la oración de forma natural. Mantén todo lo que ya dice y termínala correctamente. NO repitas nombre ni partido.`;
 
     case 'generic_explanation':
-      return `${base}
+      return `${context}
 
-Texto actual (GENÉRICO, se repite igual para muchos candidatos): "${req.currentText}"
+Texto actual (GENÉRICO, es igual para muchos candidatos): "${req.currentText}"
 
-Este texto es una plantilla que se usa igual para varios candidatos y no dice nada específico.
-Escribe una descripción específica para ESTE candidato basándote en su nombre, partido y las fuentes indicadas.`;
+Reescribe con info específica de este candidato. Usa solo datos que se puedan verificar en las fuentes oficiales listadas. NO repitas nombre ni partido.`;
 
     case 'empty_explanation':
-      return `${base}
+      return `${context}
 
-No hay descripción para este pilar. Escribe una descripción corta basada en las fuentes disponibles.`;
+No hay descripción. Escribe una basada en lo que se puede verificar en las fuentes oficiales. NO repitas nombre ni partido.`;
 
     default:
-      return `${base}\n\nMejora este texto: "${req.currentText}"`;
+      return `${context}\n\nMejora este texto (sin repetir nombre ni partido): "${req.currentText}"`;
   }
 }
 
@@ -77,7 +83,6 @@ export async function POST(request: NextRequest) {
 
     const body: AiFixRequest = await request.json();
 
-    // Validate
     if (!body.candidateName || !body.pillar || !body.issueType) {
       return NextResponse.json(
         { error: 'Faltan campos requeridos: candidateName, pillar, issueType' },
