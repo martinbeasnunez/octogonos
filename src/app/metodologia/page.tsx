@@ -118,7 +118,7 @@ export default function MetodologiaPage() {
                 subtitle="Según declaración jurada y registros públicos"
                 description="Revisamos lo declarado ante el JNE e incluimos enlace al Poder Judicial. No afirmamos culpabilidad."
                 rows={[
-                  { label: "LIMPIO", desc: "No registra alertas en fuentes públicas", color: "neutral" },
+                  { label: "SIN ALERTAS", desc: "No registra alertas en su declaración ante el JNE", color: "neutral" },
                   { label: "PROCESO", desc: "Registra procesos legales pendientes", color: "amber" },
                   { label: "SENTENCIA", desc: "Declaró sentencia(s) en su hoja de vida", color: "red" },
                 ]}
