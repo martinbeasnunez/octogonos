@@ -1829,36 +1829,91 @@ export function getFeasibility(slug: string): FeasibilityScore | undefined {
 }
 
 /**
- * Orden basado en encuestas nacionales (Condor LATAM, marzo 2026).
- * Candidatos con mayor intención de voto aparecen primero.
- * Los no incluidos se ordenan alfabéticamente después.
+ * Datos de encuestas nacionales (Condor LATAM, marzo 2026).
+ * Promedio ponderado de Ipsos, CPI, Datum, IEP.
+ * Fuente: condorlatam.com/pe/encuestas
  */
-const pollOrder: Record<string, number> = {
-  "keiko-sofia-fujimori-higuchi": 1,
-  "rafael-bernardo-lopez-aliaga-cazorla": 2,
-  "pablo-alfonso-lopez-chau-nava": 3,
-  "cesar-acuna-peralta": 4,
-  "carlos-gonsalo-alvarez-loayza": 5,
-  "mario-enrique-vizcarra-cornejo": 6,
-  "jose-leon-luna-galvez": 7,
-  "george-patrick-forsyth-sommer": 8,
+export const pollData: Record<string, { order: number; pct: number }> = {
+  "keiko-sofia-fujimori-higuchi": { order: 1, pct: 13.2 },
+  "rafael-bernardo-lopez-aliaga-cazorla": { order: 2, pct: 12.5 },
+  "pablo-alfonso-lopez-chau-nava": { order: 3, pct: 4.0 },
+  "cesar-acuna-peralta": { order: 4, pct: 4.0 },
+  "carlos-gonsalo-alvarez-loayza": { order: 5, pct: 4.0 },
+  "mario-enrique-vizcarra-cornejo": { order: 6, pct: 4.0 },
+  "jose-leon-luna-galvez": { order: 7, pct: 2.0 },
+  "george-patrick-forsyth-sommer": { order: 8, pct: 2.0 },
 };
+
+export function getPollPct(slug: string): number | undefined {
+  return pollData[slug]?.pct;
+}
 
 function sortByPollOrder(list: Candidate[]): Candidate[] {
   return [...list].sort((a, b) => {
-    const pa = pollOrder[a.slug] ?? 999;
-    const pb = pollOrder[b.slug] ?? 999;
+    const pa = pollData[a.slug]?.order ?? 999;
+    const pb = pollData[b.slug]?.order ?? 999;
     if (pa !== pb) return pa - pb;
     return a.name.localeCompare(b.name, "es");
   });
 }
 
+function sortAlphabetically(list: Candidate[]): Candidate[] {
+  return [...list].sort((a, b) => a.name.localeCompare(b.name, "es"));
+}
+
 const sortedCandidates = sortByPollOrder(candidates);
+
+export type SortOption = "encuestas" | "az";
+export type FilterOption = "todos" | "sentencia" | "pendiente" | "posgrado" | "sin-plan";
+
+export const filterLabels: Record<FilterOption, string> = {
+  todos: "Todos",
+  sentencia: "Sentencia",
+  pendiente: "Pendiente",
+  posgrado: "Posgrado",
+  "sin-plan": "Sin plan",
+};
+
+function applyFilter(list: Candidate[], filter: FilterOption): Candidate[] {
+  if (filter === "todos") return list;
+  return list.filter((c) => {
+    switch (filter) {
+      case "sentencia": return c.legal.score === "Alto";
+      case "pendiente": return c.legal.score === "Medio";
+      case "posgrado": return c.education.score === "Bajo";
+      case "sin-plan": return c.plan.score === "Alto";
+      default: return true;
+    }
+  });
+}
+
+export function queryCandidates(
+  query: string,
+  sort: SortOption = "encuestas",
+  filter: FilterOption = "todos"
+): Candidate[] {
+  const q = query.toLowerCase().trim();
+  let results = q
+    ? candidates.filter(
+        (c) =>
+          c.name.toLowerCase().includes(q) ||
+          c.party.toLowerCase().includes(q) ||
+          c.slug.includes(q)
+      )
+    : [...candidates];
+
+  results = applyFilter(results, filter);
+
+  return sort === "az"
+    ? sortAlphabetically(results)
+    : sortByPollOrder(results);
+}
 
 export function getCandidateBySlug(slug: string): Candidate | undefined {
   return candidates.find((c) => c.slug === slug);
 }
 
+/** @deprecated Use queryCandidates instead */
 export function searchCandidates(query: string): Candidate[] {
   const q = query.toLowerCase().trim();
   if (!q) return sortedCandidates;

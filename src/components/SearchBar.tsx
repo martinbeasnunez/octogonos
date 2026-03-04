@@ -3,17 +3,39 @@
 import { useState, useMemo } from "react";
 import {
   candidates,
-  searchCandidates,
+  queryCandidates,
+  filterLabels,
+  type SortOption,
+  type FilterOption,
 } from "@/data/candidates";
 import CandidateCard from "./CandidateCard";
 
+const sortOptions: { value: SortOption; label: string; icon: string }[] = [
+  { value: "encuestas", label: "Encuestas", icon: "🗳" },
+  { value: "az", label: "A → Z", icon: "" },
+];
+
+const filterOptions: FilterOption[] = [
+  "todos",
+  "sentencia",
+  "pendiente",
+  "posgrado",
+  "sin-plan",
+];
+
 export default function SearchBar() {
   const [query, setQuery] = useState("");
-  const results = useMemo(() => searchCandidates(query), [query]);
+  const [sort, setSort] = useState<SortOption>("encuestas");
+  const [filter, setFilter] = useState<FilterOption>("todos");
+
+  const results = useMemo(
+    () => queryCandidates(query, sort, filter),
+    [query, sort, filter]
+  );
 
   return (
     <div>
-      <div className="relative mb-6">
+      <div className="relative mb-4">
         {/* Search icon */}
         <svg
           className={`absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 transition-colors duration-200 ${
@@ -51,22 +73,88 @@ export default function SearchBar() {
         </div>
       </div>
 
+      {/* Sort + Filter bar */}
+      <div className="mb-5 flex flex-wrap items-center gap-x-4 gap-y-2">
+        {/* Sort */}
+        <div className="flex items-center gap-1">
+          {sortOptions.map((opt) => (
+            <button
+              key={opt.value}
+              onClick={() => setSort(opt.value)}
+              className={`rounded-full px-3 py-1.5 text-[11px] font-bold transition-all duration-200 ${
+                sort === opt.value
+                  ? "bg-voraz-black text-voraz-white shadow-sm"
+                  : "bg-voraz-white text-voraz-gray-500 hover:bg-voraz-gray-50 hover:text-voraz-black"
+              }`}
+            >
+              {opt.icon && <span className="mr-1">{opt.icon}</span>}
+              {opt.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Divider */}
+        <div className="hidden h-4 w-px bg-voraz-gray-200 sm:block" />
+
+        {/* Filters */}
+        <div className="flex flex-wrap items-center gap-1">
+          {filterOptions.map((f) => (
+            <button
+              key={f}
+              onClick={() => setFilter(f === filter ? "todos" : f)}
+              className={`rounded-full px-3 py-1.5 text-[11px] font-bold transition-all duration-200 ${
+                filter === f
+                  ? f === "sentencia"
+                    ? "bg-voraz-red/10 text-voraz-red"
+                    : f === "pendiente"
+                      ? "bg-voraz-gold/10 text-voraz-gold"
+                      : "bg-voraz-black text-voraz-white shadow-sm"
+                  : "bg-voraz-white text-voraz-gray-500 hover:bg-voraz-gray-50 hover:text-voraz-black"
+              }`}
+            >
+              {filterLabels[f]}
+            </button>
+          ))}
+        </div>
+      </div>
+
       {/* Result count */}
-      {query && results.length > 0 && (
-        <p className="mb-4 text-xs text-voraz-gray-400">
-          {results.length} de {candidates.length} candidatos
-        </p>
-      )}
+      <p className="mb-4 text-xs text-voraz-gray-400">
+        {results.length} de {candidates.length} candidatos
+        {sort === "encuestas" && !query && filter === "todos" && (
+          <span>
+            {" "}· ordenados por{" "}
+            <a
+              href="https://condorlatam.com/pe/encuestas"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline transition-colors hover:text-voraz-red"
+            >
+              encuestas ↗
+            </a>
+          </span>
+        )}
+      </p>
 
       {/* No results state */}
-      {query && results.length === 0 && (
+      {results.length === 0 && (
         <div className="py-16 text-center">
           <p className="font-display text-lg font-bold uppercase text-voraz-gray-400">
             Sin resultados
           </p>
           <p className="mt-2 text-sm text-voraz-gray-400">
-            No se encontraron candidatos para &ldquo;{query}&rdquo;
+            {query
+              ? `No se encontraron candidatos para "${query}"`
+              : "No hay candidatos con ese filtro"}
           </p>
+          {filter !== "todos" && (
+            <button
+              onClick={() => setFilter("todos")}
+              className="mt-4 rounded-full bg-voraz-black px-4 py-2 text-xs font-bold text-voraz-white transition-colors hover:bg-voraz-red"
+            >
+              Mostrar todos
+            </button>
+          )}
         </div>
       )}
 

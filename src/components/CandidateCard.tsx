@@ -4,6 +4,7 @@ import {
   getDisplayLabel,
   getBadgeColor,
   getFeasibility,
+  getPollPct,
   type Candidate,
   type PillarType,
   type ScoreLevel,
@@ -37,12 +38,13 @@ export default function CandidateCard({
 }: {
   candidate: Candidate;
 }) {
-  const hasAlto =
-    candidate.education.score === "Alto" ||
+  // Solo legal y plan activan alerta roja (educación es dato, no juicio)
+  const hasAlert =
     candidate.legal.score === "Alto" ||
     candidate.plan.score === "Alto";
 
   const feasibility = getFeasibility(candidate.slug);
+  const pollPct = getPollPct(candidate.slug);
 
   const feasColor = feasibility
     ? feasibility.promedio >= 6.5
@@ -56,10 +58,10 @@ export default function CandidateCard({
     <Link
       href={`/c/${candidate.slug}`}
       className={`group relative block overflow-hidden rounded-lg sm:rounded-xl bg-white p-4 sm:p-5 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-card-hover)] ${
-        hasAlto ? "ring-1 ring-voraz-red/10" : ""
+        hasAlert ? "ring-1 ring-voraz-red/10" : ""
       }`}
     >
-      {hasAlto && (
+      {hasAlert && (
         <div className="absolute left-0 top-0 h-full w-[3px] bg-gradient-to-b from-voraz-red to-voraz-red/30" />
       )}
 
@@ -75,9 +77,16 @@ export default function CandidateCard({
           <h3 className="line-clamp-2 font-display text-base sm:text-lg font-bold uppercase leading-tight tracking-tight text-voraz-black transition-colors group-hover:text-voraz-red">
             {candidate.name}
           </h3>
-          <p className="mt-0.5 line-clamp-1 text-[11px] sm:text-xs tracking-wide text-voraz-gray-500">
-            {candidate.party}
-          </p>
+          <div className="mt-0.5 flex items-center gap-2">
+            <p className="line-clamp-1 text-[11px] sm:text-xs tracking-wide text-voraz-gray-500">
+              {candidate.party}
+            </p>
+            {pollPct !== undefined && (
+              <span className="shrink-0 rounded bg-voraz-gray-100 px-1.5 py-0.5 text-[10px] font-bold tabular-nums text-voraz-gray-500">
+                {pollPct}%
+              </span>
+            )}
+          </div>
         </div>
       </div>
 
