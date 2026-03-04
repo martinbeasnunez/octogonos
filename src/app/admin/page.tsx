@@ -24,23 +24,45 @@ interface Analytics {
   lastUpdated: string;
 }
 
+interface HealthData {
+  healthScore: number;
+  totalCandidates: number;
+  totalSources: number;
+  trustedSources: number;
+  untrustedSources: number;
+  domainBreakdown: Array<{ domain: string; count: number; trusted: boolean }>;
+  issues: Array<{
+    candidate: string;
+    pillar: string;
+    type: string;
+    detail: string;
+  }>;
+  trustedDomains: string[];
+  checkedAt: string;
+}
+
 export default function AdminPage() {
   const [analytics, setAnalytics] = useState<Analytics | null>(null);
+  const [health, setHealth] = useState<HealthData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchAnalytics();
+    fetchAll();
   }, []);
 
-  const fetchAnalytics = async () => {
+  const fetchAll = async () => {
+    setLoading(true);
     try {
-      const response = await fetch('/api/analytics');
-      if (!response.ok) throw new Error('Failed to fetch analytics');
-      const data = await response.json();
-      setAnalytics(data);
+      const [analyticsRes, healthRes] = await Promise.all([
+        fetch('/api/analytics'),
+        fetch('/api/health'),
+      ]);
+      if (!analyticsRes.ok) throw new Error('Failed to fetch analytics');
+      setAnalytics(await analyticsRes.json());
+      if (healthRes.ok) setHealth(await healthRes.json());
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Error fetching analytics');
+      setError(err instanceof Error ? err.message : 'Error fetching data');
     } finally {
       setLoading(false);
     }
@@ -58,7 +80,7 @@ export default function AdminPage() {
           </p>
         </div>
         <button
-          onClick={fetchAnalytics}
+          onClick={fetchAll}
           className="rounded-lg bg-voraz-red text-voraz-white px-4 py-2 text-sm font-medium transition-colors hover:bg-voraz-red/90"
         >
           Actualizar
@@ -124,6 +146,89 @@ export default function AdminPage() {
               </p>
             </div>
           ))}
+        </div>
+      )}
+
+      {/* Health panel */}
+      {health && (
+        <div className="mb-6 rounded-2xl bg-voraz-white p-6 shadow-[var(--shadow-card)]">
+          <h2 className="mb-4 font-display text-sm font-bold uppercase tracking-wider text-voraz-black">
+            🛡️ Salud de datos
+          </h2>
+
+          {/* Score + summary */}
+          <div className="mb-5 flex items-center gap-4">
+            <div
+              className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl font-display text-2xl font-black text-white ${
+                health.healthScore === 100
+                  ? 'bg-green-500'
+                  : health.healthScore >= 90
+                    ? 'bg-voraz-gold'
+                    : 'bg-voraz-red'
+              }`}
+            >
+              {health.healthScore}%
+            </div>
+            <div>
+              <p className="text-sm font-bold text-voraz-black">
+                {health.healthScore === 100
+                  ? 'Todas las fuentes son oficiales'
+                  : `${health.untrustedSources} fuente(s) no verificada(s)`}
+              </p>
+              <p className="mt-0.5 text-[11px] text-voraz-gray-400">
+                {health.totalCandidates} candidatos · {health.totalSources} fuentes analizadas
+              </p>
+            </div>
+          </div>
+
+          {/* Domain breakdown */}
+          <div className="mb-4">
+            <p className="mb-2 text-[10px] font-bold uppercase tracking-wider text-voraz-gray-400">
+              Fuentes por dominio
+            </p>
+            <div className="space-y-1.5">
+              {health.domainBreakdown.map((d) => (
+                <div key={d.domain} className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span
+                      className={`inline-flex h-2 w-2 rounded-full ${
+                        d.trusted ? 'bg-green-500' : 'bg-voraz-red'
+                      }`}
+                    />
+                    <span className="text-xs text-voraz-gray-600">{d.domain}</span>
+                  </div>
+                  <span className="text-xs font-bold text-voraz-gray-500">{d.count}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Issues */}
+          {health.issues.length > 0 && (
+            <div>
+              <p className="mb-2 text-[10px] font-bold uppercase tracking-wider text-voraz-red">
+                ⚠️ {health.issues.length} problema(s) detectado(s)
+              </p>
+              <div className="max-h-48 space-y-1 overflow-y-auto">
+                {health.issues.map((issue, i) => (
+                  <div
+                    key={i}
+                    className="rounded-lg bg-voraz-red/5 px-3 py-2 text-[11px]"
+                  >
+                    <span className="font-bold text-voraz-black">{issue.candidate}</span>
+                    <span className="text-voraz-gray-400"> · {issue.pillar} · </span>
+                    <span className="text-voraz-gray-600">{issue.detail}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {health.issues.length === 0 && (
+            <p className="text-xs text-green-600">
+              ✓ Sin problemas. Todos los datos provienen de fuentes oficiales verificadas.
+            </p>
+          )}
         </div>
       )}
 
