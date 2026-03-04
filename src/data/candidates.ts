@@ -3,7 +3,7 @@ export type PillarType = "education" | "legal" | "plan";
 
 const pillarDisplayLabels: Record<PillarType, Record<ScoreLevel, string>> = {
   education: { Bajo: "POSGRADO", Medio: "PREGRADO", Alto: "TÉCNICA" },
-  legal: { Bajo: "SIN ALERTAS", Medio: "PROCESO", Alto: "SENTENCIA" },
+  legal: { Bajo: "NO REPORTA", Medio: "PROCESO", Alto: "SENTENCIA" },
   plan: { Bajo: "COMPLETO", Medio: "PARCIAL", Alto: "SIN PLAN" },
 };
 
@@ -18,7 +18,7 @@ const scoreDescriptions: Record<PillarType, Record<ScoreLevel, string>> = {
     Alto: "Declaró educación técnica o básica ante el JNE",
   },
   legal: {
-    Bajo: "No registra alertas en su declaración jurada ante el JNE",
+    Bajo: "No reportó problemas legales en su declaración ante el JNE",
     Medio: "Registra anotaciones o procesos pendientes",
     Alto: "Declaró sentencia(s) en su hoja de vida",
   },
