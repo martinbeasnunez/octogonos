@@ -28,9 +28,7 @@ function PillarBadge({
   return (
     <span
       className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider ${
-        hasContext && score === "Bajo"
-          ? "bg-voraz-gold/10 text-voraz-gold"
-          : getBadgeColor(pillar, score)
+        getBadgeColor(pillar, score, hasContext)
       }`}
     >
       <span className="opacity-50">{pillarShort[pillar]}</span>

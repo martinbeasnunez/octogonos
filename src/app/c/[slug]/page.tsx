@@ -279,7 +279,10 @@ function PillarDetail({
 }) {
   const label = getDisplayLabel(pillar, score);
   const scoreDesc = getScoreDescription(pillar, score);
-  const badgeColor = getBadgeColor(pillar, score);
+  const badgeColor = getBadgeColor(pillar, score, !!context);
+
+  // Find the JNE source URL to link the score description
+  const jneSource = sources.find((s) => s.url.includes("votoinformado") || s.url.includes("jne.gob"));
 
   // Solo resaltar en rojo legal/plan con score Alto (dato relevante, no juicio)
   const showAlert = score === "Alto" && pillar !== "education";
@@ -317,26 +320,21 @@ function PillarDetail({
         </span>
       </div>
 
-      {/* Score meaning + source attribution upfront */}
-      <div className="mb-3 flex flex-wrap items-center gap-x-2 gap-y-1">
-        <p className="text-xs font-medium text-voraz-gray-400">
-          {scoreDesc}
-        </p>
-        <span className="text-voraz-gray-300">·</span>
-        <div className="flex flex-wrap gap-1">
-          {sources.map((s, i) => (
-            <a
-              key={i}
-              href={s.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[10px] font-medium text-voraz-gray-400 underline decoration-voraz-gray-300 underline-offset-2 transition-colors hover:text-voraz-red"
-            >
-              {s.title.replace(" — ", ": ").replace(" ↗", "")}
-            </a>
-          ))}
-        </div>
-      </div>
+      {/* Score meaning — links to JNE profile */}
+      <p className="mb-3 text-xs font-medium text-voraz-gray-400">
+        {jneSource ? (
+          <a
+            href={jneSource.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline decoration-voraz-gray-300 underline-offset-2 transition-colors hover:text-voraz-red"
+          >
+            {scoreDesc} ↗
+          </a>
+        ) : (
+          scoreDesc
+        )}
+      </p>
 
       <p className="mb-4 text-sm leading-relaxed text-voraz-gray-600">
         {explanation}

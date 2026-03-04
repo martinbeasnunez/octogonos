@@ -33,21 +33,12 @@ export function getScoreDescription(pillar: PillarType, score: ScoreLevel): stri
   return scoreDescriptions[pillar][score];
 }
 
-/** Color informativo por pilar. Educación = neutral (no es juicio de valor). */
-export function getBadgeColor(pillar: PillarType, score: ScoreLevel): string {
-  // Education: nivel educativo es dato, no juicio — siempre neutral
-  if (pillar === "education") {
-    return "bg-voraz-gray-100 text-voraz-gray-600";
-  }
-  // Legal y Plan: diferenciación informativa
-  switch (score) {
-    case "Bajo":
-      return "bg-voraz-gray-100 text-voraz-gray-600";
-    case "Medio":
-      return "bg-voraz-gold/10 text-voraz-gold";
-    case "Alto":
-      return "bg-voraz-red/10 text-voraz-red";
-  }
+/** Color semáforo: verde (bueno), ámbar (medio), rojo (alto). Consistente con octágonos. */
+export function getBadgeColor(_pillar: PillarType, score: ScoreLevel, hasContext?: boolean): string {
+  if (score === "Alto") return "bg-voraz-red/10 text-voraz-red";
+  if (score === "Medio") return "bg-voraz-gold/10 text-voraz-gold";
+  if (hasContext) return "bg-voraz-gold/10 text-voraz-gold";
+  return "bg-score-bajo/10 text-score-bajo";
 }
 
 export interface Source {
