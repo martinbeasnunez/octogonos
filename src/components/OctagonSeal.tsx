@@ -29,30 +29,38 @@ export default function OctagonSeal({
   const pillarInfo = pillarLabels[pillar];
   const displayLabel = getDisplayLabel(pillar, score);
   const scoreDesc = getScoreDescription(pillar, score);
-  const isAlto = score === "Alto";
-  const isNeutro = displayLabel === "NEUTRO";
 
   // For plan pillar with feasibility, show the score instead of label
   const showFeasibility = pillar === "plan" && feasibilityScore !== undefined;
 
-  // Semáforo: rojo para alto, naranja para neutro, blanco para el resto
-  const labelColor = isAlto
+  // Color por pilar: educación siempre neutral, legal/plan según nivel
+  const colorLevel = (() => {
+    if (pillar === "education") return "neutral" as const;
+    if (score === "Alto") return "red" as const;
+    if (score === "Medio") return "amber" as const;
+    return "neutral" as const;
+  })();
+
+  const labelColor = colorLevel === "red"
     ? "text-voraz-red"
-    : isNeutro
+    : colorLevel === "amber"
       ? "text-score-neutro"
       : "text-voraz-white";
 
-  const ringColor = isAlto
+  const ringColor = colorLevel === "red"
     ? "bg-gradient-to-br from-voraz-red via-voraz-red/80 to-voraz-red/60"
-    : isNeutro
+    : colorLevel === "amber"
       ? "bg-gradient-to-br from-score-neutro via-score-neutro/80 to-score-neutro/60"
       : "bg-voraz-gray-200";
 
-  const glowColor = isAlto
+  const glowColor = colorLevel === "red"
     ? "bg-voraz-red/15 opacity-100"
-    : isNeutro
+    : colorLevel === "amber"
       ? "bg-score-neutro/15 opacity-80"
       : "bg-voraz-black/10 opacity-50";
+
+  // Solo pulsa en legal con sentencias (dato relevante, no juicio)
+  const shouldPulse = pillar === "legal" && score === "Alto";
 
   return (
     <a
@@ -62,7 +70,7 @@ export default function OctagonSeal({
       {/* Octagon container with hover effects */}
       <div
         className={`group relative flex h-36 w-36 items-center justify-center transition-transform duration-500 ease-out group-hover/seal:scale-105 sm:h-44 sm:w-44 ${
-          isAlto ? "animate-seal-pulse" : ""
+          shouldPulse ? "animate-seal-pulse" : ""
         }`}
       >
         {/* Glow shadow layer */}

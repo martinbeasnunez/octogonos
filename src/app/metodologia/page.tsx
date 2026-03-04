@@ -141,35 +141,38 @@ export default function MetodologiaPage() {
         {/* Escala por pilar */}
         <section>
           <span className="mb-4 block font-display text-[10px] font-bold uppercase tracking-[0.2em] text-voraz-gray-400">
-            Escala por pilar
+            Clasificación por pilar
           </span>
           <div className="space-y-6">
             {[
               {
                 abbrev: "EDU",
                 title: "Educación",
+                note: "Según declaración jurada ante el JNE. Verificar en SUNEDU.",
                 rows: [
-                  { label: "SÓLIDO", desc: "Tiene posgrado (maestría o doctorado).", isAlto: false },
-                  { label: "MIXTO", desc: "Estudios universitarios completados.", isAlto: false },
-                  { label: "DÉBIL", desc: "Educación técnica o básica declarada.", isAlto: true },
+                  { label: "POSGRADO", desc: "Declaró posgrado (maestría o doctorado) ante el JNE.", color: "neutral" as const },
+                  { label: "PREGRADO", desc: "Declaró estudios universitarios ante el JNE.", color: "neutral" as const },
+                  { label: "TÉCNICA", desc: "Declaró educación técnica o básica ante el JNE.", color: "neutral" as const },
                 ],
               },
               {
                 abbrev: "LEG",
                 title: "Situación Legal",
+                note: "Según declaración jurada y registros públicos. No afirmamos culpabilidad.",
                 rows: [
-                  { label: "NEUTRO", desc: "Sin alertas en registros públicos.", isAlto: false },
-                  { label: "MIXTO", desc: "Tiene anotaciones pendientes.", isAlto: false },
-                  { label: "ALERTA", desc: "Declaró sentencia(s) ante el JNE.", isAlto: true },
+                  { label: "LIMPIO", desc: "No registra alertas en fuentes públicas.", color: "neutral" as const },
+                  { label: "PENDIENTE", desc: "Registra anotaciones o procesos pendientes.", color: "amber" as const },
+                  { label: "SENTENCIA", desc: "Declaró sentencia(s) en su hoja de vida.", color: "red" as const },
                 ],
               },
               {
                 abbrev: "PLAN",
                 title: "Plan de Gobierno",
+                note: "Registrado ante el JNE. Viabilidad evaluada con IA.",
                 rows: [
-                  { label: "REAL", desc: "Tiene plan: documentos completos disponibles + viabilidad evaluada por IA.", isAlto: false },
-                  { label: "MIXTO", desc: "Tiene plan parcial: documentos incompletos o viabilidad con restricciones.", isAlto: false },
-                  { label: "ETÉREO", desc: "Sin plan registrado o plan con viabilidad muy baja (≤4/10).", isAlto: true },
+                  { label: "COMPLETO", desc: "Plan de gobierno registrado ante el JNE + viabilidad evaluada.", color: "neutral" as const },
+                  { label: "PARCIAL", desc: "Plan parcialmente disponible o viabilidad con restricciones.", color: "amber" as const },
+                  { label: "SIN PLAN", desc: "No registra plan de gobierno o viabilidad muy baja (≤4/10).", color: "red" as const },
                 ],
               },
             ].map((pillar) => (
@@ -177,7 +180,7 @@ export default function MetodologiaPage() {
                 key={pillar.abbrev}
                 className="rounded-2xl bg-voraz-white p-6 shadow-[var(--shadow-soft)]"
               >
-                <div className="mb-4 flex items-center gap-3">
+                <div className="mb-2 flex items-center gap-3">
                   <span className="clip-octagon flex h-8 w-8 items-center justify-center bg-voraz-black font-display text-[10px] font-bold text-voraz-white">
                     {pillar.abbrev}
                   </span>
@@ -185,14 +188,17 @@ export default function MetodologiaPage() {
                     {pillar.title}
                   </h3>
                 </div>
+                <p className="mb-4 text-[11px] text-voraz-gray-400">{pillar.note}</p>
                 <div className="space-y-2.5">
                   {pillar.rows.map((row) => (
                     <div key={row.label} className="flex items-center gap-4">
                       <span
-                        className={`w-20 shrink-0 rounded-full px-2.5 py-1 text-center text-[11px] font-bold ${
-                          row.isAlto
+                        className={`w-24 shrink-0 rounded-full px-2.5 py-1 text-center text-[11px] font-bold ${
+                          row.color === "red"
                             ? "bg-voraz-red/10 text-voraz-red"
-                            : "bg-voraz-black text-voraz-white"
+                            : row.color === "amber"
+                              ? "bg-voraz-gold/10 text-voraz-gold"
+                              : "bg-voraz-gray-100 text-voraz-gray-600"
                         }`}
                       >
                         {row.label}

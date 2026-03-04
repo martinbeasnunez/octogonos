@@ -178,6 +178,7 @@ export default async function CandidatePage({
               score={candidate.education.score}
               explanation={candidate.education.explanation}
               sources={candidate.education.sources}
+              disclaimer="Según declaración jurada ante el JNE. Verificar grado en SUNEDU."
             />
           </div>
           <div id="pillar-legal" className="scroll-mt-20">
@@ -187,14 +188,13 @@ export default async function CandidatePage({
               score={candidate.legal.score}
               explanation={candidate.legal.explanation}
               sources={candidate.legal.sources}
-              disclaimer="Según lo declarado por el candidato ante el JNE. No afirmamos culpabilidad. Revisa las fuentes."
+              disclaimer="Según declaración jurada y registros públicos. No afirmamos culpabilidad."
             />
           </div>
           <div id="pillar-plan" className="scroll-mt-20">
             <PillarDetail
               pillar="plan"
               title="Plan de Gobierno"
-              subtitle="Real vs. Etéreo"
               score={candidate.plan.score}
               explanation={candidate.plan.explanation}
               sources={planSources}
@@ -272,8 +272,10 @@ function PillarDetail({
 }) {
   const label = getDisplayLabel(pillar, score);
   const scoreDesc = getScoreDescription(pillar, score);
-  const isAlto = score === "Alto";
   const badgeColor = getBadgeColor(pillar, score);
+
+  // Solo resaltar en rojo legal/plan con score Alto (dato relevante, no juicio)
+  const showAlert = score === "Alto" && pillar !== "education";
 
   const barColor = (val: number) => {
     if (val >= 7) return "bg-score-bajo";
@@ -284,11 +286,11 @@ function PillarDetail({
   return (
     <div
       className={`relative overflow-hidden rounded-2xl bg-voraz-white p-4 shadow-[var(--shadow-card)] sm:p-6 ${
-        isAlto ? "ring-1 ring-voraz-red/10" : ""
+        showAlert ? "ring-1 ring-voraz-red/10" : ""
       }`}
     >
-      {/* Top gradient accent for Alto */}
-      {isAlto && (
+      {/* Top gradient accent for alert items */}
+      {showAlert && (
         <div className="absolute left-0 right-0 top-0 h-[3px] bg-gradient-to-r from-voraz-red via-voraz-red/80 to-voraz-red/40" />
       )}
 

@@ -2,9 +2,9 @@ export type ScoreLevel = "Alto" | "Medio" | "Bajo";
 export type PillarType = "education" | "legal" | "plan";
 
 const pillarDisplayLabels: Record<PillarType, Record<ScoreLevel, string>> = {
-  education: { Bajo: "SÓLIDO", Medio: "MIXTO", Alto: "DÉBIL" },
-  legal: { Bajo: "NEUTRO", Medio: "MIXTO", Alto: "ALERTA" },
-  plan: { Bajo: "REAL", Medio: "MIXTO", Alto: "ETÉREO" },
+  education: { Bajo: "POSGRADO", Medio: "PREGRADO", Alto: "TÉCNICA" },
+  legal: { Bajo: "LIMPIO", Medio: "PENDIENTE", Alto: "SENTENCIA" },
+  plan: { Bajo: "COMPLETO", Medio: "PARCIAL", Alto: "SIN PLAN" },
 };
 
 export function getDisplayLabel(pillar: PillarType, score: ScoreLevel): string {
@@ -13,19 +13,19 @@ export function getDisplayLabel(pillar: PillarType, score: ScoreLevel): string {
 
 const scoreDescriptions: Record<PillarType, Record<ScoreLevel, string>> = {
   education: {
-    Bajo: "Tiene posgrado (maestría o doctorado)",
-    Medio: "Estudios universitarios completados",
-    Alto: "Educación técnica o básica declarada",
+    Bajo: "Declaró posgrado (maestría o doctorado) ante el JNE",
+    Medio: "Declaró estudios universitarios ante el JNE",
+    Alto: "Declaró educación técnica o básica ante el JNE",
   },
   legal: {
-    Bajo: "Sin alertas en registros públicos",
-    Medio: "Tiene anotaciones pendientes",
-    Alto: "Declaró sentencia(s) ante el JNE",
+    Bajo: "No registra alertas en fuentes públicas",
+    Medio: "Registra anotaciones o procesos pendientes",
+    Alto: "Declaró sentencia(s) en su hoja de vida",
   },
   plan: {
-    Bajo: "Plan completo y resumen disponibles",
+    Bajo: "Plan de gobierno registrado ante el JNE",
     Medio: "Plan parcialmente disponible",
-    Alto: "Sin plan de gobierno registrado",
+    Alto: "No registra plan de gobierno",
   },
 };
 
@@ -33,18 +33,19 @@ export function getScoreDescription(pillar: PillarType, score: ScoreLevel): stri
   return scoreDescriptions[pillar][score];
 }
 
-/** Semáforo: green=bueno, yellow=mixto, orange=neutro, red=malo */
+/** Color informativo por pilar. Educación = neutral (no es juicio de valor). */
 export function getBadgeColor(pillar: PillarType, score: ScoreLevel): string {
-  const label = getDisplayLabel(pillar, score);
-  switch (label) {
-    case "SÓLIDO":
-    case "REAL":
-      return "bg-score-bajo/10 text-score-bajo";
-    case "MIXTO":
+  // Education: nivel educativo es dato, no juicio — siempre neutral
+  if (pillar === "education") {
+    return "bg-voraz-gray-100 text-voraz-gray-600";
+  }
+  // Legal y Plan: diferenciación informativa
+  switch (score) {
+    case "Bajo":
+      return "bg-voraz-gray-100 text-voraz-gray-600";
+    case "Medio":
       return "bg-voraz-gold/10 text-voraz-gold";
-    case "NEUTRO":
-      return "bg-score-neutro/10 text-score-neutro";
-    default: // DÉBIL, ALERTA, ETÉREO
+    case "Alto":
       return "bg-voraz-red/10 text-voraz-red";
   }
 }
