@@ -43,7 +43,7 @@ export default function OctagonSeal({
     return "green" as const;
   })();
 
-  // Colores del label central
+  // Colores del label central (score/resultado)
   const labelColor =
     colorLevel === "red"
       ? "text-voraz-red"
@@ -67,21 +67,21 @@ export default function OctagonSeal({
         ? "bg-score-neutro/15 opacity-80"
         : "bg-score-bajo/12 opacity-70";
 
-  // Color del nombre del pilar (sutil pero visible)
+  // Color del nombre del pilar — visible y legible
   const pillarNameColor =
     colorLevel === "red"
-      ? "text-voraz-red/40"
+      ? "text-voraz-red/60"
       : colorLevel === "amber"
-        ? "text-score-neutro/40"
-        : "text-score-bajo/40";
+        ? "text-score-neutro/60"
+        : "text-score-bajo/50";
 
-  // Divider color
+  // Divider color — accent visible
   const dividerColor =
     colorLevel === "red"
-      ? "bg-voraz-red/20"
+      ? "bg-voraz-red/30"
       : colorLevel === "amber"
-        ? "bg-score-neutro/20"
-        : "bg-score-bajo/20";
+        ? "bg-score-neutro/30"
+        : "bg-score-bajo/25";
 
   // Solo pulsa en legal con sentencias
   const shouldPulse = pillar === "legal" && score === "Alto";
@@ -118,12 +118,12 @@ export default function OctagonSeal({
           </div>
         )}
 
-        {/* Content — clean layout: pillar name + score */}
-        <div className="relative z-10 flex flex-col items-center px-4 text-center">
-          <span className={`font-display text-[10px] font-bold uppercase tracking-[0.2em] sm:text-[11px] ${pillarNameColor}`}>
+        {/* Content — pillar name prominent + score below */}
+        <div className="relative z-10 flex flex-col items-center px-3 text-center">
+          <span className={`font-display text-xs font-black uppercase tracking-[0.15em] sm:text-sm ${pillarNameColor}`}>
             {pillarTitle}
           </span>
-          <div className={`my-1.5 h-px w-10 ${dividerColor}`} />
+          <div className={`my-2 h-px w-12 sm:w-14 ${dividerColor}`} />
           {showFeasibility ? (
             <div className="flex items-baseline gap-0.5">
               <span className={`font-display text-3xl font-black tracking-tight sm:text-4xl ${labelColor}`}>

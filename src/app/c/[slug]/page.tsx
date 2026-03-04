@@ -326,37 +326,49 @@ function PillarDetail({
         {explanation}
       </p>
 
-      {/* AI-generated public context with source */}
-      {context && (
-        <div className="mb-4 rounded-lg bg-voraz-gray-50 px-3 py-2.5">
-          <div className="mb-1 flex items-center gap-1.5">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-voraz-gray-400">
-              Contexto público
-            </span>
-            <span className="rounded bg-voraz-gray-200 px-1 py-0.5 text-[8px] font-bold text-voraz-gray-500">
-              IA
-            </span>
+      {/* AI-generated public context with source — colored border matches octagon */}
+      {context && (() => {
+        const contextBorder =
+          score === "Alto"
+            ? "border-l-voraz-red"
+            : score === "Medio"
+              ? "border-l-score-neutro"
+              : "border-l-score-neutro"; // context on Bajo = amber (not green)
+        const contextBadge =
+          score === "Alto"
+            ? "bg-voraz-red/10 text-voraz-red"
+            : "bg-score-neutro/10 text-score-neutro";
+        return (
+          <div className={`mb-4 rounded-lg border-l-[3px] ${contextBorder} bg-voraz-gray-50 px-3 py-2.5`}>
+            <div className="mb-1 flex items-center gap-1.5">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-voraz-gray-400">
+                Contexto público
+              </span>
+              <span className={`rounded px-1 py-0.5 text-[8px] font-bold ${contextBadge}`}>
+                IA
+              </span>
+            </div>
+            <p className="text-xs leading-relaxed text-voraz-gray-600">
+              {context.text}
+            </p>
+            <p className="mt-1.5 text-[10px] text-voraz-gray-400">
+              Fuente:{" "}
+              {context.sourceUrl ? (
+                <a
+                  href={context.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline transition-colors hover:text-voraz-red"
+                >
+                  {context.source} ↗
+                </a>
+              ) : (
+                <span>{context.source}</span>
+              )}
+            </p>
           </div>
-          <p className="text-xs leading-relaxed text-voraz-gray-600">
-            {context.text}
-          </p>
-          <p className="mt-1.5 text-[10px] text-voraz-gray-400">
-            Fuente:{" "}
-            {context.sourceUrl ? (
-              <a
-                href={context.sourceUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline transition-colors hover:text-voraz-red"
-              >
-                {context.source} ↗
-              </a>
-            ) : (
-              <span>{context.source}</span>
-            )}
-          </p>
-        </div>
-      )}
+        );
+      })()}
 
       {disclaimer && (
         <div className="mb-4 border-l-2 border-voraz-gray-200 pl-3">
