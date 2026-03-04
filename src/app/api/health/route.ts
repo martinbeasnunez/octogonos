@@ -22,10 +22,17 @@ type IssueSeverity = 'error' | 'warning' | 'info';
 
 interface Issue {
   candidate: string;
+  candidateSlug: string;
+  candidateParty: string;
   pillar: string;
+  pillarKey: string;
   type: IssueType;
   severity: IssueSeverity;
   detail: string;
+  currentText: string;
+  score: string;
+  sourceUrls: string[];
+  sourceTitles: string[];
 }
 
 export async function GET() {
@@ -53,6 +60,17 @@ export async function GET() {
       const pillar = c[pillarKey];
       const pillarLabel = pillarNames[pillarKey];
 
+      // Shared context for every issue from this candidate+pillar
+      const ctx = {
+        candidateSlug: c.slug,
+        candidateParty: c.party,
+        pillarKey,
+        currentText: pillar.explanation || '',
+        score: pillar.score,
+        sourceUrls: pillar.sources?.map((s) => s.url) || [],
+        sourceTitles: pillar.sources?.map((s) => s.title) || [],
+      };
+
       // Check empty explanation
       if (!pillar.explanation || pillar.explanation.trim().length < 5) {
         issues.push({
@@ -61,6 +79,7 @@ export async function GET() {
           type: 'empty_explanation',
           severity: 'error',
           detail: 'Explicación vacía o muy corta',
+          ...ctx,
         });
       }
 
@@ -73,6 +92,7 @@ export async function GET() {
           type: 'truncated_text',
           severity: 'warning',
           detail: `Texto cortado: "…${pillar.explanation.slice(-60)}"`,
+          ...ctx,
         });
       }
 
@@ -86,6 +106,7 @@ export async function GET() {
           type: 'generic_explanation',
           severity: 'info',
           detail: `Texto genérico (no específico del candidato): "${pillar.explanation.slice(0, 60)}"`,
+          ...ctx,
         });
       }
 
@@ -102,6 +123,7 @@ export async function GET() {
             type: 'filtered_source',
             severity: 'warning',
             detail: `${filtered.length} fuente(s) oculta(s) en la web: "${filtered[0].title}"`,
+            ...ctx,
           });
         }
       }
@@ -114,6 +136,7 @@ export async function GET() {
           type: 'missing_sources',
           severity: 'error',
           detail: 'Sin fuentes',
+          ...ctx,
         });
         continue;
       }
@@ -134,6 +157,7 @@ export async function GET() {
               type: 'untrusted_source',
               severity: 'error',
               detail: `Dominio no verificado: ${domain}`,
+              ...ctx,
             });
           }
         } catch {
@@ -143,6 +167,7 @@ export async function GET() {
             type: 'invalid_url',
             severity: 'error',
             detail: `URL inválida: ${source.url}`,
+            ...ctx,
           });
         }
       }
