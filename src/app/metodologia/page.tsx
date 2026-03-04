@@ -50,18 +50,18 @@ export default function MetodologiaPage() {
               {[
                 {
                   num: "01",
-                  title: "Solo fuentes públicas",
-                  desc: "Toda la información proviene de registros oficiales: JNE, SUNEDU y Poder Judicial. Incluimos los enlaces para que verifiques tú mismo.",
+                  title: "Solo fuentes oficiales",
+                  desc: "Toda la información base proviene del JNE (Voto Informado) y SUNEDU. Incluimos los enlaces directos para que verifiques tú mismo.",
                 },
                 {
                   num: "02",
                   title: "Sin juicios de valor",
-                  desc: "No hacemos acusaciones ni afirmamos culpabilidad. Mostramos lo que los registros y medios públicos reportan, nada más.",
+                  desc: "No hacemos acusaciones ni afirmamos culpabilidad. Mostramos lo que el candidato declaró en su hoja de vida, nada más.",
                 },
                 {
                   num: "03",
                   title: "IA transparente",
-                  desc: "Todo contenido generado por IA está marcado con la etiqueta IA. Cada contexto incluye la fuente y un enlace verificado al artículo original.",
+                  desc: "Todo contenido generado por IA está marcado. Cada contexto público incluye la fuente periodística y un enlace verificado al artículo original.",
                 },
                 {
                   num: "04",
@@ -92,47 +92,50 @@ export default function MetodologiaPage() {
             <SectionLabel>Los 3 octógonos</SectionLabel>
             <p className="mb-6 text-sm leading-relaxed text-voraz-gray-600">
               Cada candidato tiene tres octógonos que resumen su perfil en
-              dimensiones verificables. Los labels son factuales — describen lo
-              que el candidato declaró, no lo que opinamos.
+              dimensiones verificables. Los colores siguen un semáforo:{" "}
+              <span className="font-bold text-score-bajo">verde</span> (sin alertas),{" "}
+              <span className="font-bold text-voraz-gold">ámbar</span> (atención),{" "}
+              <span className="font-bold text-voraz-red">rojo</span> (alerta).
+              Los labels describen lo que el candidato declaró, no lo que opinamos.
             </p>
 
             <div className="space-y-4">
               {/* Education */}
               <PillarCard
-                abbrev="EDU"
+                icon="EDUCACIÓN"
                 title="Educación"
-                subtitle="Según declaración jurada ante el JNE"
-                description="Tomamos el nivel de instrucción que el candidato declaró ante el JNE. Incluimos enlace a SUNEDU para que verifiques grados y títulos."
+                subtitle="Según declaración jurada ante el JNE · Verificar en SUNEDU"
+                description="Tomamos el nivel de instrucción que el candidato declaró ante el JNE. Cada ficha incluye enlace directo a su perfil en Voto Informado y a SUNEDU para verificar grados."
                 rows={[
-                  { label: "POSGRADO", desc: "Declaró posgrado (maestría o doctorado)", color: "neutral" },
-                  { label: "PREGRADO", desc: "Declaró estudios universitarios", color: "neutral" },
-                  { label: "TÉCNICA", desc: "Declaró educación técnica o básica", color: "neutral" },
+                  { label: "POSGRADO", desc: "Declaró posgrado (maestría o doctorado)", color: "green" },
+                  { label: "PREGRADO", desc: "Declaró estudios universitarios", color: "amber" },
+                  { label: "TÉCNICA", desc: "Declaró educación técnica o básica", color: "red" },
                 ]}
                 contextNote="Si la IA encuentra noticias sobre controversias académicas (plagios, grados cuestionados), el octágono se marca en ámbar con un indicador."
               />
 
               {/* Legal */}
               <PillarCard
-                abbrev="LEG"
+                icon="LEGAL"
                 title="Situación Legal"
-                subtitle="Según declaración jurada y registros públicos"
-                description="Revisamos lo declarado ante el JNE e incluimos enlace al Poder Judicial. No afirmamos culpabilidad."
+                subtitle="Según declaración jurada ante el JNE"
+                description="Revisamos lo que el candidato declaró en su hoja de vida ante el JNE. No hicimos scraping al Poder Judicial ni a otras bases — solo mostramos lo declarado."
                 rows={[
-                  { label: "NO REPORTA", desc: "No reportó problemas legales en su declaración ante el JNE", color: "neutral" },
-                  { label: "PROCESO", desc: "Registra procesos legales pendientes", color: "amber" },
+                  { label: "NO REPORTA", desc: "No declaró problemas legales en su hoja de vida ante el JNE", color: "green" },
+                  { label: "PROCESO", desc: "Declaró anotaciones o procesos pendientes", color: "amber" },
                   { label: "SENTENCIA", desc: "Declaró sentencia(s) en su hoja de vida", color: "red" },
                 ]}
-                contextNote="Si la IA encuentra investigaciones fiscales o procesos judiciales de alto perfil, el octágono se marca en ámbar aunque el JNE no lo reporte."
+                contextNote="Si la IA encuentra investigaciones fiscales o procesos judiciales de alto perfil en medios, el octágono se marca en ámbar aunque el candidato no lo haya reportado."
               />
 
               {/* Plan */}
               <PillarCard
-                abbrev="PLAN"
+                icon="VIABILIDAD"
                 title="Plan de Gobierno"
-                subtitle="Registrado ante el JNE — viabilidad con IA"
+                subtitle="Registrado ante el JNE · Viabilidad evaluada con IA"
                 description="Verificamos si el candidato registró plan ante el JNE y evaluamos su viabilidad con IA en 5 criterios técnicos, puntuados de 0 a 10."
                 rows={[
-                  { label: "COMPLETO", desc: "Plan registrado + viabilidad evaluada", color: "neutral" },
+                  { label: "COMPLETO", desc: "Plan registrado + viabilidad evaluada", color: "green" },
                   { label: "PARCIAL", desc: "Plan parcial o viabilidad con restricciones", color: "amber" },
                   { label: "SIN PLAN", desc: "Sin plan registrado o viabilidad muy baja", color: "red" },
                 ]}
@@ -140,42 +143,50 @@ export default function MetodologiaPage() {
             </div>
           </section>
 
-          {/* ── Fuentes oficiales ── */}
+          {/* ── Fuentes ── */}
           <section>
-            <SectionLabel>Fuentes oficiales</SectionLabel>
+            <SectionLabel>Fuentes de datos</SectionLabel>
             <div className="rounded-2xl bg-voraz-white p-6 shadow-[var(--shadow-card)]">
               <div className="space-y-5">
                 {[
                   {
                     label: "JNE",
                     full: "Jurado Nacional de Elecciones",
-                    desc: "Hoja de vida, fórmulas presidenciales y planes de gobierno de cada candidato vía Voto Informado.",
+                    desc: "Fuente principal. Hoja de vida, declaración jurada, fórmulas presidenciales y planes de gobierno vía Voto Informado.",
                     url: "https://votoinformado.jne.gob.pe",
+                    primary: true,
                   },
                   {
                     label: "SUNEDU",
                     full: "Superintendencia Nacional de Educación",
-                    desc: "Verificación de grados y títulos universitarios registrados.",
+                    desc: "Verificación de grados y títulos. Incluimos el enlace para que el lector consulte directamente.",
                     url: "https://enlinea.sunedu.gob.pe",
-                  },
-                  {
-                    label: "PJ",
-                    full: "Poder Judicial",
-                    desc: "Consulta de Expedientes Judiciales (enlace de referencia para cada candidato).",
-                    url: "https://cej.pj.gob.pe",
+                    primary: true,
                   },
                   {
                     label: "MEDIOS",
                     full: "Medios de comunicación",
-                    desc: "El Comercio, RPP, La República, Gestión, BBC Mundo y otros. Cada contexto público incluye enlace verificado al artículo.",
+                    desc: "Para el contexto público generado por IA. Fuentes: El Comercio, RPP, La República, Gestión, BBC Mundo y otros. Cada contexto incluye enlace verificado.",
+                    primary: false,
                   },
                 ].map((s) => (
                   <div key={s.label} className="flex items-start gap-4">
-                    <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-voraz-dark font-display text-[10px] font-bold text-voraz-white">
+                    <span className={`mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl font-display text-[10px] font-bold ${
+                      s.primary
+                        ? "bg-voraz-dark text-voraz-white"
+                        : "bg-voraz-gray-100 text-voraz-gray-600"
+                    }`}>
                       {s.label}
                     </span>
                     <div>
-                      <span className="text-xs font-bold text-voraz-black">{s.full}</span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-bold text-voraz-black">{s.full}</span>
+                        {s.primary && (
+                          <span className="rounded bg-score-bajo/10 px-1.5 py-0.5 text-[8px] font-bold text-score-bajo">
+                            FUENTE DIRECTA
+                          </span>
+                        )}
+                      </div>
                       <p className="mt-0.5 text-[13px] leading-relaxed text-voraz-gray-500">
                         {s.desc}
                       </p>
@@ -269,33 +280,22 @@ export default function MetodologiaPage() {
                     documentados con fuente verificable.
                   </p>
                   <div className="space-y-2">
-                    <div className="flex items-start gap-3">
-                      <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-voraz-gold" />
-                      <span className="text-[12px] text-voraz-gray-500">
-                        <strong className="text-voraz-black">Educación:</strong> controversias académicas, plagios, grados cuestionados
-                      </span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-voraz-gold" />
-                      <span className="text-[12px] text-voraz-gray-500">
-                        <strong className="text-voraz-black">Legal:</strong> investigaciones fiscales, condenas, procesos de alto perfil
-                      </span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-voraz-gold" />
-                      <span className="text-[12px] text-voraz-gray-500">
-                        <strong className="text-voraz-black">Cada contexto</strong> incluye nombre del medio y enlace al artículo original
-                      </span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-voraz-gold" />
-                      <span className="text-[12px] text-voraz-gray-500">
-                        <strong className="text-voraz-black">Si no hay nada notable,</strong> no se muestra contexto (la mayoría de candidatos)
-                      </span>
-                    </div>
+                    {[
+                      { bold: "Educación:", text: "controversias académicas, plagios, grados cuestionados" },
+                      { bold: "Legal:", text: "investigaciones fiscales, condenas, procesos de alto perfil" },
+                      { bold: "Cada contexto", text: "incluye nombre del medio y enlace al artículo original" },
+                      { bold: "Si no hay nada notable,", text: "no se muestra contexto (la mayoría de candidatos)" },
+                    ].map((item) => (
+                      <div key={item.bold} className="flex items-start gap-3">
+                        <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-voraz-gold" />
+                        <span className="text-[12px] text-voraz-gray-500">
+                          <strong className="text-voraz-black">{item.bold}</strong> {item.text}
+                        </span>
+                      </div>
+                    ))}
                   </div>
                   <p className="mt-4 text-[11px] text-voraz-gray-400">
-                    Modelo: GPT-4o-mini + Web Search (OpenAI) · URLs verificadas (HTTP 200) · Fuentes: El Comercio, RPP, La República, Gestión, La Razón
+                    Modelo: GPT-4o-mini + Web Search (OpenAI) · URLs verificadas (HTTP 200)
                   </p>
                 </div>
               </div>
@@ -373,13 +373,13 @@ export default function MetodologiaPage() {
                 </h2>
                 <p className="text-xs leading-relaxed text-voraz-gray-500">
                   Este sitio es una herramienta informativa que organiza
-                  información de fuentes públicas oficiales. No constituye
-                  asesoría legal, no realiza acusaciones, no afirma culpabilidad
-                  y no reemplaza el criterio independiente del lector. Toda la
-                  información proviene de registros públicos (JNE, SUNEDU, Poder
-                  Judicial) y puede contener errores o estar desactualizada.
-                  Invitamos al usuario a verificar siempre las fuentes
-                  originales. Cualquier error reportado será{" "}
+                  información de fuentes públicas oficiales (JNE, SUNEDU) y
+                  medios de comunicación. No constituye asesoría legal, no
+                  realiza acusaciones, no afirma culpabilidad y no reemplaza el
+                  criterio independiente del lector. La información puede
+                  contener errores o estar desactualizada. Invitamos al usuario
+                  a verificar siempre las fuentes originales. Cualquier error
+                  reportado será{" "}
                   <Link href="/correcciones" className="text-voraz-red hover:underline">
                     corregido públicamente
                   </Link>
@@ -408,14 +408,14 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 }
 
 function PillarCard({
-  abbrev,
+  icon,
   title,
   subtitle,
   description,
   rows,
   contextNote,
 }: {
-  abbrev: string;
+  icon: string;
   title: string;
   subtitle: string;
   description: string;
@@ -425,8 +425,8 @@ function PillarCard({
   return (
     <div className="overflow-hidden rounded-2xl bg-voraz-white shadow-[var(--shadow-card)]">
       <div className="flex items-center gap-3 border-b border-voraz-gray-100 px-6 py-4">
-        <span className="clip-octagon flex h-9 w-9 items-center justify-center bg-voraz-black font-display text-[10px] font-bold text-voraz-white">
-          {abbrev}
+        <span className="clip-octagon flex h-9 w-9 items-center justify-center bg-voraz-black font-display text-[7px] font-bold tracking-wider text-voraz-white">
+          {icon.slice(0, 3)}
         </span>
         <div>
           <h3 className="font-display text-sm font-bold uppercase tracking-tight text-voraz-black">
@@ -443,12 +443,12 @@ function PillarCard({
           {rows.map((row) => (
             <div key={row.label} className="flex items-center gap-3">
               <span
-                className={`w-24 shrink-0 rounded-full px-2.5 py-1 text-center text-[11px] font-bold ${
+                className={`w-28 shrink-0 rounded-full px-2.5 py-1 text-center text-[11px] font-bold ${
                   row.color === "red"
                     ? "bg-voraz-red/10 text-voraz-red"
                     : row.color === "amber"
                       ? "bg-voraz-gold/10 text-voraz-gold"
-                      : "bg-voraz-gray-100 text-voraz-gray-600"
+                      : "bg-score-bajo/10 text-score-bajo"
                 }`}
               >
                 {row.label}
