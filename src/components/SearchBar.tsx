@@ -17,8 +17,10 @@ const sortOptions: { value: SortOption; label: string; icon: string }[] = [
 
 const filterOptions: FilterOption[] = [
   "todos",
+  "con-encuesta",
   "sentencia",
   "pendiente",
+  "con-contexto",
   "posgrado",
   "sin-plan",
 ];
@@ -106,9 +108,11 @@ export default function SearchBar() {
                 filter === f
                   ? f === "sentencia"
                     ? "bg-voraz-red/10 text-voraz-red"
-                    : f === "pendiente"
+                    : f === "pendiente" || f === "con-contexto"
                       ? "bg-voraz-gold/10 text-voraz-gold"
-                      : "bg-voraz-black text-voraz-white shadow-sm"
+                      : f === "posgrado" || f === "con-encuesta"
+                        ? "bg-score-bajo/10 text-score-bajo"
+                        : "bg-voraz-black text-voraz-white shadow-sm"
                   : "bg-voraz-white text-voraz-gray-500 hover:bg-voraz-gray-50 hover:text-voraz-black"
               }`}
             >
@@ -118,15 +122,20 @@ export default function SearchBar() {
         </div>
       </div>
 
-      {/* Result count */}
-      <p className="mb-4 text-xs text-voraz-gray-400">
-        {results.length} de {candidates.length} candidatos
-        {sort === "encuestas" && !query && filter === "todos" && (
-          <span>
-            {" "}· ordenados por encuestas
-          </span>
+      {/* Result count + poll transparency */}
+      <div className="mb-4">
+        <p className="text-xs text-voraz-gray-400">
+          {results.length} de {candidates.length} candidatos
+          {sort === "encuestas" && (
+            <span> · ordenados por encuestas</span>
+          )}
+        </p>
+        {sort === "encuestas" && (
+          <p className="mt-0.5 text-[10px] text-voraz-gray-300">
+            Promedio de encuestas publicadas en medios · Actualizado: 1 mar 2026
+          </p>
         )}
-      </p>
+      </div>
 
       {/* No results state */}
       {results.length === 0 && (

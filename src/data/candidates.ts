@@ -1903,9 +1903,9 @@ export function getFeasibility(slug: string): FeasibilityScore | undefined {
 }
 
 /**
- * Datos de encuestas nacionales (Condor LATAM, marzo 2026).
- * Promedio ponderado de Ipsos, CPI, Datum, IEP.
- * Fuente: condorlatam.com/pe/encuestas
+ * Datos de encuestas nacionales — promedio de encuestas publicadas en medios.
+ * Última actualización: 1 marzo 2026.
+ * Solo incluye candidatos con intención de voto reportada.
  */
 export const pollData: Record<string, { order: number; pct: number }> = {
   "keiko-sofia-fujimori-higuchi": { order: 1, pct: 13.2 },
@@ -1938,7 +1938,7 @@ function sortAlphabetically(list: Candidate[]): Candidate[] {
 const sortedCandidates = sortByPollOrder(candidates);
 
 export type SortOption = "encuestas" | "az";
-export type FilterOption = "todos" | "sentencia" | "pendiente" | "posgrado" | "sin-plan";
+export type FilterOption = "todos" | "sentencia" | "pendiente" | "posgrado" | "sin-plan" | "con-contexto" | "con-encuesta";
 
 export const filterLabels: Record<FilterOption, string> = {
   todos: "Todos",
@@ -1946,6 +1946,8 @@ export const filterLabels: Record<FilterOption, string> = {
   pendiente: "Proceso legal",
   posgrado: "Posgrado",
   "sin-plan": "Sin plan",
+  "con-contexto": "Con contexto IA",
+  "con-encuesta": "Con encuesta",
 };
 
 function applyFilter(list: Candidate[], filter: FilterOption): Candidate[] {
@@ -1956,6 +1958,8 @@ function applyFilter(list: Candidate[], filter: FilterOption): Candidate[] {
       case "pendiente": return c.legal.score === "Medio";
       case "posgrado": return c.education.score === "Bajo";
       case "sin-plan": return c.plan.score === "Alto";
+      case "con-contexto": return !!(c.education.context || c.legal.context);
+      case "con-encuesta": return !!pollData[c.slug];
       default: return true;
     }
   });
