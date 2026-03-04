@@ -11,7 +11,7 @@ import {
 import CandidateCard from "./CandidateCard";
 
 const sortOptions: { value: SortOption; label: string; icon: string }[] = [
-  { value: "encuestas", label: "Encuestas", icon: "🗳" },
+  { value: "encuestas", label: "Mayor %", icon: "↓" },
   { value: "az", label: "A → Z", icon: "" },
 ];
 
@@ -123,15 +123,7 @@ export default function SearchBar() {
         {results.length} de {candidates.length} candidatos
         {sort === "encuestas" && !query && filter === "todos" && (
           <span>
-            {" "}· ordenados por{" "}
-            <a
-              href="https://condorlatam.com/pe/encuestas"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline transition-colors hover:text-voraz-red"
-            >
-              encuestas ↗
-            </a>
+            {" "}· ordenados por encuestas
           </span>
         )}
       </p>
