@@ -308,29 +308,11 @@ export default function MetodologiaPage() {
             <div className="rounded-2xl bg-voraz-white p-6 shadow-[var(--shadow-card)]">
               <p className="mb-3 text-sm leading-relaxed text-voraz-gray-600">
                 El porcentaje que se muestra junto a cada candidato es un
-                promedio ponderado de las principales encuestadoras peruanas.
+                promedio de encuestas publicadas por las principales
+                encuestadoras del país en medios nacionales.
               </p>
-              <div className="flex flex-wrap gap-2">
-                {["Ipsos", "CPI", "Datum", "IEP"].map((enc) => (
-                  <span
-                    key={enc}
-                    className="rounded-full bg-voraz-gray-100 px-3 py-1 text-[11px] font-bold text-voraz-gray-600"
-                  >
-                    {enc}
-                  </span>
-                ))}
-              </div>
-              <p className="mt-3 text-[11px] text-voraz-gray-400">
-                Fuente:{" "}
-                <a
-                  href="https://condorlatam.com/pe/encuestas"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-voraz-red hover:underline"
-                >
-                  Condor LATAM ↗
-                </a>{" "}
-                · Datos actualizados periódicamente
+              <p className="text-[11px] text-voraz-gray-400">
+                Datos actualizados periódicamente · No representa una predicción electoral
               </p>
             </div>
           </section>
