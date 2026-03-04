@@ -73,7 +73,31 @@ interface SavedFix {
   issueType: string;
   originalText: string;
   fixedText: string;
+  sourceUrls: string[];
+  sourceTitles: string[];
+  model: string;
   savedAt: string;
+}
+
+interface BatchResult {
+  total: number;
+  fixed: number;
+  failed: number;
+  fixes: Array<{
+    candidateSlug: string;
+    candidateName: string;
+    pillar: string;
+    pillarKey: string;
+    issueType: string;
+    originalText: string;
+    fixedText: string;
+    sourceUrls: string[];
+    sourceTitles: string[];
+    model: string;
+    fixedAt: string;
+  }>;
+  errors: Array<{ candidate: string; pillar: string; error: string }>;
+  completedAt: string;
 }
 
 const AI_FIXABLE_TYPES = ['truncated_text', 'generic_explanation', 'empty_explanation'];
@@ -131,6 +155,9 @@ export default function AdminPage() {
   const [savedFixes, setSavedFixes] = useState<SavedFix[]>([]);
   const [showExport, setShowExport] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [batchStatus, setBatchStatus] = useState<'idle' | 'running' | 'done'>('idle');
+  const [batchProgress, setBatchProgress] = useState('');
+  const [showAuditLog, setShowAuditLog] = useState(false);
 
   useEffect(() => {
     setSavedFixes(loadSavedFixes());
@@ -205,6 +232,9 @@ export default function AdminPage() {
         issueType: issue.type,
         originalText: issue.currentText,
         fixedText: text,
+        sourceUrls: issue.sourceUrls,
+        sourceTitles: issue.sourceTitles,
+        model: 'gpt-4o-mini (manual)',
         savedAt: new Date().toISOString(),
       };
       const updated = [...savedFixes, fix];
@@ -265,11 +295,74 @@ export default function AdminPage() {
     [savedFixes]
   );
 
-  // Split issues into fixable and non-fixable
+  // Split issues into fixable and non-fixable (must be BEFORE handlers that reference them)
   const fixableIssues = health?.issues.filter((i) => AI_FIXABLE_TYPES.includes(i.type)) || [];
   const otherIssues = health?.issues.filter((i) => !AI_FIXABLE_TYPES.includes(i.type)) || [];
   const fixableCount = fixableIssues.length;
   const fixedCount = fixableIssues.filter((i) => hasSavedFix(i)).length;
+  const unfixedCount = fixableCount - fixedCount;
+
+  // ── Batch AI Fix ────────────────────────────────────────────
+
+  const handleBatchFix = useCallback(async () => {
+    if (batchStatus === 'running') return;
+    setBatchStatus('running');
+    setBatchProgress('Enviando a la IA...');
+    try {
+      const res = await fetch('/api/ai-fix-all', { method: 'POST' });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || 'Error del servidor');
+      }
+      const batch: BatchResult = await res.json();
+      setBatchProgress(`${batch.fixed} de ${batch.total} corregidos`);
+
+      // Auto-approve all successful fixes and save to localStorage
+      const newFixes: SavedFix[] = batch.fixes.map((f) => ({
+        id: crypto.randomUUID(),
+        candidateSlug: f.candidateSlug,
+        candidateName: f.candidateName,
+        pillar: f.pillar,
+        pillarKey: f.pillarKey,
+        issueType: f.issueType,
+        originalText: f.originalText,
+        fixedText: f.fixedText,
+        sourceUrls: f.sourceUrls,
+        sourceTitles: f.sourceTitles,
+        model: f.model,
+        savedAt: f.fixedAt,
+      }));
+
+      // Merge: overwrite existing fixes for same candidate+pillar, keep others
+      const merged = [...savedFixes];
+      for (const nf of newFixes) {
+        const idx = merged.findIndex(
+          (m) => m.candidateSlug === nf.candidateSlug && m.pillarKey === nf.pillarKey && m.issueType === nf.issueType
+        );
+        if (idx >= 0) merged[idx] = nf;
+        else merged.push(nf);
+      }
+      setSavedFixes(merged);
+      persistFixes(merged);
+
+      // Mark all processed in UI as saved
+      const newStates: Record<string, AiFixState> = {};
+      for (const f of batch.fixes) {
+        const matchIdx = fixableIssues.findIndex(
+          (iss) => iss.candidateSlug === f.candidateSlug && iss.pillarKey === f.pillarKey && iss.type === f.issueType
+        );
+        if (matchIdx >= 0) {
+          const k = issueKey(fixableIssues[matchIdx], matchIdx);
+          newStates[k] = { status: 'saved' };
+        }
+      }
+      setAiFixStates((prev) => ({ ...prev, ...newStates }));
+      setBatchStatus('done');
+    } catch (err) {
+      setBatchProgress(err instanceof Error ? err.message : 'Error');
+      setBatchStatus('idle');
+    }
+  }, [batchStatus, savedFixes, fixableIssues]);
 
   // ── Render ─────────────────────────────────────────────────
 
@@ -507,19 +600,137 @@ export default function AdminPage() {
           {/* ═══ FIXABLE ISSUES — AI correction flow ═══ */}
           {fixableIssues.length > 0 && (
             <div className="rounded-2xl bg-voraz-white p-6 shadow-[var(--shadow-card)]">
-              <div className="mb-5 flex items-center justify-between">
-                <div>
-                  <h2 className="font-display text-sm font-bold uppercase tracking-wider text-voraz-black">
-                    Textos para mejorar
-                  </h2>
-                  <p className="mt-1 text-xs text-voraz-gray-400">
-                    La IA puede sugerir correcciones. Tú revisas y apruebas.
-                  </p>
+              <div className="mb-5">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h2 className="font-display text-sm font-bold uppercase tracking-wider text-voraz-black">
+                      Textos para mejorar
+                    </h2>
+                    <p className="mt-1 text-xs text-voraz-gray-400">
+                      La IA puede sugerir correcciones. Tú revisas y apruebas.
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    {savedFixes.length > 0 && (
+                      <button
+                        onClick={() => setShowAuditLog(!showAuditLog)}
+                        className={`rounded-full px-3 py-1.5 text-[10px] font-bold transition-all ${
+                          showAuditLog
+                            ? 'bg-voraz-black text-white'
+                            : 'bg-voraz-cream text-voraz-gray-500 hover:bg-voraz-black/10'
+                        }`}
+                      >
+                        📋 Historial ({savedFixes.length})
+                      </button>
+                    )}
+                    <span className="rounded-full bg-voraz-cream px-3 py-1 text-[11px] font-bold text-voraz-gray-500">
+                      {fixedCount}/{fixableCount}
+                    </span>
+                  </div>
                 </div>
-                <span className="rounded-full bg-voraz-cream px-3 py-1 text-[11px] font-bold text-voraz-gray-500">
-                  {fixedCount}/{fixableCount}
-                </span>
+
+                {/* Batch fix button */}
+                {fixedCount < fixableCount && (
+                  <div className="mt-4 flex items-center gap-3">
+                    <button
+                      onClick={handleBatchFix}
+                      disabled={batchStatus === 'running'}
+                      className={`flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-bold shadow-sm transition-all active:scale-95 ${
+                        batchStatus === 'running'
+                          ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                          : 'bg-gradient-to-r from-violet-600 to-blue-600 text-white hover:shadow-md hover:brightness-110'
+                      }`}
+                    >
+                      {batchStatus === 'running' ? (
+                        <>
+                          <span className="inline-block h-3.5 w-3.5 animate-spin rounded-full border-2 border-white/30 border-t-white" />
+                          Procesando...
+                        </>
+                      ) : (
+                        <>
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61z"/></svg>
+                          Corregir todos con IA ({fixableCount - fixedCount} pendientes)
+                        </>
+                      )}
+                    </button>
+                    {batchStatus === 'running' && (
+                      <span className="text-[11px] text-voraz-gray-400 animate-pulse">{batchProgress}</span>
+                    )}
+                    {batchStatus === 'done' && (
+                      <span className="flex items-center gap-1.5 text-[11px] font-medium text-green-600">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        {batchProgress}
+                      </span>
+                    )}
+                  </div>
+                )}
               </div>
+
+              {/* ── Audit Log ── */}
+              {showAuditLog && savedFixes.length > 0 && (
+                <div className="mb-5 rounded-xl border border-voraz-black/5 bg-voraz-cream/30 overflow-hidden">
+                  <div className="px-4 py-3 border-b border-voraz-black/5 bg-voraz-cream/50">
+                    <div className="flex items-center justify-between">
+                      <p className="text-[10px] font-bold uppercase tracking-wider text-voraz-gray-500">
+                        Historial de correcciones
+                      </p>
+                      <p className="text-[10px] text-voraz-gray-400">
+                        {savedFixes.length} corrección{savedFixes.length > 1 ? 'es' : ''}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="max-h-80 overflow-y-auto divide-y divide-voraz-black/5">
+                    {[...savedFixes].reverse().map((fix) => (
+                      <div key={fix.id} className="px-4 py-3">
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex items-center gap-2">
+                            <span className="text-xs font-bold text-voraz-black">{fix.candidateName}</span>
+                            <span className="text-[10px] text-voraz-gray-400">· {fix.pillar}</span>
+                            <span className={`rounded-md px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wider ${issueTypeColor(fix.issueType)}`}>
+                              {issueTypeLabel(fix.issueType)}
+                            </span>
+                          </div>
+                          <span className="text-[9px] text-voraz-gray-400">
+                            {new Date(fix.savedAt).toLocaleDateString('es-PE', {
+                              day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit'
+                            })}
+                          </span>
+                        </div>
+                        {/* Before → After */}
+                        <div className="rounded-lg overflow-hidden border border-voraz-black/5 text-[11px]">
+                          {fix.originalText && (
+                            <div className="bg-red-50/30 px-3 py-1.5 border-b border-voraz-black/5">
+                              <span className="text-red-400 font-bold text-[9px]">ANTES: </span>
+                              <span className="text-red-900/50 line-through">{fix.originalText.slice(0, 100)}{fix.originalText.length > 100 ? '…' : ''}</span>
+                            </div>
+                          )}
+                          <div className="bg-green-50/30 px-3 py-1.5">
+                            <span className="text-green-500 font-bold text-[9px]">DESPUÉS: </span>
+                            <span className="text-green-900">{fix.fixedText}</span>
+                          </div>
+                        </div>
+                        {/* Traceability */}
+                        <div className="mt-1.5 flex items-center gap-3 text-[9px] text-voraz-gray-400">
+                          <span>Modelo: {fix.model}</span>
+                          {fix.sourceUrls.length > 0 && (
+                            <span className="flex items-center gap-1">
+                              Fuentes: {fix.sourceUrls.map((url, si) => {
+                                let domain = '';
+                                try { domain = new URL(url).hostname.replace('www.', ''); } catch { domain = 'link'; }
+                                return (
+                                  <a key={si} href={url} target="_blank" rel="noopener noreferrer" className="underline hover:text-voraz-black">
+                                    {domain}
+                                  </a>
+                                );
+                              })}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               <div className="space-y-3">
                 {fixableIssues.map((issue, i) => {

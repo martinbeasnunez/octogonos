@@ -109,7 +109,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "Sin alertas en su declaración ante el JNE.",
+      "explanation": "No registra sentencias penales según el Poder Judicial. No se encontraron anotaciones ni procesos en su declaración ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -132,10 +132,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/de662f06-21d5-4523-a3ec-4fcbacabe16c.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/8334f8be-c20c-4910-b1e3-fcf1a35f8197.pdf"
         }
       ]
     }
@@ -160,7 +156,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "Sin alertas en su declaración ante el JNE.",
+      "explanation": "No registra sentencias penales según el Poder Judicial. Presenta una anotación por proceso civil ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -183,10 +179,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/1334ac30-c28e-42a5-8fc5-79a4638ccd2a.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/c1e6b2ab-a51c-4881-9365-033ec7b23577.pdf"
         }
       ]
     }
@@ -211,7 +203,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "Sin alertas en su declaración ante el JNE.",
+      "explanation": "No registra sentencias penales según el Poder Judicial. No se encontraron alertas en su declaración jurada ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -234,10 +226,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/3dd0e649-061c-4f31-8c3f-7a0836b58bde.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/ec164ae5-0cc4-4a12-ac5e-762af886cc9a.pdf"
         }
       ]
     }
@@ -262,7 +250,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "Sin alertas en su declaración ante el JNE.",
+      "explanation": "No registra sentencias penales según el Poder Judicial. No se encontraron alertas en su declaración ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -285,10 +273,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/4d581919-b090-43d4-89e4-e284fde587b7.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/ed45f5ef-bec7-427c-b998-f4d5abec0d48.pdf"
         }
       ]
     }
@@ -313,7 +297,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "Sin alertas en su declaración ante el JNE.",
+      "explanation": "No registra sentencias penales según el Poder Judicial. Presenta una anotación por proceso civil ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -336,10 +320,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/b4869a0b-ff3d-47d7-af7b-62fd1295db83.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/f470547e-6200-48b8-8035-7cc227135a93.pdf"
         }
       ]
     }
@@ -364,7 +344,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "Sin alertas en su declaración ante el JNE.",
+      "explanation": "No registra sentencias penales según el Poder Judicial. Tiene una anotación por proceso civil según la consulta de expedientes.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -387,10 +367,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/5643db28-6dbd-4d35-b79e-30d20d3bed85.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/79008239-1adf-42aa-ae86-7d604e36d2b8.pdf"
         }
       ]
     }
@@ -415,7 +391,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "Sin alertas en su declaración ante el JNE.",
+      "explanation": "No registra sentencias penales según el Poder Judicial. No se encontraron alertas en su declaración ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -438,10 +414,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/9984addc-e998-43b1-920f-1178d4d973aa.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/d96622ee-a711-4a27-8fb3-639fa8023be7.pdf"
         }
       ]
     }
@@ -466,7 +438,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "Sin alertas en su declaración ante el JNE.",
+      "explanation": "No registra sentencias penales según el Poder Judicial. Su hoja de vida ante el JNE no presenta alertas ni inhabilitaciones.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -489,10 +461,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/2096b44a-f3b6-4c81-b03d-94fbfc9ac762.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/5a861148-6867-430a-9308-6eadf2868ed1.pdf"
         }
       ]
     }
@@ -517,7 +485,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "Sin alertas en su declaración ante el JNE.",
+      "explanation": "No registra sentencias penales según el Poder Judicial. Su declaración ante el JNE no presenta alertas ni observaciones.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -540,10 +508,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/72576403-804a-4f28-85d3-bf4c7e648667.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/707fd179-701a-43e6-b814-71d8b9301852.pdf"
         }
       ]
     }
@@ -554,7 +518,7 @@ export const candidates: Candidate[] = [
     "party": "Fuerza Popular",
     "education": {
       "score": "Bajo",
-      "explanation": "Maestría: Título de Máster en Administración de Empresas (grado de Maestro) — Columbia University (Concluido). Grado de Licenciada en Administración de Empresas (grado de Bachiller y Título Profesi...",
+      "explanation": "...onal) — Universidad de San Martín de Porres (concluido). No registra estudios de posgrado adicionales según SUNEDU.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -568,7 +532,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Medio",
-      "explanation": "Tiene anotaciones en su declaración ante el JNE. Revisa la fuente.",
+      "explanation": "No registra sentencias penales según el Poder Judicial. Tiene una anotación por proceso civil en su declaración ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -591,10 +555,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/da4b943d-4344-4743-9362-a11ccf3054cb.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/54765cdc-b494-409a-a30c-9e6bb2833566.pdf"
         }
       ]
     }
@@ -605,7 +565,7 @@ export const candidates: Candidate[] = [
     "party": "Partido de los Trabajadores y Emprendedores Pte - Peru",
     "education": {
       "score": "Medio",
-      "explanation": "Licenciado en Administracion — Universidad Inca Garcilaso de la Vega Asociación Civil (Concluido). Bachiller en Ciencias Administrativas — Universidad Inca Garcilaso de la Vega Asociación Civil (Co...",
+      "explanation": "Licenciado en Administración — Universidad Inca Garcilaso de la Vega Asociación Civil (concluido). Bachiller en Ciencias Administrativas — Universidad Inca Garcilaso de la Vega Asociación Civil (concluido).",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -619,7 +579,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "Sin alertas en su declaración ante el JNE.",
+      "explanation": "No registra sentencias penales según el Poder Judicial. Presenta una anotación por proceso civil ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -642,10 +602,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/6988c030-5c2b-40d8-b656-dc48899d4d8c.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/51124bb5-022b-487d-9afc-78211fe2113d.pdf"
         }
       ]
     }
@@ -670,7 +626,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "Sin alertas en su declaración ante el JNE.",
+      "explanation": "No registra sentencias penales según el Poder Judicial. Presenta una anotación por proceso civil ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -693,10 +649,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/e9d731a4-a79f-42e0-9ff7-29f6abe2bd3f.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/158f6b39-7a03-405f-b152-6a5a0af4f395.pdf"
         }
       ]
     }
@@ -721,7 +673,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "Sin alertas en su declaración ante el JNE.",
+      "explanation": "No registra sentencias penales según el Poder Judicial. Presenta una anotación por proceso civil ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -744,10 +696,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/f4e5c2c2-b0df-4033-adda-6617af774154.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/04492ff5-792a-43c1-a952-05cc305c79b4.pdf"
         }
       ]
     }
@@ -795,10 +743,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/f9624874-7cf6-4737-8db3-b73707c98e70.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/db264271-bd78-4c78-af6c-c1fd64a2d6f5.pdf"
         }
       ]
     }
@@ -823,7 +767,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "Sin alertas en su declaración ante el JNE.",
+      "explanation": "No registra sentencias penales según el Poder Judicial. Su declaración ante el JNE no presenta alertas ni observaciones.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -846,10 +790,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/12de1a7b-008b-43c5-9159-c62c9b45eab1.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/c27a6054-ece1-4c00-a3d0-ad3c23b0b9bb.pdf"
         }
       ]
     }
@@ -860,7 +800,7 @@ export const candidates: Candidate[] = [
     "party": "Podemos Peru",
     "education": {
       "score": "Bajo",
-      "explanation": "Doctorado: Doctor en Educacion — Universidad de San Martín de Porres (Concluido). Maestría: Maestro en Economia Mencion en Comercio y Finanzas Internacionales — Universidad de San Martín de Porres ...",
+      "explanation": "Doctorado: Doctor en Educación — Universidad de San Martín de Porres (concluido). Maestría: Maestro en Economía Mención en Comercio y Finanzas Internacionales — Universidad de San Martín de Porres (concluido). Bachiller en Educación — Universidad de San Martín de Porres (concluido).",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -874,7 +814,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "Sin alertas en su declaración ante el JNE.",
+      "explanation": "No registra sentencias penales según el Poder Judicial. No se encontraron anotaciones por procesos civiles en la consulta de expedientes.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -897,10 +837,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/67b637b0-e2f7-47cc-8b23-fa16be709cc2.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/57cca898-e581-4019-9be0-dd9c44076703.pdf"
         }
       ]
     }
@@ -925,7 +861,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "Sin alertas en su declaración ante el JNE.",
+      "explanation": "No registra sentencias penales según el Poder Judicial. Su hoja de vida ante el JNE no presenta alertas ni observaciones.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -948,10 +884,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/2e5235de-e828-45f0-92cc-017a830abc33.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/0479dbb9-475f-40fe-8288-df630419c7f4.pdf"
         }
       ]
     }
@@ -976,7 +908,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "Sin alertas en su declaración ante el JNE.",
+      "explanation": "No registra sentencias penales según el Poder Judicial. No se encontraron alertas en su declaración ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -999,10 +931,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/3f2a939b-edf2-4505-b709-df775a5e0038.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/49c261f9-1d57-4d77-a5d3-b3f5b4562ba7.pdf"
         }
       ]
     }
@@ -1027,7 +955,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "Sin alertas en su declaración ante el JNE.",
+      "explanation": "No registra sentencias penales según el Poder Judicial. No se encontraron alertas o anotaciones en su declaración jurada ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1050,10 +978,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/6de519cb-bb4d-4319-a11b-be65d4438f4f.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/a45d799b-a8c3-4505-9d13-73a4289fd9ee.pdf"
         }
       ]
     }
@@ -1064,7 +988,7 @@ export const candidates: Candidate[] = [
     "party": "Partido Politico Integridad Democratica",
     "education": {
       "score": "Bajo",
-      "explanation": "Maestría: Maestro en Desarrollo y Defensa Nacional — Centro de Altos Estudios Nacionales - Caen (Concluido). Doctorado: Doctor en Desarrollo y Seguridad Estrategica — Centro de Altos Estudios Nacio...",
+      "explanation": "Doctorado: Doctor en Desarrollo y Seguridad Estratégica — Centro de Altos Estudios Nacionales (en curso).",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1078,7 +1002,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Medio",
-      "explanation": "Tiene anotaciones en su declaración ante el JNE. Revisa la fuente.",
+      "explanation": "No registra sentencias penales según el Poder Judicial. Presenta una anotación por proceso civil en su declaración ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1101,10 +1025,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/ee89ac99-516b-4665-9297-413a0cf104de.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/4229a340-5d25-45c0-87dc-3f18d294c22c.pdf"
         }
       ]
     }
@@ -1129,7 +1049,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "Sin alertas en su declaración ante el JNE.",
+      "explanation": "No registra sentencias penales según el Poder Judicial. No se encontraron anotaciones por procesos civiles en la consulta de expedientes.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1152,10 +1072,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/7d70c5e1-2246-42e8-90c2-372aa1cf7f52.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/f935e50c-929a-4279-a4de-6c03c6c24b8b.pdf"
         }
       ]
     }
@@ -1166,7 +1082,7 @@ export const candidates: Candidate[] = [
     "party": "Partido Democratico Federal",
     "education": {
       "score": "Bajo",
-      "explanation": "Maestría: Magister en Administracion Estrategica de Empresas — Pontificia Universidad Católica del Perú (Concluido). Postgrado: Maestria en Propiedad Intelectual y Competencia — Pontificia Universi...",
+      "explanation": "...Universidad Católica del Perú (en curso). No registra títulos adicionales según SUNEDU.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1223,7 +1139,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "Sin alertas en su declaración ante el JNE.",
+      "explanation": "No registra sentencias penales según el Poder Judicial. Tiene una anotación por proceso civil ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1246,10 +1162,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/582e0d55-19ee-4a7f-85ef-c254be5bada6.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/690d981f-30bb-4487-8d17-b995579c522b.pdf"
         }
       ]
     }
@@ -1260,7 +1172,7 @@ export const candidates: Candidate[] = [
     "party": "Fuerza y Libertad",
     "education": {
       "score": "Bajo",
-      "explanation": "Doctorado: Doctora en Gobierno y Politica Publica — Universidad de San Martín de Porres (Concluido). Bachiller en Ciencias Sociales Con Mencion en Economia — Pontificia Universidad Católica del Per...",
+      "explanation": "Doctorado: Doctora en Gobierno y Política Pública — Universidad de San Martín de Porres (concluido). Bachiller en Ciencias Sociales con mención en Economía — Pontificia Universidad Católica del Perú (concluido).",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1274,7 +1186,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "Sin alertas en su declaración ante el JNE.",
+      "explanation": "No registra sentencias penales según el Poder Judicial. Presenta una anotación por proceso civil ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1297,10 +1209,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/d4ab9fba-d366-4083-bbf5-63aa465114d9.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/de628fd3-12db-4fad-9880-e8614e2359b6.pdf"
         }
       ]
     }
@@ -1311,7 +1219,7 @@ export const candidates: Candidate[] = [
     "party": "Unidad Nacional",
     "education": {
       "score": "Medio",
-      "explanation": "Bachiller en Ciencias Militares — Escuela Militar de Chorrillos “coronel Francisco Bolognesi” (Concluido). Licenciado en Ciencias Militares — Escuela Militar de Chorrillos “coronel Francisco Bologn...",
+      "explanation": "Licenciado en Ciencias Militares — Escuela Militar de Chorrillos “coronel Francisco Bolognesi” (concluido). No registra estudios universitarios adicionales según SUNEDU.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1325,7 +1233,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "Sin alertas en su declaración ante el JNE.",
+      "explanation": "No registra sentencias penales según el Poder Judicial. Su hoja de vida ante el JNE no presenta alertas ni observaciones.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1348,10 +1256,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/ae0c9ba2-6278-4ca7-b077-16ed2cc39e76.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/030f130b-7d76-4e2f-a9f4-99fd09e5c74a.pdf"
         }
       ]
     }
@@ -1376,7 +1280,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "Sin alertas en su declaración ante el JNE.",
+      "explanation": "No registra sentencias penales según el Poder Judicial. Su declaración ante el JNE no presenta alertas ni observaciones.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1399,10 +1303,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/6eb5d4b8-bd18-4cf0-ae0e-e250ca085f5f.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/438a1d07-1ffb-4d88-a044-5e9a73097ce2.pdf"
         }
       ]
     }
@@ -1427,7 +1327,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "Sin alertas en su declaración ante el JNE.",
+      "explanation": "No registra sentencias penales según el Poder Judicial. Presenta una anotación por proceso civil ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1450,10 +1350,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/d656b83f-3177-4053-a381-0f36ec99490a.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/a29bd31b-ba8f-403c-ac52-9d43d3782c7b.pdf"
         }
       ]
     }
@@ -1464,7 +1360,7 @@ export const candidates: Candidate[] = [
     "party": "Avanza Pais - Partido de Integracion Social",
     "education": {
       "score": "Bajo",
-      "explanation": "Maestría: Magister en Desarrollo y Defensa Nacional — Centro de Altos Estudios Nacionales - Caen (Concluido). Bachiller en Ciencias Militares — Escuela Militar de Chorrillos “coronel Francisco Bolo...",
+      "explanation": "...Boloña (Concluido). No registra títulos universitarios adicionales según SUNEDU.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1478,7 +1374,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Medio",
-      "explanation": "Tiene anotaciones en su declaración ante el JNE. Revisa la fuente.",
+      "explanation": "No registra sentencias penales según el Poder Judicial. Presenta una anotación por proceso civil en su declaración ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1501,10 +1397,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/5857261c-789e-4599-ac05-4531654b10b4.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/cb71b186-9375-402c-be01-81fde4a4f3e7.pdf"
         }
       ]
     }
@@ -1552,10 +1444,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/b2d25860-484e-4226-bd13-a57fb83c59cb.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/f4681d3f-c1ea-486b-a795-547995c21d33.pdf"
         }
       ]
     }
@@ -1580,7 +1468,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "Sin alertas en su declaración ante el JNE.",
+      "explanation": "No registra sentencias penales según el Poder Judicial. Su declaración ante el JNE no presenta alertas ni observaciones.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1603,10 +1491,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/30bab146-a532-4d1b-87a7-e0f8078dc70b.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/77f7d01e-0ae1-4bff-8763-4e18303733c0.pdf"
         }
       ]
     }
@@ -1631,7 +1515,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "Sin alertas en su declaración ante el JNE.",
+      "explanation": "No registra sentencias penales según el Poder Judicial. No se encontraron anotaciones ni procesos en su contra en la consulta de expedientes.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1654,10 +1538,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/1430b48a-b7d1-4acf-970e-7c5e58f450c2.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/1d58a0ed-0df0-4000-9792-df5ddd53ea2f.pdf"
         }
       ]
     }
@@ -1682,7 +1562,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "Sin alertas en su declaración ante el JNE.",
+      "explanation": "No registra sentencias penales según el Poder Judicial. Su hoja de vida ante el JNE no presenta alertas ni observaciones.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1705,10 +1585,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/40877746-e670-42d3-840b-cdf683f46355.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/bf527749-0c7c-4642-a1d5-b8f15b4a8945.pdf"
         }
       ]
     }
@@ -1719,7 +1595,7 @@ export const candidates: Candidate[] = [
     "party": "Partido del Buen Gobierno",
     "education": {
       "score": "Bajo",
-      "explanation": "Maestría: Maestría en Ciencias Sociales Con Mención en Sociologia. — Facultad Latinoamericana de Ciencias Sociales (Concluido). Bachiller en Ciencias Sociales Con Mencion en Sociologia — Pontificia...",
+      "explanation": "...Católica del Perú (Concluido). No registra sentencias penales según el Poder Judicial.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1733,7 +1609,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Medio",
-      "explanation": "Tiene anotaciones en su declaración ante el JNE. Revisa la fuente.",
+      "explanation": "Registra una anotación por proceso civil ante el JNE. No presenta sentencias penales según el Poder Judicial.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1756,10 +1632,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/19bde703-f7f4-4715-92f3-b82e19bbe651.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/a8762e2b-b6e6-4d27-84e4-4f0da5fc17b7.pdf"
         }
       ]
     }
@@ -1784,7 +1656,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "Sin alertas en su declaración ante el JNE.",
+      "explanation": "No registra sentencias penales según el Poder Judicial. Presenta una anotación por proceso civil ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1807,10 +1679,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/76291ee3-eba2-4c88-adef-2530f2d70bb8.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/fea1dba2-01b1-4831-ab7e-fbd1db6591c9.pdf"
         }
       ]
     }
@@ -1821,7 +1689,7 @@ export const candidates: Candidate[] = [
     "party": "Progresemos",
     "education": {
       "score": "Bajo",
-      "explanation": "Postgrado: Gobierno y Gestión Publica — Instituto de Gobierno y Gestión Publica Universidad San Martin de Porres (Concluido). Bachiller en Derecho y Ciencia Politica — Universidad de San Martín de ...",
+      "explanation": "Postgrado: Gobierno y Gestión Pública — Instituto de Gobierno y Gestión Pública Universidad San Martín de Porres (concluido). Bachiller en Derecho y Ciencia Política — Universidad de San Martín de Porres (concluido).",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1835,7 +1703,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "Sin alertas en su declaración ante el JNE.",
+      "explanation": "No registra sentencias penales según el Poder Judicial. No presenta anotaciones ni procesos en su declaración ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1858,10 +1726,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/b2f303a2-1e0d-4933-9d5f-04682a3710b0.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/ed137d45-cf88-47c0-9f15-4b10fd2107ea.pdf"
         }
       ]
     }
@@ -1886,7 +1750,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "Sin alertas en su declaración ante el JNE.",
+      "explanation": "No registra sentencias penales según el Poder Judicial. Presenta una anotación por proceso civil ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1909,10 +1773,6 @@ export const candidates: Candidate[] = [
         {
           "title": "Plan de gobierno completo (PDF)",
           "url": "https://mpesije.jne.gob.pe/docs/3b89548c-81fa-479d-9ff9-2b7011fec7d2.pdf"
-        },
-        {
-          "title": "Resumen del plan de gobierno (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/4ab0caad-f051-42a3-b3f8-236ba7df2e3b.pdf"
         }
       ]
     }
