@@ -30,13 +30,18 @@ interface HealthData {
   totalSources: number;
   trustedSources: number;
   untrustedSources: number;
+  truncatedCount: number;
+  filteredSourcesCount: number;
+  genericExplanations: number;
   domainBreakdown: Array<{ domain: string; count: number; trusted: boolean }>;
   issues: Array<{
     candidate: string;
     pillar: string;
     type: string;
+    severity: 'error' | 'warning' | 'info';
     detail: string;
   }>;
+  issueSummary: { errors: number; warnings: number; infos: number };
   trustedDomains: string[];
   checkedAt: string;
 }
@@ -156,13 +161,13 @@ export default function AdminPage() {
             🛡️ Salud de datos
           </h2>
 
-          {/* Score + summary */}
+          {/* Score + quick stats */}
           <div className="mb-5 flex items-center gap-4">
             <div
               className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl font-display text-2xl font-black text-white ${
-                health.healthScore === 100
+                health.issueSummary.errors === 0 && health.issueSummary.warnings === 0
                   ? 'bg-green-500'
-                  : health.healthScore >= 90
+                  : health.issueSummary.errors === 0
                     ? 'bg-voraz-gold'
                     : 'bg-voraz-red'
               }`}
@@ -172,11 +177,39 @@ export default function AdminPage() {
             <div>
               <p className="text-sm font-bold text-voraz-black">
                 {health.healthScore === 100
-                  ? 'Todas las fuentes son oficiales'
+                  ? 'Fuentes 100% oficiales'
                   : `${health.untrustedSources} fuente(s) no verificada(s)`}
               </p>
               <p className="mt-0.5 text-[11px] text-voraz-gray-400">
-                {health.totalCandidates} candidatos · {health.totalSources} fuentes analizadas
+                {health.totalCandidates} candidatos · {health.totalSources} fuentes
+              </p>
+            </div>
+          </div>
+
+          {/* Audit summary cards */}
+          <div className="mb-4 grid grid-cols-3 gap-2">
+            <div className={`rounded-lg p-3 text-center ${health.truncatedCount > 0 ? 'bg-voraz-gold/10' : 'bg-green-50'}`}>
+              <p className={`font-display text-xl font-black ${health.truncatedCount > 0 ? 'text-voraz-gold' : 'text-green-600'}`}>
+                {health.truncatedCount}
+              </p>
+              <p className="text-[10px] font-bold uppercase tracking-wider text-voraz-gray-400">
+                Textos cortados
+              </p>
+            </div>
+            <div className={`rounded-lg p-3 text-center ${health.filteredSourcesCount > 0 ? 'bg-voraz-gold/10' : 'bg-green-50'}`}>
+              <p className={`font-display text-xl font-black ${health.filteredSourcesCount > 0 ? 'text-voraz-gold' : 'text-green-600'}`}>
+                {health.filteredSourcesCount}
+              </p>
+              <p className="text-[10px] font-bold uppercase tracking-wider text-voraz-gray-400">
+                Fuentes ocultas
+              </p>
+            </div>
+            <div className={`rounded-lg p-3 text-center ${health.genericExplanations > 0 ? 'bg-blue-50' : 'bg-green-50'}`}>
+              <p className={`font-display text-xl font-black ${health.genericExplanations > 0 ? 'text-blue-600' : 'text-green-600'}`}>
+                {health.genericExplanations}
+              </p>
+              <p className="text-[10px] font-bold uppercase tracking-wider text-voraz-gray-400">
+                Textos genéricos
               </p>
             </div>
           </div>
@@ -203,18 +236,33 @@ export default function AdminPage() {
             </div>
           </div>
 
-          {/* Issues */}
-          {health.issues.length > 0 && (
+          {/* Issues by severity */}
+          {health.issues.length > 0 ? (
             <div>
-              <p className="mb-2 text-[10px] font-bold uppercase tracking-wider text-voraz-red">
-                ⚠️ {health.issues.length} problema(s) detectado(s)
+              <p className="mb-2 text-[10px] font-bold uppercase tracking-wider text-voraz-gray-500">
+                {health.issueSummary.errors > 0 && <span className="text-voraz-red">{health.issueSummary.errors} error(es) </span>}
+                {health.issueSummary.warnings > 0 && <span className="text-voraz-gold">{health.issueSummary.warnings} aviso(s) </span>}
+                {health.issueSummary.infos > 0 && <span className="text-blue-500">{health.issueSummary.infos} info </span>}
               </p>
-              <div className="max-h-48 space-y-1 overflow-y-auto">
+              <div className="max-h-64 space-y-1 overflow-y-auto">
                 {health.issues.map((issue, i) => (
                   <div
                     key={i}
-                    className="rounded-lg bg-voraz-red/5 px-3 py-2 text-[11px]"
+                    className={`rounded-lg px-3 py-2 text-[11px] ${
+                      issue.severity === 'error'
+                        ? 'bg-voraz-red/5'
+                        : issue.severity === 'warning'
+                          ? 'bg-voraz-gold/5'
+                          : 'bg-blue-50'
+                    }`}
                   >
+                    <span className={`inline-block w-1.5 h-1.5 rounded-full mr-1.5 ${
+                      issue.severity === 'error'
+                        ? 'bg-voraz-red'
+                        : issue.severity === 'warning'
+                          ? 'bg-voraz-gold'
+                          : 'bg-blue-400'
+                    }`} />
                     <span className="font-bold text-voraz-black">{issue.candidate}</span>
                     <span className="text-voraz-gray-400"> · {issue.pillar} · </span>
                     <span className="text-voraz-gray-600">{issue.detail}</span>
@@ -222,11 +270,9 @@ export default function AdminPage() {
                 ))}
               </div>
             </div>
-          )}
-
-          {health.issues.length === 0 && (
+          ) : (
             <p className="text-xs text-green-600">
-              ✓ Sin problemas. Todos los datos provienen de fuentes oficiales verificadas.
+              ✓ Sin problemas detectados.
             </p>
           )}
         </div>
