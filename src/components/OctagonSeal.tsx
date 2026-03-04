@@ -67,21 +67,11 @@ export default function OctagonSeal({
         ? "bg-score-neutro/15 opacity-80"
         : "bg-score-bajo/12 opacity-70";
 
-  // Color del nombre del pilar — visible y legible
-  const pillarNameColor =
-    colorLevel === "red"
-      ? "text-voraz-red/60"
-      : colorLevel === "amber"
-        ? "text-score-neutro/60"
-        : "text-score-bajo/50";
+  // Pillar name = siempre blanco legible (el color va en el score, no en el título)
+  const pillarNameColor = "text-white/70";
 
-  // Divider color — accent visible
-  const dividerColor =
-    colorLevel === "red"
-      ? "bg-voraz-red/30"
-      : colorLevel === "amber"
-        ? "bg-score-neutro/30"
-        : "bg-score-bajo/25";
+  // Divider — blanco visible
+  const dividerColor = "bg-white/25";
 
   // Solo pulsa en legal con sentencias
   const shouldPulse = pillar === "legal" && score === "Alto";
@@ -129,7 +119,7 @@ export default function OctagonSeal({
               <span className={`font-display text-3xl font-black tracking-tight sm:text-4xl ${labelColor}`}>
                 {feasibilityScore}
               </span>
-              <span className={`font-display text-sm font-bold ${pillarNameColor}`}>
+              <span className="font-display text-sm font-bold text-white/40">
                 /10
               </span>
             </div>
