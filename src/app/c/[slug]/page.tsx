@@ -317,10 +317,26 @@ function PillarDetail({
         </span>
       </div>
 
-      {/* What the score means */}
-      <p className="mb-3 text-xs font-medium text-voraz-gray-400">
-        {scoreDesc}
-      </p>
+      {/* Score meaning + source attribution upfront */}
+      <div className="mb-3 flex flex-wrap items-center gap-x-2 gap-y-1">
+        <p className="text-xs font-medium text-voraz-gray-400">
+          {scoreDesc}
+        </p>
+        <span className="text-voraz-gray-300">·</span>
+        <div className="flex flex-wrap gap-1">
+          {sources.map((s, i) => (
+            <a
+              key={i}
+              href={s.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[10px] font-medium text-voraz-gray-400 underline decoration-voraz-gray-300 underline-offset-2 transition-colors hover:text-voraz-red"
+            >
+              {s.title.replace(" — ", ": ").replace(" ↗", "")}
+            </a>
+          ))}
+        </div>
+      </div>
 
       <p className="mb-4 text-sm leading-relaxed text-voraz-gray-600">
         {explanation}
@@ -371,8 +387,8 @@ function PillarDetail({
       })()}
 
       {disclaimer && (
-        <div className="mb-4 border-l-2 border-voraz-gray-200 pl-3">
-          <p className="text-xs leading-relaxed text-voraz-gray-400">
+        <div className="mb-3 border-l-2 border-voraz-gray-200 pl-3">
+          <p className="text-[11px] leading-relaxed text-voraz-gray-400">
             {disclaimer}
           </p>
         </div>
@@ -432,19 +448,7 @@ function PillarDetail({
         </div>
       )}
 
-      <div className="flex flex-wrap gap-2">
-        {sources.map((s, i) => (
-          <a
-            key={i}
-            href={s.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full bg-voraz-gray-50 px-3 py-1.5 text-[11px] font-medium text-voraz-gray-500 transition-colors hover:bg-voraz-red/10 hover:text-voraz-red"
-          >
-            {s.title} ↗
-          </a>
-        ))}
-      </div>
+      {/* Sources already shown at top */}
     </div>
   );
 }
