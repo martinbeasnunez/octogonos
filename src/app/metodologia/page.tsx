@@ -51,7 +51,7 @@ export default function MetodologiaPage() {
                 {
                   num: "01",
                   title: "Solo fuentes oficiales",
-                  desc: "Toda la información base proviene del JNE (Voto Informado) y SUNEDU. Incluimos los enlaces directos para que verifiques tú mismo.",
+                  desc: "Toda la información proviene del JNE (Voto Informado): hojas de vida, declaraciones juradas y planes de gobierno. Incluimos enlaces directos para que verifiques tú mismo.",
                 },
                 {
                   num: "02",
@@ -152,27 +152,30 @@ export default function MetodologiaPage() {
                   {
                     label: "JNE",
                     full: "Jurado Nacional de Elecciones",
-                    desc: "Fuente principal. Hoja de vida, declaración jurada, fórmulas presidenciales y planes de gobierno vía Voto Informado.",
+                    desc: "Única fuente de datos. Toda la información del sitio proviene de las hojas de vida, declaraciones juradas y planes de gobierno publicados en Voto Informado.",
                     url: "https://votoinformado.jne.gob.pe",
-                    primary: true,
+                    badge: "FUENTE DE DATOS",
+                    badgeColor: "bg-score-bajo/10 text-score-bajo",
                   },
                   {
                     label: "SUNEDU",
                     full: "Superintendencia Nacional de Educación",
-                    desc: "Verificación de grados y títulos. Incluimos el enlace para que el lector consulte directamente.",
+                    desc: "Enlace de referencia. No consultamos SUNEDU por cada candidato — incluimos el link para que el lector pueda verificar grados y títulos por su cuenta.",
                     url: "https://enlinea.sunedu.gob.pe",
-                    primary: true,
+                    badge: "REFERENCIA",
+                    badgeColor: "bg-voraz-gray-100 text-voraz-gray-500",
                   },
                   {
                     label: "MEDIOS",
                     full: "Medios de comunicación",
-                    desc: "Para el contexto público generado por IA. Fuentes: El Comercio, RPP, La República, Gestión, BBC Mundo y otros. Cada contexto incluye enlace verificado.",
-                    primary: false,
+                    desc: "Para el contexto público generado por IA. GPT busca artículos en El Comercio, RPP, La República, Gestión y otros. Cada contexto incluye enlace verificado al artículo.",
+                    badge: "VÍA IA",
+                    badgeColor: "bg-voraz-gold/10 text-voraz-gold",
                   },
                 ].map((s) => (
                   <div key={s.label} className="flex items-start gap-4">
                     <span className={`mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl font-display text-[10px] font-bold ${
-                      s.primary
+                      s.badge === "FUENTE DE DATOS"
                         ? "bg-voraz-dark text-voraz-white"
                         : "bg-voraz-gray-100 text-voraz-gray-600"
                     }`}>
@@ -181,11 +184,9 @@ export default function MetodologiaPage() {
                     <div>
                       <div className="flex items-center gap-2">
                         <span className="text-xs font-bold text-voraz-black">{s.full}</span>
-                        {s.primary && (
-                          <span className="rounded bg-score-bajo/10 px-1.5 py-0.5 text-[8px] font-bold text-score-bajo">
-                            FUENTE DIRECTA
-                          </span>
-                        )}
+                        <span className={`rounded px-1.5 py-0.5 text-[8px] font-bold ${s.badgeColor}`}>
+                          {s.badge}
+                        </span>
                       </div>
                       <p className="mt-0.5 text-[13px] leading-relaxed text-voraz-gray-500">
                         {s.desc}
@@ -373,8 +374,8 @@ export default function MetodologiaPage() {
                 </h2>
                 <p className="text-xs leading-relaxed text-voraz-gray-500">
                   Este sitio es una herramienta informativa que organiza
-                  información de fuentes públicas oficiales (JNE, SUNEDU) y
-                  medios de comunicación. No constituye asesoría legal, no
+                  información pública del JNE (Voto Informado) complementada
+                  con contexto de medios de comunicación vía IA. No constituye asesoría legal, no
                   realiza acusaciones, no afirma culpabilidad y no reemplaza el
                   criterio independiente del lector. La información puede
                   contener errores o estar desactualizada. Invitamos al usuario
