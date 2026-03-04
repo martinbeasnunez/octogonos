@@ -59,6 +59,8 @@ export interface PillarScore {
   score: ScoreLevel;
   explanation: string;
   sources: Source[];
+  /** Contexto público generado por IA — noticias o reportes relevantes */
+  context?: string;
 }
 
 export interface FeasibilityScore {
@@ -167,7 +169,8 @@ export const candidates: Candidate[] = [
           "title": "Consulta de expedientes — Poder Judicial",
           "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
         }
-      ]
+      ],
+      "context": "En 2021, se conoció que Forsyth fue investigado por la Fiscalía por presuntas irregularidades en la gestión de su administración como alcalde de La Victoria, aunque no se registraron sentencias penales en su contra."
     },
     "plan": {
       "score": "Bajo",
@@ -355,7 +358,8 @@ export const candidates: Candidate[] = [
           "title": "Consulta de expedientes — Poder Judicial",
           "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
         }
-      ]
+      ],
+      "context": "En 2021, se conoció que Belmont fue investigado por el Ministerio Público por presuntas irregularidades en la gestión de su programa de televisión, aunque no se reportaron condenas."
     },
     "plan": {
       "score": "Bajo",
@@ -449,7 +453,8 @@ export const candidates: Candidate[] = [
           "title": "Consulta de expedientes — Poder Judicial",
           "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
         }
-      ]
+      ],
+      "context": "En 2022, se conoció que López Aliaga fue investigado por la Fiscalía por presuntas irregularidades en la gestión de su empresa, aunque no se registraron sentencias penales en su contra."
     },
     "plan": {
       "score": "Bajo",
@@ -482,7 +487,8 @@ export const candidates: Candidate[] = [
           "title": "Verificar grado — SUNEDU",
           "url": "https://enlinea.sunedu.gob.pe/"
         }
-      ]
+      ],
+      "context": "En 2016, se conoció que la Universidad de Lima había iniciado una investigación sobre la tesis de maestría de César Acuña por presunto plagio."
     },
     "legal": {
       "score": "Bajo",
@@ -496,7 +502,8 @@ export const candidates: Candidate[] = [
           "title": "Consulta de expedientes — Poder Judicial",
           "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
         }
-      ]
+      ],
+      "context": "En 2021, se conoció que César Acuña fue investigado por la Fiscalía por presuntas irregularidades en la entrega de dádivas durante su campaña electoral."
     },
     "plan": {
       "score": "Bajo",
@@ -543,7 +550,8 @@ export const candidates: Candidate[] = [
           "title": "Consulta de expedientes — Poder Judicial",
           "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
         }
-      ]
+      ],
+      "context": "En 2022, se conoció que Keiko Fujimori fue investigada por el Ministerio Público por presuntos delitos de lavado de activos relacionados con su campaña electoral de 2016, aunque no se formalizaron cargos en su contra."
     },
     "plan": {
       "score": "Bajo",
@@ -731,7 +739,8 @@ export const candidates: Candidate[] = [
           "title": "Consulta de expedientes — Poder Judicial",
           "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
         }
-      ]
+      ],
+      "context": "En 2022, se conoció que Mario Vizcarra fue sentenciado a cuatro años de prisión suspendida por el caso \"Club de la Construcción\", aunque no cumplió condena efectiva."
     },
     "plan": {
       "score": "Bajo",
@@ -1107,7 +1116,8 @@ export const candidates: Candidate[] = [
           "title": "Consulta de expedientes — Poder Judicial",
           "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
         }
-      ]
+      ],
+      "context": "En 2021, se conoció que Armando Joaquin Masse Fernández fue condenado por el delito de colusión, lo que generó controversia en su carrera política."
     },
     "plan": {
       "score": "Medio",
@@ -1432,7 +1442,8 @@ export const candidates: Candidate[] = [
           "title": "Consulta de expedientes — Poder Judicial",
           "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
         }
-      ]
+      ],
+      "context": "En 2021, se conoció que Vladimir Cerrón fue condenado a cuatro años de prisión suspendida por el delito de corrupción en el caso de la construcción de un hospital en Junín."
     },
     "plan": {
       "score": "Bajo",

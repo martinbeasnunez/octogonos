@@ -178,6 +178,7 @@ export default async function CandidatePage({
               score={candidate.education.score}
               explanation={candidate.education.explanation}
               sources={candidate.education.sources}
+              context={candidate.education.context}
               disclaimer="Según declaración jurada ante el JNE. Verificar grado en SUNEDU."
             />
           </div>
@@ -188,6 +189,7 @@ export default async function CandidatePage({
               score={candidate.legal.score}
               explanation={candidate.legal.explanation}
               sources={candidate.legal.sources}
+              context={candidate.legal.context}
               disclaimer="Según declaración jurada y registros públicos. No afirmamos culpabilidad."
             />
           </div>
@@ -260,6 +262,7 @@ function PillarDetail({
   sources,
   disclaimer,
   feasibility,
+  context,
 }: {
   pillar: PillarType;
   title: string;
@@ -269,6 +272,7 @@ function PillarDetail({
   sources: { title: string; url: string }[];
   disclaimer?: string;
   feasibility?: FeasibilityScore;
+  context?: string;
 }) {
   const label = getDisplayLabel(pillar, score);
   const scoreDesc = getScoreDescription(pillar, score);
@@ -318,6 +322,23 @@ function PillarDetail({
       <p className="mb-4 text-sm leading-relaxed text-voraz-gray-600">
         {explanation}
       </p>
+
+      {/* AI-generated public context */}
+      {context && (
+        <div className="mb-4 rounded-lg bg-voraz-gray-50 px-3 py-2.5">
+          <div className="mb-1 flex items-center gap-1.5">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-voraz-gray-400">
+              Contexto público
+            </span>
+            <span className="rounded bg-voraz-gray-200 px-1 py-0.5 text-[8px] font-bold text-voraz-gray-500">
+              IA
+            </span>
+          </div>
+          <p className="text-xs leading-relaxed text-voraz-gray-600">
+            {context}
+          </p>
+        </div>
+      )}
 
       {disclaimer && (
         <div className="mb-4 border-l-2 border-voraz-gray-200 pl-3">
