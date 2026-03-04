@@ -157,17 +157,20 @@ export default function AdminPage() {
       {/* Health panel */}
       {health && (
         <div className="mb-6 rounded-2xl bg-voraz-white p-6 shadow-[var(--shadow-card)]">
-          <h2 className="mb-4 font-display text-sm font-bold uppercase tracking-wider text-voraz-black">
-            🛡️ Salud de datos
+          <h2 className="mb-1 font-display text-sm font-bold uppercase tracking-wider text-voraz-black">
+            Calidad de la data
           </h2>
+          <p className="mb-5 text-xs text-voraz-gray-400">
+            Revisamos automáticamente que toda la info del sitio venga de fuentes oficiales y esté completa.
+          </p>
 
-          {/* Score + quick stats */}
-          <div className="mb-5 flex items-center gap-4">
+          {/* Main score */}
+          <div className="mb-6 flex items-center gap-4">
             <div
               className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl font-display text-2xl font-black text-white ${
-                health.issueSummary.errors === 0 && health.issueSummary.warnings === 0
+                health.healthScore === 100
                   ? 'bg-green-500'
-                  : health.issueSummary.errors === 0
+                  : health.healthScore >= 80
                     ? 'bg-voraz-gold'
                     : 'bg-voraz-red'
               }`}
@@ -177,102 +180,159 @@ export default function AdminPage() {
             <div>
               <p className="text-sm font-bold text-voraz-black">
                 {health.healthScore === 100
-                  ? 'Fuentes 100% oficiales'
-                  : `${health.untrustedSources} fuente(s) no verificada(s)`}
+                  ? 'Todos los links son de fuentes oficiales'
+                  : `${health.untrustedSources} link(s) no son de fuentes oficiales`}
               </p>
-              <p className="mt-0.5 text-[11px] text-voraz-gray-400">
-                {health.totalCandidates} candidatos · {health.totalSources} fuentes
-              </p>
-            </div>
-          </div>
-
-          {/* Audit summary cards */}
-          <div className="mb-4 grid grid-cols-3 gap-2">
-            <div className={`rounded-lg p-3 text-center ${health.truncatedCount > 0 ? 'bg-voraz-gold/10' : 'bg-green-50'}`}>
-              <p className={`font-display text-xl font-black ${health.truncatedCount > 0 ? 'text-voraz-gold' : 'text-green-600'}`}>
-                {health.truncatedCount}
-              </p>
-              <p className="text-[10px] font-bold uppercase tracking-wider text-voraz-gray-400">
-                Textos cortados
-              </p>
-            </div>
-            <div className={`rounded-lg p-3 text-center ${health.filteredSourcesCount > 0 ? 'bg-voraz-gold/10' : 'bg-green-50'}`}>
-              <p className={`font-display text-xl font-black ${health.filteredSourcesCount > 0 ? 'text-voraz-gold' : 'text-green-600'}`}>
-                {health.filteredSourcesCount}
-              </p>
-              <p className="text-[10px] font-bold uppercase tracking-wider text-voraz-gray-400">
-                Fuentes ocultas
-              </p>
-            </div>
-            <div className={`rounded-lg p-3 text-center ${health.genericExplanations > 0 ? 'bg-blue-50' : 'bg-green-50'}`}>
-              <p className={`font-display text-xl font-black ${health.genericExplanations > 0 ? 'text-blue-600' : 'text-green-600'}`}>
-                {health.genericExplanations}
-              </p>
-              <p className="text-[10px] font-bold uppercase tracking-wider text-voraz-gray-400">
-                Textos genéricos
+              <p className="mt-0.5 text-xs text-voraz-gray-400">
+                Revisamos {health.totalSources} links de {health.totalCandidates} candidatos
               </p>
             </div>
           </div>
 
-          {/* Domain breakdown */}
-          <div className="mb-4">
-            <p className="mb-2 text-[10px] font-bold uppercase tracking-wider text-voraz-gray-400">
-              Fuentes por dominio
+          {/* What we check — 3 cards with clear explanations */}
+          <div className="mb-5">
+            <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.15em] text-voraz-gray-400">
+              Cosas que revisamos
             </p>
-            <div className="space-y-1.5">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+              {/* Card 1: Truncated */}
+              <div className={`rounded-xl p-4 ${health.truncatedCount > 0 ? 'bg-voraz-gold/10 ring-1 ring-voraz-gold/20' : 'bg-green-50 ring-1 ring-green-200/50'}`}>
+                <p className={`font-display text-2xl font-black ${health.truncatedCount > 0 ? 'text-voraz-gold' : 'text-green-600'}`}>
+                  {health.truncatedCount}
+                </p>
+                <p className="mt-1 text-xs font-bold text-voraz-black">
+                  Descripciones incompletas
+                </p>
+                <p className="mt-1 text-[11px] leading-snug text-voraz-gray-400">
+                  {health.truncatedCount > 0
+                    ? 'Textos que terminan en "..." porque se cortaron al extraer la data. Habría que completarlos.'
+                    : 'Todas las descripciones están completas.'}
+                </p>
+              </div>
+
+              {/* Card 2: Filtered sources */}
+              <div className={`rounded-xl p-4 ${health.filteredSourcesCount > 0 ? 'bg-voraz-gold/10 ring-1 ring-voraz-gold/20' : 'bg-green-50 ring-1 ring-green-200/50'}`}>
+                <p className={`font-display text-2xl font-black ${health.filteredSourcesCount > 0 ? 'text-voraz-gold' : 'text-green-600'}`}>
+                  {health.filteredSourcesCount}
+                </p>
+                <p className="mt-1 text-xs font-bold text-voraz-black">
+                  Links de PDFs ocultos
+                </p>
+                <p className="mt-1 text-[11px] leading-snug text-voraz-gray-400">
+                  {health.filteredSourcesCount > 0
+                    ? 'Links a "Resumen del plan" (PDFs del JNE) que tenemos en la data pero no se muestran al usuario porque dan error.'
+                    : 'Todos los links de fuentes se muestran al usuario.'}
+                </p>
+              </div>
+
+              {/* Card 3: Generic */}
+              <div className={`rounded-xl p-4 ${health.genericExplanations > 0 ? 'bg-blue-50 ring-1 ring-blue-200/50' : 'bg-green-50 ring-1 ring-green-200/50'}`}>
+                <p className={`font-display text-2xl font-black ${health.genericExplanations > 0 ? 'text-blue-600' : 'text-green-600'}`}>
+                  {health.genericExplanations}
+                </p>
+                <p className="mt-1 text-xs font-bold text-voraz-black">
+                  Textos copiados iguales
+                </p>
+                <p className="mt-1 text-[11px] leading-snug text-voraz-gray-400">
+                  {health.genericExplanations > 0
+                    ? 'Descripciones que dicen lo mismo para varios candidatos (ej: "No se encontró plan de gobierno"). No son específicas.'
+                    : 'Todas las descripciones son específicas de cada candidato.'}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Where the data comes from */}
+          <div className="mb-5">
+            <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.15em] text-voraz-gray-400">
+              De dónde sacamos la data
+            </p>
+            <div className="space-y-2">
               {health.domainBreakdown.map((d) => (
-                <div key={d.domain} className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
+                <div key={d.domain} className="flex items-center justify-between rounded-lg bg-voraz-cream/60 px-3 py-2">
+                  <div className="flex items-center gap-2.5">
                     <span
-                      className={`inline-flex h-2 w-2 rounded-full ${
+                      className={`inline-flex h-2.5 w-2.5 rounded-full ${
                         d.trusted ? 'bg-green-500' : 'bg-voraz-red'
                       }`}
                     />
-                    <span className="text-xs text-voraz-gray-600">{d.domain}</span>
+                    <div>
+                      <span className="text-xs font-medium text-voraz-black">{d.domain}</span>
+                      <span className="ml-2 text-[10px] text-voraz-gray-400">
+                        {d.trusted ? '(oficial)' : '(no verificado)'}
+                      </span>
+                    </div>
                   </div>
-                  <span className="text-xs font-bold text-voraz-gray-500">{d.count}</span>
+                  <span className="text-xs font-bold text-voraz-gray-500">
+                    {d.count} {d.count === 1 ? 'link' : 'links'}
+                  </span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Issues by severity */}
-          {health.issues.length > 0 ? (
-            <div>
-              <p className="mb-2 text-[10px] font-bold uppercase tracking-wider text-voraz-gray-500">
-                {health.issueSummary.errors > 0 && <span className="text-voraz-red">{health.issueSummary.errors} error(es) </span>}
-                {health.issueSummary.warnings > 0 && <span className="text-voraz-gold">{health.issueSummary.warnings} aviso(s) </span>}
-                {health.issueSummary.infos > 0 && <span className="text-blue-500">{health.issueSummary.infos} info </span>}
-              </p>
-              <div className="max-h-64 space-y-1 overflow-y-auto">
+          {/* Detailed issues — collapsible */}
+          {health.issues.length > 0 && (
+            <details className="group">
+              <summary className="mb-2 cursor-pointer select-none text-[10px] font-bold uppercase tracking-[0.15em] text-voraz-gray-400 hover:text-voraz-black">
+                Ver detalle por candidato ({health.issues.length} observaciones)
+                <span className="ml-1 transition-transform group-open:rotate-90">{'▸'}</span>
+              </summary>
+              <div className="flex gap-3 mb-3 text-[11px]">
+                {health.issueSummary.errors > 0 && (
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-voraz-red/10 px-2.5 py-1 font-medium text-voraz-red">
+                    <span className="h-1.5 w-1.5 rounded-full bg-voraz-red" />
+                    {health.issueSummary.errors} importante{health.issueSummary.errors > 1 ? 's' : ''}
+                  </span>
+                )}
+                {health.issueSummary.warnings > 0 && (
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-voraz-gold/10 px-2.5 py-1 font-medium text-voraz-gold">
+                    <span className="h-1.5 w-1.5 rounded-full bg-voraz-gold" />
+                    {health.issueSummary.warnings} aviso{health.issueSummary.warnings > 1 ? 's' : ''}
+                  </span>
+                )}
+                {health.issueSummary.infos > 0 && (
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-2.5 py-1 font-medium text-blue-600">
+                    <span className="h-1.5 w-1.5 rounded-full bg-blue-400" />
+                    {health.issueSummary.infos} nota{health.issueSummary.infos > 1 ? 's' : ''}
+                  </span>
+                )}
+              </div>
+              <div className="max-h-72 space-y-1.5 overflow-y-auto rounded-xl bg-voraz-cream/40 p-3">
                 {health.issues.map((issue, i) => (
                   <div
                     key={i}
-                    className={`rounded-lg px-3 py-2 text-[11px] ${
+                    className={`rounded-lg px-3 py-2.5 text-[11px] ${
                       issue.severity === 'error'
                         ? 'bg-voraz-red/5'
                         : issue.severity === 'warning'
                           ? 'bg-voraz-gold/5'
-                          : 'bg-blue-50'
+                          : 'bg-blue-50/60'
                     }`}
                   >
-                    <span className={`inline-block w-1.5 h-1.5 rounded-full mr-1.5 ${
-                      issue.severity === 'error'
-                        ? 'bg-voraz-red'
-                        : issue.severity === 'warning'
-                          ? 'bg-voraz-gold'
-                          : 'bg-blue-400'
-                    }`} />
-                    <span className="font-bold text-voraz-black">{issue.candidate}</span>
-                    <span className="text-voraz-gray-400"> · {issue.pillar} · </span>
-                    <span className="text-voraz-gray-600">{issue.detail}</span>
+                    <div className="flex items-start gap-2">
+                      <span className={`mt-1 inline-block h-1.5 w-1.5 shrink-0 rounded-full ${
+                        issue.severity === 'error'
+                          ? 'bg-voraz-red'
+                          : issue.severity === 'warning'
+                            ? 'bg-voraz-gold'
+                            : 'bg-blue-400'
+                      }`} />
+                      <div>
+                        <span className="font-bold text-voraz-black">{issue.candidate}</span>
+                        <span className="text-voraz-gray-400"> en {issue.pillar}</span>
+                        <p className="mt-0.5 text-voraz-gray-500">{issue.detail}</p>
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
-            </div>
-          ) : (
-            <p className="text-xs text-green-600">
-              ✓ Sin problemas detectados.
+            </details>
+          )}
+
+          {health.issues.length === 0 && (
+            <p className="text-sm text-green-600">
+              Todo bien — no encontramos problemas en la data.
             </p>
           )}
         </div>
