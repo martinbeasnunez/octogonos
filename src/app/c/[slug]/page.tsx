@@ -11,6 +11,7 @@ import {
   type PillarType,
   type ScoreLevel,
   type FeasibilityScore,
+  type PublicContext,
 } from "@/data/candidates";
 import OctagonSeal from "@/components/OctagonSeal";
 import StickyBar from "@/components/StickyBar";
@@ -272,7 +273,7 @@ function PillarDetail({
   sources: { title: string; url: string }[];
   disclaimer?: string;
   feasibility?: FeasibilityScore;
-  context?: string;
+  context?: PublicContext;
 }) {
   const label = getDisplayLabel(pillar, score);
   const scoreDesc = getScoreDescription(pillar, score);
@@ -323,7 +324,7 @@ function PillarDetail({
         {explanation}
       </p>
 
-      {/* AI-generated public context */}
+      {/* AI-generated public context with source */}
       {context && (
         <div className="mb-4 rounded-lg bg-voraz-gray-50 px-3 py-2.5">
           <div className="mb-1 flex items-center gap-1.5">
@@ -335,7 +336,22 @@ function PillarDetail({
             </span>
           </div>
           <p className="text-xs leading-relaxed text-voraz-gray-600">
-            {context}
+            {context.text}
+          </p>
+          <p className="mt-1.5 text-[10px] text-voraz-gray-400">
+            Fuente:{" "}
+            {context.sourceUrl ? (
+              <a
+                href={context.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline transition-colors hover:text-voraz-red"
+              >
+                {context.source} ↗
+              </a>
+            ) : (
+              <span>{context.source}</span>
+            )}
           </p>
         </div>
       )}

@@ -94,10 +94,12 @@ async function main() {
 
         const data = await res.json();
 
-        if (data.context) {
-          candidate[pillar].context = data.context;
+        if (data.context && data.source) {
+          const contextObj = { text: data.context, source: data.source };
+          if (data.sourceUrl && data.sourceUrl !== "null") contextObj.sourceUrl = data.sourceUrl;
+          candidate[pillar].context = contextObj;
           generated++;
-          log("📝", `  → ${data.context}`);
+          log("📝", `  → ${data.context} [${data.source}]`);
         } else {
           nullCount++;
           log("  ", `  → (sin contexto notable)`);
