@@ -269,7 +269,12 @@ export const candidates: Candidate[] = [
           "title": "Consulta de expedientes — Poder Judicial",
           "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
         }
-      ]
+      ],
+      "context": {
+        "text": "En 2012, Enrique Valderrama, candidato del APRA, fue acusado de hurto de una laptop y un televisor.",
+        "source": "La República",
+        "sourceUrl": "https://larepublica.pe/politica/2025/12/01/enrique-valderrama-candidato-del-apra-fue-acusado-en-el-hurto-de-una-laptop-y-un-televisor-en-el-2012-hnews-11717/"
+      }
     },
     "plan": {
       "score": "Bajo",
@@ -363,7 +368,12 @@ export const candidates: Candidate[] = [
           "title": "Consulta de expedientes — Poder Judicial",
           "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
         }
-      ]
+      ],
+      "context": {
+        "text": "Según La Razón, en septiembre de 2023, la Fiscalía solicitó 7 años de prisión efectiva para Ricardo Belmont por usurpación y hurto agravado en relación con la toma violenta del local de PBO Radio en el Morro Solar.",
+        "source": "La Razón",
+        "sourceUrl": "https://larazon.pe/fiscalia-pide-7-anos-de-prision-efectiva-para-ricardo-belmont/"
+      }
     },
     "plan": {
       "score": "Bajo",
@@ -396,7 +406,12 @@ export const candidates: Candidate[] = [
           "title": "Verificar grado — SUNEDU",
           "url": "https://enlinea.sunedu.gob.pe/"
         }
-      ]
+      ],
+      "context": {
+        "text": "En enero de 2026, RPP Noticias reportó que el estudio jurídico Athena, fundado por Ronald Atencio Sotomayor, candidato presidencial de Alianza Venceremos, fue denunciado por ofrecer servicios irregulares en la elaboración de tesis para estudiantes universitarios.",
+        "source": "RPP Noticias",
+        "sourceUrl": "https://rpp.pe/politica/estado/denuncian-que-estudio-juridico-fundado-por-ronald-atencio-ofrece-servicio-irregular-de-elaboracion-de-tesis-noticia-1671230"
+      }
     },
     "legal": {
       "score": "Bajo",
@@ -410,7 +425,12 @@ export const candidates: Candidate[] = [
           "title": "Consulta de expedientes — Poder Judicial",
           "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
         }
-      ]
+      ],
+      "context": {
+        "text": "Según El Comercio, Ronald Atencio, candidato presidencial de la alianza Venceremos, fue intervenido por la policía mientras conducía un vehículo con orden de captura por robo agravado y luego por insultar a efectivos en una comisaría.",
+        "source": "El Comercio",
+        "sourceUrl": "https://elcomercio.pe/politica/elecciones/el-legajo-oculto-de-ronald-atencio-candidato-presidencial-fue-intervenido-en-auto-requerido-por-robo-y-por-insultar-a-pnp-elecciones-2026-venceremos-voces-del-pueblo-candidatos-tlcnota-noticia/"
+      }
     },
     "plan": {
       "score": "Bajo",
@@ -457,7 +477,12 @@ export const candidates: Candidate[] = [
           "title": "Consulta de expedientes — Poder Judicial",
           "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
         }
-      ]
+      ],
+      "context": {
+        "text": "Según La República, en febrero de 2026, la Fiscalía abrió una investigación preliminar contra Rafael López Aliaga por la presunta destrucción y alteración de bienes culturales en el Centro Histórico de Lima, específicamente por la demolición de casonas históricas protegidas.",
+        "source": "La República",
+        "sourceUrl": "https://larepublica.pe/politica/2026/02/13/rafael-lopez-aliaga-fiscalia-investiga-a-lider-de-renovacion-popular-por-presunta-destruccion-de-casonas-hnews-1085412"
+      }
     },
     "plan": {
       "score": "Bajo",
@@ -492,9 +517,9 @@ export const candidates: Candidate[] = [
         }
       ],
       "context": {
-        "text": "En 2016, se reportó que la Universidad de Lima había iniciado una investigación sobre la tesis de maestría de César Acuña por presunto plagio.",
-        "source": "La República",
-        "sourceUrl": "https://larepublica.pe/politica/2016/10/12/universidad-de-lima-investiga-tesis-de-cesar-acuna-por-presunto-plagio/"
+        "text": "En 2016, la Universidad de Lima confirmó evidencias de plagio en la tesis de maestría de César Acuña, detectando copias literales sin mención de fuente y otras irregularidades.",
+        "source": "RPP",
+        "sourceUrl": "https://rpp.pe/peru/actualidad/universidad-de-lima-confirma-evidencias-de-plagio-en-tesis-de-cesar-acuna-noticia-996666"
       }
     },
     "legal": {
@@ -556,12 +581,7 @@ export const candidates: Candidate[] = [
           "title": "Consulta de expedientes — Poder Judicial",
           "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
         }
-      ],
-      "context": {
-        "text": "En 2022, se conoció que Keiko Fujimori fue investigada por el Ministerio Público por presunto lavado de activos en el caso de la campaña electoral de 2011.",
-        "source": "La República",
-        "sourceUrl": "https://larepublica.pe/politica/2022/06/01/keiko-fujimori-investigacion-por-lavado-de-activos-en-campana-de-2011-por-el-ministerio-publico-2022"
-      }
+      ]
     },
     "plan": {
       "score": "Bajo",
@@ -608,7 +628,12 @@ export const candidates: Candidate[] = [
           "title": "Consulta de expedientes — Poder Judicial",
           "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
         }
-      ]
+      ],
+      "context": {
+        "text": "En junio de 2025, La República reportó que Napoleón Becerra, precandidato presidencial y presidente del Partido de los Trabajadores y Emprendedores (PTE), fue denunciado por presunta violencia sexual durante un evento político en Piura.",
+        "source": "La República",
+        "sourceUrl": "https://larepublica.pe/politica/2025/06/27/elecciones-2026-napoleon-becerra-precandidato-presidencial-es-denunciado-por-presunta-ataque-sexual-hnews-1838430"
+      }
     },
     "plan": {
       "score": "Bajo",
@@ -749,11 +774,7 @@ export const candidates: Candidate[] = [
           "title": "Consulta de expedientes — Poder Judicial",
           "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
         }
-      ],
-      "context": {
-        "text": "En 2020, se conoció que Mario Vizcarra fue investigado por el caso 'Richard Swing', relacionado con presuntas irregularidades en la contratación de un artista para eventos del Ministerio de Cultura.",
-        "source": "La República"
-      }
+      ]
     },
     "plan": {
       "score": "Bajo",
@@ -847,7 +868,12 @@ export const candidates: Candidate[] = [
           "title": "Consulta de expedientes — Poder Judicial",
           "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
         }
-      ]
+      ],
+      "context": {
+        "text": "Según RPP, en agosto de 2025, la Fiscalía solicitó 22 años y 8 meses de prisión contra José Luna Gálvez por presuntas irregularidades en la inscripción de Podemos Perú.",
+        "source": "RPP",
+        "sourceUrl": "https://rpp.pe/politica/judiciales/fiscalia-pide-22-anos-y-8-meses-de-prision-contra-jose-luna-galvez-por-presuntas-irregularidades-en-inscripcion-de-podemos-peru-noticia-1649434"
+      }
     },
     "plan": {
       "score": "Bajo",
@@ -941,7 +967,12 @@ export const candidates: Candidate[] = [
           "title": "Consulta de expedientes — Poder Judicial",
           "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
         }
-      ]
+      ],
+      "context": {
+        "text": "Según La República, Álex González Castillo, candidato presidencial del Partido Demócrata Verde, enfrenta seis investigaciones fiscales por presuntos delitos como falsificación documentaria y omisión de la obligación de proveer alimentos.",
+        "source": "La República",
+        "sourceUrl": "https://larepublica.pe/politica/2025/12/21/cuatro-candidatos-cuentan-con-la-mayor-cantidad-de-investigaciones-fiscales-keiko-fujimori-rafael-lopez-aliaga-cesar-acuna-alex-gonzalez-castillo-hnews-1081380/"
+      }
     },
     "plan": {
       "score": "Bajo",
@@ -1082,7 +1113,12 @@ export const candidates: Candidate[] = [
           "title": "Consulta de expedientes — Poder Judicial",
           "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
         }
-      ]
+      ],
+      "context": {
+        "text": "Según El Comercio, el Jurado Nacional de Elecciones inició un proceso sancionador contra Alfonso López Chau por presunta consignación de información falsa en su declaración jurada de hoja de vida.",
+        "source": "El Comercio",
+        "sourceUrl": "https://elcomercio.pe/politica/elecciones/elecciones-generales-2026-jee-inicia-proceso-sancionador-contra-alfonso-lopez-chau-y-mario-vizcarra-ultimas-noticia/"
+      }
     },
     "plan": {
       "score": "Bajo",
@@ -1129,11 +1165,7 @@ export const candidates: Candidate[] = [
           "title": "Consulta de expedientes — Poder Judicial",
           "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
         }
-      ],
-      "context": {
-        "text": "En 2021, se conoció que Armando Masse fue condenado por el delito de colusión en un caso relacionado con la construcción de obras públicas.",
-        "source": "La República"
-      }
+      ]
     },
     "plan": {
       "score": "Medio",
@@ -1223,7 +1255,12 @@ export const candidates: Candidate[] = [
           "title": "Consulta de expedientes — Poder Judicial",
           "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
         }
-      ]
+      ],
+      "context": {
+        "text": "Según El Comercio, Fiorella Molinelli enfrenta tres procesos fiscales por colusión y abuso de autoridad relacionados con su gestión en EsSalud y el caso Chinchero.",
+        "source": "El Comercio",
+        "sourceUrl": "https://elcomercio.pe/politica/candidata-fiorella-molinelli-acumula-tres-procesos-fiscales-esta-es-la-realidad-de-su-historial-de-denuncias-elecciones-2026-noticia/"
+      }
     },
     "plan": {
       "score": "Bajo",
@@ -1411,7 +1448,12 @@ export const candidates: Candidate[] = [
           "title": "Consulta de expedientes — Poder Judicial",
           "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
         }
-      ]
+      ],
+      "context": {
+        "text": "En febrero de 2026, el Jurado Electoral Especial de Lima Centro 1 inició un procedimiento sancionador contra José Williams Zapata por presunta omisión de información en su hoja de vida, relacionada con una sentencia por homicidio calificado; sin embargo, en febrero de 2026, el mismo organismo archivó el expediente, concluyendo que no existía sentencia condenatoria firme ni antecedentes penales vigentes contra el candidato.",
+        "source": "RPP",
+        "sourceUrl": "https://rpp.pe/politica/elecciones/jose-williams-jee-inicia-proceso-sancionador-en-su-contra-por-omision-de-sentencia-en-su-hoja-de-vida-noticia-1675347"
+      }
     },
     "plan": {
       "score": "Bajo",
@@ -1444,11 +1486,7 @@ export const candidates: Candidate[] = [
           "title": "Verificar grado — SUNEDU",
           "url": "https://enlinea.sunedu.gob.pe/"
         }
-      ],
-      "context": {
-        "text": "En 2021, se reportó que la Universidad Nacional Mayor de San Marcos había iniciado una investigación sobre la validez del título de doctorado de Vladimir Cerrón debido a supuestas irregularidades en su obtención.",
-        "source": "La República"
-      }
+      ]
     },
     "legal": {
       "score": "Alto",
@@ -1464,9 +1502,9 @@ export const candidates: Candidate[] = [
         }
       ],
       "context": {
-        "text": "En 2022, se conoció que Vladimir Cerrón fue condenado a cuatro años de prisión por el delito de corrupción en el caso de la construcción de un hospital en Junín.",
+        "text": "Según La República, en enero de 2026, el Poder Judicial confirmó la detención preventiva por 24 meses contra Vladimir Cerrón por presunta organización criminal y lavado de activos.",
         "source": "La República",
-        "sourceUrl": "https://larepublica.pe/politica/2022/06/30/vladimir-cerron-condenado-a-cuatro-anos-de-prision-por-corrupcion-en-caso-hospital-2022"
+        "sourceUrl": "https://rpp.pe/politica/judiciales/pj-confirmo-detencion-preventiva-contra-vladimir-cerron-por-presunta-organizacion-criminal-y-lavado-de-activos-noticia-1670983"
       }
     },
     "plan": {
@@ -1702,7 +1740,12 @@ export const candidates: Candidate[] = [
           "title": "Consulta de expedientes — Poder Judicial",
           "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
         }
-      ]
+      ],
+      "context": {
+        "text": "En enero de 2026, el Jurado Electoral Especial de Lima Centro 1 identificó que Carlos Álvarez, candidato presidencial por el partido País Para Todos, habría omitido declarar una sentencia judicial por peculado en su hoja de vida.",
+        "source": "El Comercio",
+        "sourceUrl": "https://elcomercio.pe/elecciones/carlos-alvarez-fiscalizacion-del-jee-lima-centro-1-dice-que-habria-omitido-declarar-sentencia-por-peculado-en-hoja-de-vida-ultimas-noticia/"
+      }
     },
     "plan": {
       "score": "Bajo",
@@ -1749,7 +1792,12 @@ export const candidates: Candidate[] = [
           "title": "Consulta de expedientes — Poder Judicial",
           "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
         }
-      ]
+      ],
+      "context": {
+        "text": "En diciembre de 2025, La República reportó que Paul Jaimes, candidato presidencial de Progresemos, minimizó las dos denuncias por violencia en su contra, asegurando que fue víctima de \"difamación\".",
+        "source": "La República",
+        "sourceUrl": "https://larepublica.pe/politica/2025/12/15/paul-jaimes-candidato-presidencial-de-progresemos-minimiza-denuncias-por-violencia-y-asegura-que-fue-difamado-hnews-1116480/"
+      }
     },
     "plan": {
       "score": "Bajo",
