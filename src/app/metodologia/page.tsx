@@ -161,7 +161,7 @@ export default function MetodologiaPage() {
                 note: "Según declaración jurada y registros públicos. No afirmamos culpabilidad.",
                 rows: [
                   { label: "LIMPIO", desc: "No registra alertas en fuentes públicas.", color: "neutral" as const },
-                  { label: "PENDIENTE", desc: "Registra anotaciones o procesos pendientes.", color: "amber" as const },
+                  { label: "PROCESO", desc: "Registra anotaciones o procesos legales pendientes.", color: "amber" as const },
                   { label: "SENTENCIA", desc: "Declaró sentencia(s) en su hoja de vida.", color: "red" as const },
                 ],
               },

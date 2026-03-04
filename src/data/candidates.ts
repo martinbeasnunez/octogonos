@@ -3,7 +3,7 @@ export type PillarType = "education" | "legal" | "plan";
 
 const pillarDisplayLabels: Record<PillarType, Record<ScoreLevel, string>> = {
   education: { Bajo: "POSGRADO", Medio: "PREGRADO", Alto: "TÉCNICA" },
-  legal: { Bajo: "LIMPIO", Medio: "PENDIENTE", Alto: "SENTENCIA" },
+  legal: { Bajo: "LIMPIO", Medio: "PROCESO", Alto: "SENTENCIA" },
   plan: { Bajo: "COMPLETO", Medio: "PARCIAL", Alto: "SIN PLAN" },
 };
 
@@ -1868,8 +1868,8 @@ export type FilterOption = "todos" | "sentencia" | "pendiente" | "posgrado" | "s
 
 export const filterLabels: Record<FilterOption, string> = {
   todos: "Todos",
-  sentencia: "Sentencia",
-  pendiente: "Pendiente",
+  sentencia: "Con sentencia",
+  pendiente: "Proceso legal",
   posgrado: "Posgrado",
   "sin-plan": "Sin plan",
 };
