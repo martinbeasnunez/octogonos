@@ -29,12 +29,12 @@ REGLAS CRÍTICAS:
 2. Escribe SOLO el texto de reemplazo. Sin comillas, sin prefijos, sin explicaciones tuyas.
 3. Máximo 2-3 oraciones cortas. Estilo periodístico neutral.
 4. SOLO usa datos que puedas respaldar con las fuentes oficiales indicadas. NUNCA inventes datos.
-5. Si no tienes info suficiente de las fuentes, di exactamente qué se verificó y qué resultado dio (ej: "No registra sentencias penales según el Poder Judicial" en vez de inventar un historial).
+5. SOLO usamos datos del JNE (Voto Informado) y SUNEDU. NUNCA afirmes que verificaste el Poder Judicial u otra fuente.
 6. Escribe en español.
 
 EJEMPLOS DE BUEN FORMATO:
-- Educación: "Bachiller en Derecho — Universidad Nacional Mayor de San Marcos (concluido). Maestría en Gestión Pública — ESAN (en curso)."
-- Legal: "No registra sentencias penales según el Poder Judicial. Declaró una anotación por proceso civil ante el JNE."
+- Educación: "Bachiller en Derecho — Universidad Nacional Mayor de San Marcos (concluido). Maestría en Gestión Pública — ESAN (en curso). Verificar grado en SUNEDU."
+- Legal: "Declaró una anotación por proceso civil en su hoja de vida ante el JNE."
 - Plan: "Propone reforma del sistema de pensiones y ampliación de Pensión 65. Incluye plan de infraestructura vial para zonas rurales."
 
 EJEMPLOS DE MAL FORMATO (no hagas esto):

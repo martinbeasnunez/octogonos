@@ -35,31 +35,53 @@ export default function OctagonSeal({
   // For plan pillar with feasibility, show the score instead of label
   const showFeasibility = pillar === "plan" && feasibilityScore !== undefined;
 
-  // Color por pilar — contexto público sube a ámbar si el nivel es neutral
+  // Semáforo: verde (bueno), ámbar (medio/contexto), rojo (alto)
   const colorLevel = (() => {
     if (score === "Alto") return "red" as const;
     if (score === "Medio") return "amber" as const;
     if (hasContext) return "amber" as const;
-    return "neutral" as const;
+    return "green" as const;
   })();
 
-  const labelColor = colorLevel === "red"
-    ? "text-voraz-red"
-    : colorLevel === "amber"
-      ? "text-score-neutro"
-      : "text-voraz-white";
+  // Colores del label central
+  const labelColor =
+    colorLevel === "red"
+      ? "text-voraz-red"
+      : colorLevel === "amber"
+        ? "text-score-neutro"
+        : "text-score-bajo";
 
-  const ringColor = colorLevel === "red"
-    ? "bg-gradient-to-br from-voraz-red via-voraz-red/80 to-voraz-red/60"
-    : colorLevel === "amber"
-      ? "bg-gradient-to-br from-score-neutro via-score-neutro/80 to-score-neutro/60"
-      : "bg-voraz-gray-200";
+  // Colores del anillo octagonal
+  const ringColor =
+    colorLevel === "red"
+      ? "bg-gradient-to-br from-voraz-red via-voraz-red/80 to-voraz-red/60"
+      : colorLevel === "amber"
+        ? "bg-gradient-to-br from-score-neutro via-score-neutro/80 to-score-neutro/60"
+        : "bg-gradient-to-br from-score-bajo via-score-bajo/70 to-score-bajo/50";
 
-  const glowColor = colorLevel === "red"
-    ? "bg-voraz-red/15 opacity-100"
-    : colorLevel === "amber"
-      ? "bg-score-neutro/15 opacity-80"
-      : "bg-voraz-black/10 opacity-50";
+  // Glow exterior
+  const glowColor =
+    colorLevel === "red"
+      ? "bg-voraz-red/20 opacity-100"
+      : colorLevel === "amber"
+        ? "bg-score-neutro/15 opacity-80"
+        : "bg-score-bajo/12 opacity-70";
+
+  // Color del nombre del pilar (sutil pero visible)
+  const pillarNameColor =
+    colorLevel === "red"
+      ? "text-voraz-red/40"
+      : colorLevel === "amber"
+        ? "text-score-neutro/40"
+        : "text-score-bajo/40";
+
+  // Divider color
+  const dividerColor =
+    colorLevel === "red"
+      ? "bg-voraz-red/20"
+      : colorLevel === "amber"
+        ? "bg-score-neutro/20"
+        : "bg-score-bajo/20";
 
   // Solo pulsa en legal con sentencias
   const shouldPulse = pillar === "legal" && score === "Alto";
@@ -98,16 +120,16 @@ export default function OctagonSeal({
 
         {/* Content — clean layout: pillar name + score */}
         <div className="relative z-10 flex flex-col items-center px-4 text-center">
-          <span className="font-display text-[9px] font-bold uppercase tracking-[0.2em] text-white/30 sm:text-[10px]">
+          <span className={`font-display text-[10px] font-bold uppercase tracking-[0.2em] sm:text-[11px] ${pillarNameColor}`}>
             {pillarTitle}
           </span>
-          <div className="my-1.5 h-px w-8 bg-white/15" />
+          <div className={`my-1.5 h-px w-10 ${dividerColor}`} />
           {showFeasibility ? (
             <div className="flex items-baseline gap-0.5">
               <span className={`font-display text-3xl font-black tracking-tight sm:text-4xl ${labelColor}`}>
                 {feasibilityScore}
               </span>
-              <span className="font-display text-sm font-bold text-white/30">
+              <span className={`font-display text-sm font-bold ${pillarNameColor}`}>
                 /10
               </span>
             </div>

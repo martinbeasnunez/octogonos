@@ -118,7 +118,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "No registra sentencias penales según el Poder Judicial. No se encontraron anotaciones ni procesos en su declaración ante el JNE.",
+      "explanation": "No declaró anotaciones ni procesos en su hoja de vida ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -165,7 +165,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "No registra sentencias penales según el Poder Judicial. Presenta una anotación por proceso civil ante el JNE.",
+      "explanation": "Presenta una anotación por proceso civil ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -212,7 +212,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "No registra sentencias penales según el Poder Judicial. No se encontraron alertas en su declaración jurada ante el JNE.",
+      "explanation": "No declaró alertas en su hoja de vida ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -259,7 +259,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "No registra sentencias penales según el Poder Judicial. No se encontraron alertas en su declaración ante el JNE.",
+      "explanation": "No declaró alertas en su hoja de vida ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -311,7 +311,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "No registra sentencias penales según el Poder Judicial. Presenta una anotación por proceso civil ante el JNE.",
+      "explanation": "Presenta una anotación por proceso civil ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -358,7 +358,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "No registra sentencias penales según el Poder Judicial. Tiene una anotación por proceso civil según la consulta de expedientes.",
+      "explanation": "Tiene una anotación por proceso civil en su declaración ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -415,7 +415,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "No registra sentencias penales según el Poder Judicial. No se encontraron alertas en su declaración ante el JNE.",
+      "explanation": "No declaró alertas en su hoja de vida ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -467,7 +467,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "No registra sentencias penales según el Poder Judicial. Su hoja de vida ante el JNE no presenta alertas ni inhabilitaciones.",
+      "explanation": "Su hoja de vida ante el JNE no presenta alertas ni inhabilitaciones.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -524,7 +524,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "No registra sentencias penales según el Poder Judicial. Su declaración ante el JNE no presenta alertas ni observaciones.",
+      "explanation": "Su declaración ante el JNE no presenta alertas ni observaciones.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -557,7 +557,7 @@ export const candidates: Candidate[] = [
     "party": "Fuerza Popular",
     "education": {
       "score": "Bajo",
-      "explanation": "...onal) — Universidad de San Martín de Porres (concluido). No registra estudios de posgrado adicionales según SUNEDU.",
+      "explanation": "...onal) — Universidad de San Martín de Porres (concluido). Verificar grado en SUNEDU.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -571,7 +571,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Medio",
-      "explanation": "No registra sentencias penales según el Poder Judicial. Tiene una anotación por proceso civil en su declaración ante el JNE.",
+      "explanation": "Tiene una anotación por proceso civil en su declaración ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -618,7 +618,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "No registra sentencias penales según el Poder Judicial. Presenta una anotación por proceso civil ante el JNE.",
+      "explanation": "Presenta una anotación por proceso civil ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -670,7 +670,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "No registra sentencias penales según el Poder Judicial. Presenta una anotación por proceso civil ante el JNE.",
+      "explanation": "Presenta una anotación por proceso civil ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -717,7 +717,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "No registra sentencias penales según el Poder Judicial. Presenta una anotación por proceso civil ante el JNE.",
+      "explanation": "Presenta una anotación por proceso civil ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -811,7 +811,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "No registra sentencias penales según el Poder Judicial. Su declaración ante el JNE no presenta alertas ni observaciones.",
+      "explanation": "Su declaración ante el JNE no presenta alertas ni observaciones.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -858,7 +858,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "No registra sentencias penales según el Poder Judicial. No se encontraron anotaciones por procesos civiles en la consulta de expedientes.",
+      "explanation": "No declaró anotaciones por procesos civiles en su hoja de vida ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -910,7 +910,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "No registra sentencias penales según el Poder Judicial. Su hoja de vida ante el JNE no presenta alertas ni observaciones.",
+      "explanation": "Su hoja de vida ante el JNE no presenta alertas ni observaciones.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -957,7 +957,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "No registra sentencias penales según el Poder Judicial. No se encontraron alertas en su declaración ante el JNE.",
+      "explanation": "No declaró alertas en su hoja de vida ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1009,7 +1009,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "No registra sentencias penales según el Poder Judicial. No se encontraron alertas o anotaciones en su declaración jurada ante el JNE.",
+      "explanation": "No declaró alertas ni anotaciones en su hoja de vida ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1056,7 +1056,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Medio",
-      "explanation": "No registra sentencias penales según el Poder Judicial. Presenta una anotación por proceso civil en su declaración ante el JNE.",
+      "explanation": "Presenta una anotación por proceso civil en su declaración ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1103,7 +1103,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "No registra sentencias penales según el Poder Judicial. No se encontraron anotaciones por procesos civiles en la consulta de expedientes.",
+      "explanation": "No declaró anotaciones por procesos civiles en su hoja de vida ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1141,7 +1141,7 @@ export const candidates: Candidate[] = [
     "party": "Partido Democratico Federal",
     "education": {
       "score": "Bajo",
-      "explanation": "...Universidad Católica del Perú (en curso). No registra títulos adicionales según SUNEDU.",
+      "explanation": "...Universidad Católica del Perú (en curso). Verificar grado en SUNEDU.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1198,7 +1198,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "No registra sentencias penales según el Poder Judicial. Tiene una anotación por proceso civil ante el JNE.",
+      "explanation": "Tiene una anotación por proceso civil ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1245,7 +1245,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "No registra sentencias penales según el Poder Judicial. Presenta una anotación por proceso civil ante el JNE.",
+      "explanation": "Presenta una anotación por proceso civil ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1283,7 +1283,7 @@ export const candidates: Candidate[] = [
     "party": "Unidad Nacional",
     "education": {
       "score": "Medio",
-      "explanation": "Licenciado en Ciencias Militares — Escuela Militar de Chorrillos “coronel Francisco Bolognesi” (concluido). No registra estudios universitarios adicionales según SUNEDU.",
+      "explanation": "Licenciado en Ciencias Militares — Escuela Militar de Chorrillos “coronel Francisco Bolognesi” (concluido). Verificar grado en SUNEDU.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1297,7 +1297,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "No registra sentencias penales según el Poder Judicial. Su hoja de vida ante el JNE no presenta alertas ni observaciones.",
+      "explanation": "Su hoja de vida ante el JNE no presenta alertas ni observaciones.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1344,7 +1344,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "No registra sentencias penales según el Poder Judicial. Su declaración ante el JNE no presenta alertas ni observaciones.",
+      "explanation": "Su declaración ante el JNE no presenta alertas ni observaciones.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1391,7 +1391,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "No registra sentencias penales según el Poder Judicial. Presenta una anotación por proceso civil ante el JNE.",
+      "explanation": "Presenta una anotación por proceso civil ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1424,7 +1424,7 @@ export const candidates: Candidate[] = [
     "party": "Avanza Pais - Partido de Integracion Social",
     "education": {
       "score": "Bajo",
-      "explanation": "...Boloña (Concluido). No registra títulos universitarios adicionales según SUNEDU.",
+      "explanation": "...Boloña (Concluido). Verificar grado en SUNEDU.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1438,7 +1438,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Medio",
-      "explanation": "No registra sentencias penales según el Poder Judicial. Presenta una anotación por proceso civil en su declaración ante el JNE.",
+      "explanation": "Presenta una anotación por proceso civil en su declaración ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1542,7 +1542,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "No registra sentencias penales según el Poder Judicial. Su declaración ante el JNE no presenta alertas ni observaciones.",
+      "explanation": "Su declaración ante el JNE no presenta alertas ni observaciones.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1589,7 +1589,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "No registra sentencias penales según el Poder Judicial. No se encontraron anotaciones ni procesos en su contra en la consulta de expedientes.",
+      "explanation": "No declaró anotaciones ni procesos en su hoja de vida ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1636,7 +1636,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "No registra sentencias penales según el Poder Judicial. Su hoja de vida ante el JNE no presenta alertas ni observaciones.",
+      "explanation": "Su hoja de vida ante el JNE no presenta alertas ni observaciones.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1669,7 +1669,7 @@ export const candidates: Candidate[] = [
     "party": "Partido del Buen Gobierno",
     "education": {
       "score": "Bajo",
-      "explanation": "...Católica del Perú (Concluido). No registra sentencias penales según el Poder Judicial.",
+      "explanation": "Posgrado en la Pontificia Universidad Católica del Perú (Concluido). Verificar grado en SUNEDU.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1683,7 +1683,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Medio",
-      "explanation": "Registra una anotación por proceso civil ante el JNE. No presenta sentencias penales según el Poder Judicial.",
+      "explanation": "Registra una anotación por proceso civil ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1730,7 +1730,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "No registra sentencias penales según el Poder Judicial. Presenta una anotación por proceso civil ante el JNE.",
+      "explanation": "Presenta una anotación por proceso civil ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1782,7 +1782,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "No registra sentencias penales según el Poder Judicial. No presenta anotaciones ni procesos en su declaración ante el JNE.",
+      "explanation": "No presenta anotaciones ni procesos en su declaración ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1834,7 +1834,7 @@ export const candidates: Candidate[] = [
     },
     "legal": {
       "score": "Bajo",
-      "explanation": "No registra sentencias penales según el Poder Judicial. Presenta una anotación por proceso civil ante el JNE.",
+      "explanation": "Presenta una anotación por proceso civil ante el JNE.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
