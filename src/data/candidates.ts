@@ -557,7 +557,7 @@ export const candidates: Candidate[] = [
     "party": "Fuerza Popular",
     "education": {
       "score": "Bajo",
-      "explanation": "...onal) — Universidad de San Martín de Porres (concluido). Verificar grado en SUNEDU.",
+      "explanation": "Declaró estudios de posgrado en su hoja de vida ante el JNE. Verificar grado en SUNEDU.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1141,7 +1141,7 @@ export const candidates: Candidate[] = [
     "party": "Partido Democratico Federal",
     "education": {
       "score": "Bajo",
-      "explanation": "...Universidad Católica del Perú (en curso). Verificar grado en SUNEDU.",
+      "explanation": "Declaró estudios de posgrado en su hoja de vida ante el JNE. Verificar grado en SUNEDU.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
@@ -1424,7 +1424,7 @@ export const candidates: Candidate[] = [
     "party": "Avanza Pais - Partido de Integracion Social",
     "education": {
       "score": "Bajo",
-      "explanation": "...Boloña (Concluido). Verificar grado en SUNEDU.",
+      "explanation": "Declaró estudios de posgrado en su hoja de vida ante el JNE. Verificar grado en SUNEDU.",
       "sources": [
         {
           "title": "Hoja de vida — JNE Voto Informado",
