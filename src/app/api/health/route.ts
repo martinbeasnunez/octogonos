@@ -78,7 +78,7 @@ export async function GET() {
           pillar: pillarLabel,
           type: 'empty_explanation',
           severity: 'error',
-          detail: 'Explicación vacía o muy corta',
+          detail: 'No tiene descripción. Hay que escribirla.',
           ...ctx,
         });
       }
@@ -91,7 +91,7 @@ export async function GET() {
           pillar: pillarLabel,
           type: 'truncated_text',
           severity: 'warning',
-          detail: `Texto cortado: "…${pillar.explanation.slice(-60)}"`,
+          detail: `La descripción se cortó a la mitad (termina en "..."). Hay que completarla.`,
           ...ctx,
         });
       }
@@ -105,7 +105,7 @@ export async function GET() {
           pillar: pillarLabel,
           type: 'generic_explanation',
           severity: 'info',
-          detail: `Texto genérico (no específico del candidato): "${pillar.explanation.slice(0, 60)}"`,
+          detail: `Dice "${pillar.explanation.slice(0, 50)}${pillar.explanation.length > 50 ? '…' : ''}" — es la misma frase para muchos candidatos. Hay que personalizarla.`,
           ...ctx,
         });
       }
@@ -122,7 +122,7 @@ export async function GET() {
             pillar: pillarLabel,
             type: 'filtered_source',
             severity: 'warning',
-            detail: `${filtered.length} fuente(s) oculta(s) en la web: "${filtered[0].title}"`,
+            detail: `Tiene un link al PDF del plan de gobierno del JNE, pero no se muestra porque suele dar error al abrirlo.`,
             ...ctx,
           });
         }
@@ -135,7 +135,7 @@ export async function GET() {
           pillar: pillarLabel,
           type: 'missing_sources',
           severity: 'error',
-          detail: 'Sin fuentes',
+          detail: 'No tiene ningún link de fuente. Hay que agregar al menos uno.',
           ...ctx,
         });
         continue;
@@ -156,7 +156,7 @@ export async function GET() {
               pillar: pillarLabel,
               type: 'untrusted_source',
               severity: 'error',
-              detail: `Dominio no verificado: ${domain}`,
+              detail: `Tiene un link a "${domain}" que no es una fuente oficial. Solo usamos JNE, SUNEDU y Poder Judicial.`,
               ...ctx,
             });
           }
@@ -166,7 +166,7 @@ export async function GET() {
             pillar: pillarLabel,
             type: 'invalid_url',
             severity: 'error',
-            detail: `URL inválida: ${source.url}`,
+            detail: `Tiene un link roto que no se puede abrir.`,
             ...ctx,
           });
         }

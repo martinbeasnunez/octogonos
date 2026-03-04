@@ -76,15 +76,12 @@ interface SavedFix {
   savedAt: string;
 }
 
-// Issue types that AI can fix
 const AI_FIXABLE_TYPES = ['truncated_text', 'generic_explanation', 'empty_explanation'];
 
-// Stable key for each issue
 function issueKey(issue: HealthIssue, index: number): string {
   return `${issue.candidateSlug}__${issue.pillarKey}__${issue.type}__${index}`;
 }
 
-// localStorage helpers
 function loadSavedFixes(): SavedFix[] {
   if (typeof window === 'undefined') return [];
   try {
@@ -98,6 +95,30 @@ function persistFixes(fixes: SavedFix[]) {
   localStorage.setItem('ai_fixes', JSON.stringify(fixes));
 }
 
+// Human-readable issue type labels
+function issueTypeLabel(type: string): string {
+  switch (type) {
+    case 'truncated_text': return 'Texto incompleto';
+    case 'generic_explanation': return 'Texto genérico';
+    case 'empty_explanation': return 'Sin descripción';
+    case 'filtered_source': return 'PDF oculto';
+    case 'untrusted_source': return 'Fuente no oficial';
+    case 'missing_sources': return 'Sin fuentes';
+    case 'invalid_url': return 'URL rota';
+    default: return type;
+  }
+}
+
+function issueTypeColor(type: string): string {
+  switch (type) {
+    case 'truncated_text': return 'bg-amber-100 text-amber-700';
+    case 'generic_explanation': return 'bg-blue-100 text-blue-700';
+    case 'empty_explanation': return 'bg-red-100 text-red-700';
+    case 'filtered_source': return 'bg-orange-100 text-orange-700';
+    default: return 'bg-gray-100 text-gray-600';
+  }
+}
+
 // ── Component ──────────────────────────────────────────────────
 
 export default function AdminPage() {
@@ -106,13 +127,11 @@ export default function AdminPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // AI fix state
   const [aiFixStates, setAiFixStates] = useState<Record<string, AiFixState>>({});
   const [savedFixes, setSavedFixes] = useState<SavedFix[]>([]);
   const [showExport, setShowExport] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  // Load saved fixes from localStorage
   useEffect(() => {
     setSavedFixes(loadSavedFixes());
   }, []);
@@ -142,7 +161,6 @@ export default function AdminPage() {
 
   const handleAiFix = useCallback(async (issue: HealthIssue, key: string) => {
     setAiFixStates((prev) => ({ ...prev, [key]: { status: 'loading' } }));
-
     try {
       const res = await fetch('/api/ai-fix', {
         method: 'POST',
@@ -159,12 +177,10 @@ export default function AdminPage() {
           sourceTitles: issue.sourceTitles,
         }),
       });
-
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
         throw new Error(data.error || 'Error del servidor');
       }
-
       const data = await res.json();
       setAiFixStates((prev) => ({
         ...prev,
@@ -238,19 +254,28 @@ export default function AdminPage() {
     setShowExport(false);
   }, []);
 
-  // Check if an issue already has a saved fix
   const hasSavedFix = useCallback(
     (issue: HealthIssue) =>
       savedFixes.some(
-        (f) => f.candidateSlug === issue.candidateSlug && f.pillarKey === issue.pillarKey && f.issueType === issue.type
+        (f) =>
+          f.candidateSlug === issue.candidateSlug &&
+          f.pillarKey === issue.pillarKey &&
+          f.issueType === issue.type
       ),
     [savedFixes]
   );
+
+  // Split issues into fixable and non-fixable
+  const fixableIssues = health?.issues.filter((i) => AI_FIXABLE_TYPES.includes(i.type)) || [];
+  const otherIssues = health?.issues.filter((i) => !AI_FIXABLE_TYPES.includes(i.type)) || [];
+  const fixableCount = fixableIssues.length;
+  const fixedCount = fixableIssues.filter((i) => hasSavedFix(i)).length;
 
   // ── Render ─────────────────────────────────────────────────
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-8">
+      {/* Header */}
       <div className="mb-8 flex items-center justify-between">
         <div>
           <h1 className="font-display text-4xl font-black uppercase tracking-tight text-voraz-black">
@@ -271,12 +296,11 @@ export default function AdminPage() {
       {error && (
         <div className="mb-6 rounded-lg bg-voraz-red/10 border border-voraz-red/30 p-4">
           <p className="text-sm text-voraz-red">{error}</p>
-          <p className="mt-2 text-xs text-voraz-gray-500">
-            Nota: Conecta Supabase para ver datos reales
-          </p>
+          <p className="mt-2 text-xs text-voraz-gray-500">Nota: Conecta Supabase para ver datos reales</p>
         </div>
       )}
 
+      {/* Key metrics */}
       {loading ? (
         <div className="text-center py-12">
           <p className="text-voraz-gray-500">Cargando datos...</p>
@@ -284,9 +308,7 @@ export default function AdminPage() {
       ) : !analytics ? (
         <div className="rounded-2xl bg-voraz-white p-8 text-center shadow-[var(--shadow-card)]">
           <p className="text-voraz-gray-500">Sin datos disponibles</p>
-          <p className="mt-2 text-xs text-voraz-gray-400">
-            Configure Supabase para ver analytics
-          </p>
+          <p className="mt-2 text-xs text-voraz-gray-400">Configure Supabase para ver analytics</p>
         </div>
       ) : (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 mb-8">
@@ -301,9 +323,7 @@ export default function AdminPage() {
             },
           ].map((metric) => (
             <div key={metric.label} className="rounded-2xl bg-voraz-white p-6 shadow-[var(--shadow-card)]">
-              <p className="text-[11px] font-bold uppercase tracking-wider text-voraz-gray-500">
-                {metric.label}
-              </p>
+              <p className="text-[11px] font-bold uppercase tracking-wider text-voraz-gray-500">{metric.label}</p>
               <p className={`mt-2 font-display text-3xl font-black ${metric.color}`}>
                 {typeof metric.value === 'number' ? metric.value.toLocaleString('es-PE') : metric.value}
               </p>
@@ -312,284 +332,312 @@ export default function AdminPage() {
         </div>
       )}
 
-      {/* ── Health panel ─────────────────────────────────── */}
+      {/* ═══ HEALTH PANEL ═══ */}
       {health && (
-        <div className="mb-6 rounded-2xl bg-voraz-white p-6 shadow-[var(--shadow-card)]">
-          <div className="mb-1 flex items-center justify-between">
-            <h2 className="font-display text-sm font-bold uppercase tracking-wider text-voraz-black">
-              Calidad de la data
-            </h2>
-            {savedFixes.length > 0 && (
-              <button
-                onClick={() => setShowExport(!showExport)}
-                className="rounded-lg bg-voraz-black px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-voraz-white transition-colors hover:bg-voraz-gray-700"
-              >
-                Exportar correcciones ({savedFixes.length})
-              </button>
-            )}
-          </div>
-          <p className="mb-5 text-xs text-voraz-gray-400">
-            Revisamos automáticamente que toda la info del sitio venga de fuentes oficiales y esté completa.
-          </p>
-
-          {/* Export panel */}
-          {showExport && savedFixes.length > 0 && (
-            <div className="mb-5 rounded-xl bg-voraz-cream/80 p-4 ring-1 ring-voraz-black/10">
-              <div className="mb-3 flex items-center justify-between">
-                <p className="text-xs font-bold text-voraz-black">
-                  {savedFixes.length} corrección{savedFixes.length > 1 ? 'es' : ''} lista{savedFixes.length > 1 ? 's' : ''} para exportar
-                </p>
-                <div className="flex gap-2">
-                  <button
-                    onClick={handleExportCopy}
-                    className="rounded-lg bg-voraz-black px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-voraz-white transition-colors hover:bg-voraz-gray-700"
-                  >
-                    {copied ? '¡Copiado!' : 'Copiar JSON'}
-                  </button>
-                  <button
-                    onClick={handleClearFixes}
-                    className="rounded-lg px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-voraz-gray-400 transition-colors hover:text-voraz-red"
-                  >
-                    Limpiar todo
-                  </button>
-                </div>
-              </div>
-              <pre className="max-h-48 overflow-auto rounded-lg bg-voraz-black p-3 text-[11px] leading-relaxed text-green-400">
-                {JSON.stringify(
-                  savedFixes.map((f) => ({
-                    candidateSlug: f.candidateSlug,
-                    pillar: f.pillarKey,
-                    field: 'explanation',
-                    value: f.fixedText,
-                  })),
-                  null,
-                  2
-                )}
-              </pre>
-              <p className="mt-2 text-[10px] text-voraz-gray-400">
-                Pega este JSON en un script para actualizar candidates.ts automáticamente.
-              </p>
-            </div>
-          )}
-
-          {/* Main score */}
-          <div className="mb-6 flex items-center gap-4">
-            <div
-              className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl font-display text-2xl font-black text-white ${
-                health.healthScore === 100
-                  ? 'bg-green-500'
-                  : health.healthScore >= 80
-                    ? 'bg-voraz-gold'
-                    : 'bg-voraz-red'
-              }`}
-            >
-              {health.healthScore}%
-            </div>
-            <div>
-              <p className="text-sm font-bold text-voraz-black">
-                {health.healthScore === 100
-                  ? 'Todos los links son de fuentes oficiales'
-                  : `${health.untrustedSources} link(s) no son de fuentes oficiales`}
-              </p>
-              <p className="mt-0.5 text-xs text-voraz-gray-400">
-                Revisamos {health.totalSources} links de {health.totalCandidates} candidatos
-              </p>
-            </div>
-          </div>
-
-          {/* 3 audit cards */}
-          <div className="mb-5">
-            <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.15em] text-voraz-gray-400">
-              Cosas que revisamos
-            </p>
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-              <div className={`rounded-xl p-4 ${health.truncatedCount > 0 ? 'bg-voraz-gold/10 ring-1 ring-voraz-gold/20' : 'bg-green-50 ring-1 ring-green-200/50'}`}>
-                <p className={`font-display text-2xl font-black ${health.truncatedCount > 0 ? 'text-voraz-gold' : 'text-green-600'}`}>
-                  {health.truncatedCount}
-                </p>
-                <p className="mt-1 text-xs font-bold text-voraz-black">Descripciones incompletas</p>
-                <p className="mt-1 text-[11px] leading-snug text-voraz-gray-400">
-                  {health.truncatedCount > 0
-                    ? 'Textos que terminan en "..." porque se cortaron al extraer la data. Habría que completarlos.'
-                    : 'Todas las descripciones están completas.'}
+        <div className="mb-6 space-y-6">
+          {/* Score + overview card */}
+          <div className="rounded-2xl bg-voraz-white p-6 shadow-[var(--shadow-card)]">
+            <div className="flex items-center justify-between mb-5">
+              <div>
+                <h2 className="font-display text-sm font-bold uppercase tracking-wider text-voraz-black">
+                  Calidad de la data
+                </h2>
+                <p className="mt-1 text-xs text-voraz-gray-400">
+                  Revisión automática de {health.totalCandidates} candidatos y {health.totalSources} fuentes
                 </p>
               </div>
-              <div className={`rounded-xl p-4 ${health.filteredSourcesCount > 0 ? 'bg-voraz-gold/10 ring-1 ring-voraz-gold/20' : 'bg-green-50 ring-1 ring-green-200/50'}`}>
-                <p className={`font-display text-2xl font-black ${health.filteredSourcesCount > 0 ? 'text-voraz-gold' : 'text-green-600'}`}>
-                  {health.filteredSourcesCount}
-                </p>
-                <p className="mt-1 text-xs font-bold text-voraz-black">Links de PDFs ocultos</p>
-                <p className="mt-1 text-[11px] leading-snug text-voraz-gray-400">
-                  {health.filteredSourcesCount > 0
-                    ? 'Links a "Resumen del plan" (PDFs del JNE) que tenemos en la data pero no se muestran al usuario porque dan error.'
-                    : 'Todos los links de fuentes se muestran al usuario.'}
-                </p>
-              </div>
-              <div className={`rounded-xl p-4 ${health.genericExplanations > 0 ? 'bg-blue-50 ring-1 ring-blue-200/50' : 'bg-green-50 ring-1 ring-green-200/50'}`}>
-                <p className={`font-display text-2xl font-black ${health.genericExplanations > 0 ? 'text-blue-600' : 'text-green-600'}`}>
-                  {health.genericExplanations}
-                </p>
-                <p className="mt-1 text-xs font-bold text-voraz-black">Textos copiados iguales</p>
-                <p className="mt-1 text-[11px] leading-snug text-voraz-gray-400">
-                  {health.genericExplanations > 0
-                    ? 'Descripciones que dicen lo mismo para varios candidatos (ej: "No se encontró plan de gobierno"). No son específicas.'
-                    : 'Todas las descripciones son específicas de cada candidato.'}
-                </p>
-              </div>
+              {savedFixes.length > 0 && (
+                <button
+                  onClick={() => setShowExport(!showExport)}
+                  className="flex items-center gap-2 rounded-full bg-voraz-black px-4 py-2 text-[11px] font-bold text-voraz-white transition-all hover:bg-voraz-gray-700"
+                >
+                  <span>Exportar {savedFixes.length} fix{savedFixes.length > 1 ? 'es' : ''}</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                </button>
+              )}
             </div>
-          </div>
 
-          {/* Domain breakdown */}
-          <div className="mb-5">
-            <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.15em] text-voraz-gray-400">
-              De dónde sacamos la data
-            </p>
-            <div className="space-y-2">
-              {health.domainBreakdown.map((d) => (
-                <div key={d.domain} className="flex items-center justify-between rounded-lg bg-voraz-cream/60 px-3 py-2">
-                  <div className="flex items-center gap-2.5">
-                    <span className={`inline-flex h-2.5 w-2.5 rounded-full ${d.trusted ? 'bg-green-500' : 'bg-voraz-red'}`} />
-                    <div>
-                      <span className="text-xs font-medium text-voraz-black">{d.domain}</span>
-                      <span className="ml-2 text-[10px] text-voraz-gray-400">
-                        {d.trusted ? '(oficial)' : '(no verificado)'}
-                      </span>
-                    </div>
+            {/* Export panel */}
+            {showExport && savedFixes.length > 0 && (
+              <div className="mb-6 overflow-hidden rounded-xl bg-gray-950 p-5">
+                <div className="mb-3 flex items-center justify-between">
+                  <p className="text-xs font-medium text-gray-400">
+                    JSON listo para actualizar <code className="rounded bg-gray-800 px-1.5 py-0.5 font-mono text-green-400">candidates.ts</code>
+                  </p>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={handleExportCopy}
+                      className={`rounded-full px-3.5 py-1.5 text-[11px] font-bold transition-all ${
+                        copied
+                          ? 'bg-green-500 text-white'
+                          : 'bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white'
+                      }`}
+                    >
+                      {copied ? '✓ Copiado' : 'Copiar'}
+                    </button>
+                    <button
+                      onClick={handleClearFixes}
+                      className="rounded-full px-3.5 py-1.5 text-[11px] font-bold text-gray-500 transition-colors hover:text-red-400"
+                    >
+                      Limpiar
+                    </button>
                   </div>
-                  <span className="text-xs font-bold text-voraz-gray-500">
-                    {d.count} {d.count === 1 ? 'link' : 'links'}
-                  </span>
+                </div>
+                <pre className="max-h-44 overflow-auto text-[11px] font-mono leading-relaxed text-green-400">
+                  {JSON.stringify(
+                    savedFixes.map((f) => ({
+                      candidateSlug: f.candidateSlug,
+                      pillar: f.pillarKey,
+                      field: 'explanation',
+                      value: f.fixedText,
+                    })),
+                    null,
+                    2
+                  )}
+                </pre>
+              </div>
+            )}
+
+            {/* Score row */}
+            <div className="flex items-center gap-5 mb-6 pb-6 border-b border-voraz-black/5">
+              <div
+                className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-xl font-display text-xl font-black text-white ${
+                  health.healthScore === 100
+                    ? 'bg-green-500'
+                    : health.healthScore >= 80
+                      ? 'bg-voraz-gold'
+                      : 'bg-voraz-red'
+                }`}
+              >
+                {health.healthScore}%
+              </div>
+              <div className="flex-1">
+                <p className="text-sm font-bold text-voraz-black">
+                  {health.healthScore === 100
+                    ? 'Todas las fuentes son oficiales'
+                    : `${health.untrustedSources} fuente(s) no verificada(s)`}
+                </p>
+                <p className="mt-0.5 text-xs text-voraz-gray-400">
+                  {fixableCount > 0 && (
+                    <>
+                      <span className="text-voraz-black font-semibold">{fixableCount - fixedCount}</span> textos por mejorar
+                      {fixedCount > 0 && (
+                        <span className="ml-2 text-green-600 font-semibold">· {fixedCount} corregido{fixedCount > 1 ? 's' : ''}</span>
+                      )}
+                    </>
+                  )}
+                </p>
+              </div>
+              {fixableCount > 0 && (
+                <div className="hidden sm:flex items-center gap-1.5">
+                  {Array.from({ length: fixableCount }).map((_, i) => (
+                    <div
+                      key={i}
+                      className={`h-2 w-2 rounded-full transition-colors ${
+                        i < fixedCount ? 'bg-green-400' : 'bg-voraz-black/10'
+                      }`}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* 3 metric cards */}
+            <div className="grid grid-cols-3 gap-3 mb-6">
+              {[
+                {
+                  n: health.truncatedCount,
+                  label: 'Incompletos',
+                  desc: 'Terminan en "..."',
+                  bad: 'text-amber-600',
+                  bgBad: 'bg-amber-50 ring-amber-200/50',
+                },
+                {
+                  n: health.filteredSourcesCount,
+                  label: 'PDFs ocultos',
+                  desc: 'No se muestran',
+                  bad: 'text-orange-600',
+                  bgBad: 'bg-orange-50 ring-orange-200/50',
+                },
+                {
+                  n: health.genericExplanations,
+                  label: 'Genéricos',
+                  desc: 'Texto repetido',
+                  bad: 'text-blue-600',
+                  bgBad: 'bg-blue-50 ring-blue-200/50',
+                },
+              ].map((m) => (
+                <div
+                  key={m.label}
+                  className={`rounded-xl p-3.5 text-center ring-1 ${
+                    m.n > 0 ? `${m.bgBad}` : 'bg-green-50 ring-green-200/50'
+                  }`}
+                >
+                  <p className={`font-display text-2xl font-black ${m.n > 0 ? m.bad : 'text-green-600'}`}>
+                    {m.n}
+                  </p>
+                  <p className="mt-0.5 text-[11px] font-bold text-voraz-black">{m.label}</p>
+                  <p className="text-[10px] text-voraz-gray-400">{m.desc}</p>
                 </div>
               ))}
             </div>
+
+            {/* Domains */}
+            <div>
+              <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.15em] text-voraz-gray-400">Fuentes</p>
+              <div className="flex flex-wrap gap-2">
+                {health.domainBreakdown.map((d) => (
+                  <span
+                    key={d.domain}
+                    className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] font-medium ${
+                      d.trusted
+                        ? 'bg-green-50 text-green-700 ring-1 ring-green-200/50'
+                        : 'bg-red-50 text-red-700 ring-1 ring-red-200/50'
+                    }`}
+                  >
+                    <span className={`h-1.5 w-1.5 rounded-full ${d.trusted ? 'bg-green-500' : 'bg-red-500'}`} />
+                    {d.domain}
+                    <span className="text-[10px] opacity-60">{d.count}</span>
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
 
-          {/* Detailed issues with AI fix */}
-          {health.issues.length > 0 && (
-            <details className="group" open>
-              <summary className="mb-2 cursor-pointer select-none text-[10px] font-bold uppercase tracking-[0.15em] text-voraz-gray-400 hover:text-voraz-black">
-                Ver detalle por candidato ({health.issues.length} observaciones)
-                <span className="ml-1 transition-transform group-open:rotate-90">{'▸'}</span>
-              </summary>
-              <div className="flex gap-3 mb-3 text-[11px]">
-                {health.issueSummary.errors > 0 && (
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-voraz-red/10 px-2.5 py-1 font-medium text-voraz-red">
-                    <span className="h-1.5 w-1.5 rounded-full bg-voraz-red" />
-                    {health.issueSummary.errors} importante{health.issueSummary.errors > 1 ? 's' : ''}
-                  </span>
-                )}
-                {health.issueSummary.warnings > 0 && (
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-voraz-gold/10 px-2.5 py-1 font-medium text-voraz-gold">
-                    <span className="h-1.5 w-1.5 rounded-full bg-voraz-gold" />
-                    {health.issueSummary.warnings} aviso{health.issueSummary.warnings > 1 ? 's' : ''}
-                  </span>
-                )}
-                {health.issueSummary.infos > 0 && (
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-2.5 py-1 font-medium text-blue-600">
-                    <span className="h-1.5 w-1.5 rounded-full bg-blue-400" />
-                    {health.issueSummary.infos} nota{health.issueSummary.infos > 1 ? 's' : ''}
-                  </span>
-                )}
+          {/* ═══ FIXABLE ISSUES — AI correction flow ═══ */}
+          {fixableIssues.length > 0 && (
+            <div className="rounded-2xl bg-voraz-white p-6 shadow-[var(--shadow-card)]">
+              <div className="mb-5 flex items-center justify-between">
+                <div>
+                  <h2 className="font-display text-sm font-bold uppercase tracking-wider text-voraz-black">
+                    Textos para mejorar
+                  </h2>
+                  <p className="mt-1 text-xs text-voraz-gray-400">
+                    La IA puede sugerir correcciones. Tú revisas y apruebas.
+                  </p>
+                </div>
+                <span className="rounded-full bg-voraz-cream px-3 py-1 text-[11px] font-bold text-voraz-gray-500">
+                  {fixedCount}/{fixableCount}
+                </span>
               </div>
-              <div className="max-h-[32rem] space-y-2 overflow-y-auto rounded-xl bg-voraz-cream/40 p-3">
-                {health.issues.map((issue, i) => {
+
+              <div className="space-y-3">
+                {fixableIssues.map((issue, i) => {
                   const key = issueKey(issue, i);
                   const fixState = aiFixStates[key] || { status: 'idle' };
-                  const canFix = AI_FIXABLE_TYPES.includes(issue.type);
                   const alreadyFixed = hasSavedFix(issue);
 
                   return (
                     <div
                       key={key}
-                      className={`rounded-lg px-3 py-2.5 text-[11px] ${
-                        issue.severity === 'error'
-                          ? 'bg-voraz-red/5'
-                          : issue.severity === 'warning'
-                            ? 'bg-voraz-gold/5'
-                            : 'bg-blue-50/60'
+                      className={`rounded-xl border transition-all ${
+                        alreadyFixed || fixState.status === 'saved'
+                          ? 'border-green-200 bg-green-50/30'
+                          : fixState.status === 'ready' || fixState.status === 'editing'
+                            ? 'border-voraz-black/10 bg-voraz-white shadow-lg'
+                            : 'border-voraz-black/5 bg-voraz-white hover:border-voraz-black/15'
                       }`}
                     >
                       {/* Issue header */}
-                      <div className="flex items-start justify-between gap-2">
-                        <div className="flex items-start gap-2 min-w-0">
-                          <span
-                            className={`mt-1 inline-block h-1.5 w-1.5 shrink-0 rounded-full ${
-                              issue.severity === 'error'
-                                ? 'bg-voraz-red'
-                                : issue.severity === 'warning'
-                                  ? 'bg-voraz-gold'
-                                  : 'bg-blue-400'
-                            }`}
-                          />
+                      <div className="flex items-center justify-between gap-3 px-4 py-3">
+                        <div className="flex items-center gap-3 min-w-0">
+                          <span className={`shrink-0 rounded-md px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider ${issueTypeColor(issue.type)}`}>
+                            {issueTypeLabel(issue.type)}
+                          </span>
                           <div className="min-w-0">
-                            <span className="font-bold text-voraz-black">{issue.candidate}</span>
-                            <span className="text-voraz-gray-400"> en {issue.pillar}</span>
-                            <p className="mt-0.5 text-voraz-gray-500">{issue.detail}</p>
+                            <span className="text-xs font-bold text-voraz-black">{issue.candidate}</span>
+                            <span className="text-xs text-voraz-gray-400"> · {issue.pillar}</span>
                           </div>
                         </div>
 
-                        {/* AI fix button */}
-                        {canFix && !alreadyFixed && fixState.status === 'idle' && (
-                          <button
-                            onClick={() => handleAiFix(issue, key)}
-                            className="shrink-0 rounded-lg bg-voraz-black px-2.5 py-1.5 text-[9px] font-bold uppercase tracking-wider text-voraz-white transition-all hover:bg-voraz-gray-700"
-                          >
-                            Corregir con IA
-                          </button>
-                        )}
-                        {canFix && alreadyFixed && fixState.status !== 'saved' && (
-                          <span className="shrink-0 rounded-full bg-green-100 px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider text-green-700">
+                        {/* Action area */}
+                        {alreadyFixed && fixState.status !== 'saved' ? (
+                          <span className="shrink-0 flex items-center gap-1.5 text-[11px] font-medium text-green-600">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                             Corregido
                           </span>
-                        )}
+                        ) : fixState.status === 'idle' ? (
+                          <button
+                            onClick={() => handleAiFix(issue, key)}
+                            className="shrink-0 flex items-center gap-1.5 rounded-full bg-gradient-to-r from-violet-600 to-blue-600 px-3.5 py-1.5 text-[10px] font-bold text-white shadow-sm transition-all hover:shadow-md hover:brightness-110 active:scale-95"
+                          >
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61z"/></svg>
+                            Mejorar con IA
+                          </button>
+                        ) : fixState.status === 'loading' ? (
+                          <span className="shrink-0 flex items-center gap-2 text-[11px] text-voraz-gray-400">
+                            <span className="inline-block h-3.5 w-3.5 animate-spin rounded-full border-2 border-violet-200 border-t-violet-600" />
+                            Pensando...
+                          </span>
+                        ) : null}
                       </div>
 
-                      {/* Loading state */}
-                      {fixState.status === 'loading' && (
-                        <div className="mt-2 flex items-center gap-2 rounded-lg bg-voraz-cream/80 p-3">
-                          <span className="inline-block h-3 w-3 animate-spin rounded-full border-2 border-voraz-black/20 border-t-voraz-black" />
-                          <span className="text-xs text-voraz-gray-500">Generando sugerencia...</span>
+                      {/* Current text preview (when idle) */}
+                      {fixState.status === 'idle' && !alreadyFixed && (
+                        <div className="px-4 pb-3">
+                          <p className="text-[11px] leading-relaxed text-voraz-gray-400 italic">
+                            &ldquo;{issue.currentText.length > 120 ? issue.currentText.slice(0, 120) + '...' : issue.currentText}&rdquo;
+                          </p>
                         </div>
                       )}
 
-                      {/* Error state */}
+                      {/* Error */}
                       {fixState.status === 'error' && (
-                        <div className="mt-2 rounded-lg bg-voraz-red/5 p-3">
-                          <p className="text-xs text-voraz-red">{fixState.error}</p>
+                        <div className="mx-4 mb-3 flex items-center justify-between rounded-lg bg-red-50 px-3 py-2">
+                          <p className="text-[11px] text-red-600">{fixState.error}</p>
                           <button
                             onClick={() => handleAiFix(issue, key)}
-                            className="mt-1 text-[10px] font-bold text-voraz-gray-500 underline hover:text-voraz-black"
+                            className="text-[11px] font-bold text-red-600 underline hover:text-red-800"
                           >
                             Reintentar
                           </button>
                         </div>
                       )}
 
-                      {/* Suggestion ready */}
+                      {/* ── Suggestion: Before → After ── */}
                       {fixState.status === 'ready' && fixState.suggestion && (
-                        <div className="mt-2 rounded-lg bg-green-50 p-3 ring-1 ring-green-200/50">
-                          <p className="mb-1.5 text-[9px] font-bold uppercase tracking-wider text-green-700">
-                            Sugerencia de IA
-                          </p>
-                          <p className="text-xs leading-relaxed text-voraz-gray-600">
-                            {fixState.suggestion}
-                          </p>
-                          <div className="mt-2.5 flex gap-2">
+                        <div className="mx-4 mb-4">
+                          {/* Before/After comparison */}
+                          <div className="rounded-xl overflow-hidden border border-voraz-black/5">
+                            {/* Before */}
+                            <div className="bg-red-50/50 px-4 py-3 border-b border-voraz-black/5">
+                              <div className="flex items-center gap-2 mb-1.5">
+                                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-red-100 text-[10px] font-bold text-red-500">−</span>
+                                <span className="text-[10px] font-bold uppercase tracking-wider text-red-400">Actual</span>
+                              </div>
+                              <p className="text-xs leading-relaxed text-red-900/60 line-through decoration-red-300/50">
+                                {issue.currentText}
+                              </p>
+                            </div>
+                            {/* After */}
+                            <div className="bg-green-50/50 px-4 py-3">
+                              <div className="flex items-center gap-2 mb-1.5">
+                                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-green-100 text-[10px] font-bold text-green-600">+</span>
+                                <span className="text-[10px] font-bold uppercase tracking-wider text-green-500">Sugerencia IA</span>
+                              </div>
+                              <p className="text-xs leading-relaxed text-green-900">
+                                {fixState.suggestion}
+                              </p>
+                            </div>
+                          </div>
+
+                          {/* Actions */}
+                          <div className="mt-3 flex items-center gap-2">
                             <button
                               onClick={() => handleApprove(issue, key, fixState.suggestion!)}
-                              className="rounded-md bg-green-600 px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider text-white transition-colors hover:bg-green-700"
+                              className="rounded-full bg-green-600 px-4 py-1.5 text-[10px] font-bold text-white transition-all hover:bg-green-700 active:scale-95"
                             >
                               Aprobar
                             </button>
                             <button
                               onClick={() => handleEdit(key)}
-                              className="rounded-md bg-voraz-cream px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider text-voraz-black ring-1 ring-voraz-black/10 transition-colors hover:bg-voraz-gray-100"
+                              className="rounded-full bg-voraz-cream px-4 py-1.5 text-[10px] font-bold text-voraz-black ring-1 ring-voraz-black/10 transition-all hover:bg-gray-100 active:scale-95"
                             >
                               Editar
                             </button>
                             <button
                               onClick={() => handleDiscard(key)}
-                              className="rounded-md px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider text-voraz-gray-400 transition-colors hover:text-voraz-red"
+                              className="rounded-full px-4 py-1.5 text-[10px] font-bold text-voraz-gray-400 transition-colors hover:text-voraz-red"
                             >
                               Descartar
                             </button>
@@ -597,33 +645,43 @@ export default function AdminPage() {
                         </div>
                       )}
 
-                      {/* Editing state */}
+                      {/* ── Editing mode ── */}
                       {fixState.status === 'editing' && (
-                        <div className="mt-2 rounded-lg bg-voraz-cream/80 p-3 ring-1 ring-voraz-black/10">
-                          <p className="mb-1.5 text-[9px] font-bold uppercase tracking-wider text-voraz-gray-500">
-                            Editar sugerencia
-                          </p>
-                          <textarea
-                            className="w-full rounded-md border border-voraz-gray-200 bg-voraz-white p-2 text-xs leading-relaxed text-voraz-gray-600 focus:border-voraz-black focus:outline-none"
-                            rows={3}
-                            value={fixState.editedText || ''}
-                            onChange={(e) =>
-                              setAiFixStates((prev) => ({
-                                ...prev,
-                                [key]: { ...prev[key], editedText: e.target.value },
-                              }))
-                            }
-                          />
-                          <div className="mt-2 flex gap-2">
+                        <div className="mx-4 mb-4">
+                          <div className="rounded-xl border border-voraz-black/10 overflow-hidden">
+                            {/* Original — collapsed */}
+                            <div className="bg-voraz-cream/30 px-4 py-2 border-b border-voraz-black/5">
+                              <p className="text-[10px] text-voraz-gray-400">
+                                <span className="font-bold uppercase tracking-wider">Original:</span>{' '}
+                                {issue.currentText.slice(0, 80)}{issue.currentText.length > 80 ? '...' : ''}
+                              </p>
+                            </div>
+                            {/* Edit area */}
+                            <div className="p-3">
+                              <textarea
+                                className="w-full resize-none rounded-lg border-0 bg-transparent p-0 text-xs leading-relaxed text-voraz-gray-700 placeholder:text-voraz-gray-300 focus:outline-none focus:ring-0"
+                                rows={4}
+                                placeholder="Escribe la corrección..."
+                                value={fixState.editedText || ''}
+                                onChange={(e) =>
+                                  setAiFixStates((prev) => ({
+                                    ...prev,
+                                    [key]: { ...prev[key], editedText: e.target.value },
+                                  }))
+                                }
+                              />
+                            </div>
+                          </div>
+                          <div className="mt-3 flex items-center gap-2">
                             <button
                               onClick={() => handleSaveEdit(issue, key)}
-                              className="rounded-md bg-green-600 px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider text-white transition-colors hover:bg-green-700"
+                              className="rounded-full bg-green-600 px-4 py-1.5 text-[10px] font-bold text-white transition-all hover:bg-green-700 active:scale-95"
                             >
                               Guardar
                             </button>
                             <button
                               onClick={() => handleDiscard(key)}
-                              className="rounded-md px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider text-voraz-gray-400 transition-colors hover:text-voraz-red"
+                              className="rounded-full px-4 py-1.5 text-[10px] font-bold text-voraz-gray-400 transition-colors hover:text-voraz-red"
                             >
                               Cancelar
                             </button>
@@ -631,29 +689,61 @@ export default function AdminPage() {
                         </div>
                       )}
 
-                      {/* Saved state */}
+                      {/* ── Saved confirmation ── */}
                       {fixState.status === 'saved' && (
-                        <div className="mt-2 flex items-center gap-2 rounded-lg bg-green-50 p-2.5">
-                          <span className="text-green-600">✓</span>
-                          <span className="text-xs font-medium text-green-700">Corrección guardada</span>
+                        <div className="mx-4 mb-3 flex items-center gap-2 rounded-lg bg-green-50 px-3 py-2">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-green-600"><polyline points="20 6 9 17 4 12"/></svg>
+                          <span className="text-[11px] font-medium text-green-700">Corrección guardada — aparecerá en la exportación</span>
                         </div>
                       )}
                     </div>
                   );
                 })}
               </div>
-            </details>
+            </div>
           )}
 
-          {health.issues.length === 0 && (
-            <p className="text-sm text-green-600">
-              Todo bien — no encontramos problemas en la data.
-            </p>
+          {/* ═══ OTHER ISSUES (non-fixable) ═══ */}
+          {otherIssues.length > 0 && (
+            <div className="rounded-2xl bg-voraz-white p-6 shadow-[var(--shadow-card)]">
+              <details className="group">
+                <summary className="flex cursor-pointer items-center justify-between">
+                  <div>
+                    <h2 className="font-display text-sm font-bold uppercase tracking-wider text-voraz-black">
+                      Otras observaciones
+                    </h2>
+                    <p className="mt-1 text-xs text-voraz-gray-400">
+                      PDFs ocultos y otros issues que no se corrigen con IA
+                    </p>
+                  </div>
+                  <span className="rounded-full bg-voraz-cream px-3 py-1 text-[11px] font-bold text-voraz-gray-500 group-open:hidden">
+                    {otherIssues.length}
+                  </span>
+                </summary>
+                <div className="mt-4 space-y-1.5 max-h-64 overflow-y-auto">
+                  {otherIssues.map((issue, i) => (
+                    <div
+                      key={`other-${i}`}
+                      className="flex items-start gap-3 rounded-lg bg-voraz-cream/40 px-3 py-2 text-[11px]"
+                    >
+                      <span className={`mt-0.5 shrink-0 rounded-md px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wider ${issueTypeColor(issue.type)}`}>
+                        {issueTypeLabel(issue.type)}
+                      </span>
+                      <div className="min-w-0">
+                        <span className="font-bold text-voraz-black">{issue.candidate}</span>
+                        <span className="text-voraz-gray-400"> · {issue.pillar}</span>
+                        <p className="text-voraz-gray-500">{issue.detail}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </details>
+            </div>
           )}
         </div>
       )}
 
-      {/* ── Tables ───────────────────────────────────────── */}
+      {/* ═══ TABLES ═══ */}
       {analytics && (
         <div className="grid gap-6 lg:grid-cols-2">
           <div className="rounded-2xl bg-voraz-white p-6 shadow-[var(--shadow-card)]">
@@ -673,7 +763,6 @@ export default function AdminPage() {
               )}
             </div>
           </div>
-
           <div className="rounded-2xl bg-voraz-white p-6 shadow-[var(--shadow-card)]">
             <h2 className="mb-4 font-display text-sm font-bold uppercase tracking-wider text-voraz-black">
               Top referrers
@@ -694,7 +783,7 @@ export default function AdminPage() {
         </div>
       )}
 
-      {/* ── Corrections list ─────────────────────────────── */}
+      {/* ═══ CORRECTIONS LIST ═══ */}
       {analytics && (
         <div className="mt-6 rounded-2xl bg-voraz-white p-6 shadow-[var(--shadow-card)]">
           <h2 className="mb-4 font-display text-sm font-bold uppercase tracking-wider text-voraz-black">
@@ -726,28 +815,19 @@ export default function AdminPage() {
                       </div>
                       <p className="mt-0.5 text-[11px] text-voraz-gray-400">
                         {new Date(c.created_at).toLocaleDateString('es-PE', {
-                          day: 'numeric',
-                          month: 'short',
-                          year: 'numeric',
-                          hour: '2-digit',
-                          minute: '2-digit',
+                          day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit',
                         })}
-                        {' · '}
-                        {c.email}
+                        {' · '}{c.email}
                       </p>
                     </div>
                   </div>
                   <div className="mt-3 space-y-2">
                     <div>
-                      <p className="text-[10px] font-bold uppercase tracking-wider text-voraz-gray-400">
-                        Problema reportado
-                      </p>
+                      <p className="text-[10px] font-bold uppercase tracking-wider text-voraz-gray-400">Problema reportado</p>
                       <p className="mt-0.5 text-sm text-voraz-gray-600">{c.message}</p>
                     </div>
                     <div>
-                      <p className="text-[10px] font-bold uppercase tracking-wider text-voraz-gray-400">
-                        Corrección sugerida
-                      </p>
+                      <p className="text-[10px] font-bold uppercase tracking-wider text-voraz-gray-400">Corrección sugerida</p>
                       <p className="mt-0.5 text-sm text-voraz-gray-600">{c.correction_text}</p>
                     </div>
                   </div>
