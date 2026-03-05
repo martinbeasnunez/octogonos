@@ -114,12 +114,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/2998/18141156"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ]
+        }      ]
     },
     "plan": {
       "score": "Bajo",
@@ -161,12 +156,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/14/41265978"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ]
+        }      ]
     },
     "plan": {
       "score": "Bajo",
@@ -208,12 +198,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/1264/16002918"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ]
+        }      ]
     },
     "plan": {
       "score": "Bajo",
@@ -255,12 +240,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/2930/43632186"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ],
+        }      ],
       "context": {
         "text": "En 2012, Enrique Valderrama, candidato del APRA, fue acusado de hurto de una laptop y un televisor.",
         "source": "La República",
@@ -307,12 +287,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/2898/41904418"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ]
+        }      ]
     },
     "plan": {
       "score": "Bajo",
@@ -354,12 +329,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/2941/09177250"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ],
+        }      ],
       "context": {
         "text": "Según La Razón, en septiembre de 2023, la Fiscalía solicitó 7 años de prisión efectiva para Ricardo Belmont por usurpación y hurto agravado en relación con la toma violenta del local de PBO Radio en el Morro Solar.",
         "source": "La Razón",
@@ -411,12 +381,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/3025/41373494"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ],
+        }      ],
       "context": {
         "text": "Según El Comercio, Ronald Atencio, candidato presidencial de la alianza Venceremos, fue intervenido por la policía mientras conducía un vehículo con orden de captura por robo agravado y luego por insultar a efectivos en una comisaría.",
         "source": "El Comercio",
@@ -463,12 +428,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/22/07845838"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ],
+        }      ],
       "context": {
         "text": "Según La República, en febrero de 2026, la Fiscalía abrió una investigación preliminar contra Rafael López Aliaga por la presunta destrucción y alteración de bienes culturales en el Centro Histórico de Lima, específicamente por la demolición de casonas históricas protegidas.",
         "source": "La República",
@@ -520,12 +480,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/1257/17903382"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ]
+        }      ]
     },
     "plan": {
       "score": "Bajo",
@@ -567,12 +522,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/1366/10001088"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ]
+        }      ]
     },
     "plan": {
       "score": "Bajo",
@@ -614,12 +564,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/2939/08058852"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ],
+        }      ],
       "context": {
         "text": "En junio de 2025, La República reportó que Napoleón Becerra, precandidato presidencial y presidente del Partido de los Trabajadores y Emprendedores (PTE), fue denunciado por presunta violencia sexual durante un evento político en Piura.",
         "source": "La República",
@@ -666,12 +611,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/2935/10266270"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ]
+        }      ]
     },
     "plan": {
       "score": "Bajo",
@@ -713,12 +653,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/2932/08263758"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ]
+        }      ]
     },
     "plan": {
       "score": "Bajo",
@@ -760,12 +695,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/2925/04411300"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ]
+        }      ]
     },
     "plan": {
       "score": "Bajo",
@@ -807,12 +737,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/2924/06529088"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ]
+        }      ]
     },
     "plan": {
       "score": "Bajo",
@@ -854,12 +779,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/2731/07246887"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ],
+        }      ],
       "context": {
         "text": "Según RPP, en agosto de 2025, la Fiscalía solicitó 22 años y 8 meses de prisión contra José Luna Gálvez por presuntas irregularidades en la inscripción de Podemos Perú.",
         "source": "RPP",
@@ -906,12 +826,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/2867/40799023"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ]
+        }      ]
     },
     "plan": {
       "score": "Bajo",
@@ -953,12 +868,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/2895/09307547"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ],
+        }      ],
       "context": {
         "text": "Según La República, Álex González Castillo, candidato presidencial del Partido Demócrata Verde, enfrenta seis investigaciones fiscales por presuntos delitos como falsificación documentaria y omisión de la obligación de proveer alimentos.",
         "source": "La República",
@@ -1005,12 +915,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/2869/43409673"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ]
+        }      ]
     },
     "plan": {
       "score": "Bajo",
@@ -1052,12 +957,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/2985/07260881"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ]
+        }      ]
     },
     "plan": {
       "score": "Bajo",
@@ -1099,12 +999,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/2980/25331980"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ],
+        }      ],
       "context": {
         "text": "Según El Comercio, el Jurado Nacional de Elecciones inició un proceso sancionador contra Alfonso López Chau por presunta consignación de información falsa en su declaración jurada de hoja de vida.",
         "source": "El Comercio",
@@ -1151,12 +1046,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/2986/08255194"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ]
+        }      ]
     },
     "plan": {
       "score": "Medio",
@@ -1194,12 +1084,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/2995/01211014"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ]
+        }      ]
     },
     "plan": {
       "score": "Bajo",
@@ -1241,12 +1126,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/3024/25681995"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ],
+        }      ],
       "context": {
         "text": "Según El Comercio, Fiorella Molinelli enfrenta tres procesos fiscales por colusión y abuso de autoridad relacionados con su gestión en EsSalud y el caso Chinchero.",
         "source": "El Comercio",
@@ -1293,12 +1173,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/3023/40728264"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ]
+        }      ]
     },
     "plan": {
       "score": "Bajo",
@@ -1340,12 +1215,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/2840/09871134"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ]
+        }      ]
     },
     "plan": {
       "score": "Bajo",
@@ -1387,12 +1257,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/2857/06280714"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ]
+        }      ]
     },
     "plan": {
       "score": "Bajo",
@@ -1434,12 +1299,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/2173/43287528"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ],
+        }      ],
       "context": {
         "text": "En febrero de 2026, el Jurado Electoral Especial de Lima Centro 1 inició un procedimiento sancionador contra José Williams Zapata por presunta omisión de información en su hoja de vida, relacionada con una sentencia por homicidio calificado; sin embargo, en febrero de 2026, el mismo organismo archivó el expediente, concluyendo que no existía sentencia condenatoria firme ni antecedentes penales vigentes contra el candidato.",
         "source": "RPP",
@@ -1486,12 +1346,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/2218/06466585"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ],
+        }      ],
       "context": {
         "text": "Según La República, en enero de 2026, el Poder Judicial confirmó la detención preventiva por 24 meses contra Vladimir Cerrón por presunta organización criminal y lavado de activos.",
         "source": "La República",
@@ -1538,12 +1393,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/2933/10219647"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ]
+        }      ]
     },
     "plan": {
       "score": "Bajo",
@@ -1585,12 +1435,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/2931/07867789"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ]
+        }      ]
     },
     "plan": {
       "score": "Bajo",
@@ -1632,12 +1477,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/2927/08587486"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ]
+        }      ]
     },
     "plan": {
       "score": "Bajo",
@@ -1679,12 +1519,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/2961/06506278"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ]
+        }      ]
     },
     "plan": {
       "score": "Bajo",
@@ -1726,12 +1561,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/2956/06002034"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ],
+        }      ],
       "context": {
         "text": "En enero de 2026, el Jurado Electoral Especial de Lima Centro 1 identificó que Carlos Álvarez, candidato presidencial por el partido País Para Todos, habría omitido declarar una sentencia judicial por peculado en su hoja de vida.",
         "source": "El Comercio",
@@ -1778,12 +1608,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/2967/40139245"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ],
+        }      ],
       "context": {
         "text": "En diciembre de 2025, La República reportó que Paul Jaimes, candidato presidencial de Progresemos, minimizó las dos denuncias por violencia en su contra, asegurando que fue víctima de \"difamación\".",
         "source": "La República",
@@ -1830,12 +1655,7 @@ export const candidates: Candidate[] = [
         {
           "title": "Hoja de vida — JNE Voto Informado",
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/2921/18870364"
-        },
-        {
-          "title": "Consulta de expedientes — Poder Judicial",
-          "url": "https://cej.pj.gob.pe/cej/forms/busquedaform.html"
-        }
-      ]
+        }      ]
     },
     "plan": {
       "score": "Bajo",
