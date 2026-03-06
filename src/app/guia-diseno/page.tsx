@@ -282,11 +282,6 @@ export default function GuiaDiseno() {
               </div>
             ))}
           </div>
-          <p className="mt-4 rounded-lg bg-voraz-red/5 p-3 text-xs leading-relaxed text-voraz-gray-600">
-            <strong className="text-voraz-red">Importante:</strong> Al entregar assets en Figma,
-            el equipo tech puede aplicar todos los cambios visuales en menos de una hora.
-            No es necesario saber código — solo diseñar y compartir el link del archivo Figma.
-          </p>
         </div>
       </section>
 
