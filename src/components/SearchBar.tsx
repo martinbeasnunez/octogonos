@@ -17,10 +17,8 @@ const sortOptions: { value: SortOption; label: string; icon: string }[] = [
 
 const filterOptions: FilterOption[] = [
   "todos",
-  "con-encuesta",
   "sentencia",
   "pendiente",
-  "con-contexto",
   "posgrado",
   "sin-plan",
 ];
@@ -78,7 +76,8 @@ export default function SearchBar() {
       {/* Sort + Filter bar */}
       <div className="mb-5 flex flex-wrap items-center gap-x-4 gap-y-2">
         {/* Sort */}
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1.5">
+          <span className="text-[10px] font-semibold uppercase tracking-wider text-voraz-gray-300">Ordenar</span>
           {sortOptions.map((opt) => (
             <button
               key={opt.value}
@@ -99,7 +98,8 @@ export default function SearchBar() {
         <div className="hidden h-4 w-px bg-voraz-gray-200 sm:block" />
 
         {/* Filters */}
-        <div className="flex flex-wrap items-center gap-1">
+        <div className="flex flex-wrap items-center gap-1.5">
+          <span className="text-[10px] font-semibold uppercase tracking-wider text-voraz-gray-300">Filtrar</span>
           {filterOptions.map((f) => (
             <button
               key={f}
@@ -108,9 +108,9 @@ export default function SearchBar() {
                 filter === f
                   ? f === "sentencia"
                     ? "bg-voraz-red/10 text-voraz-red"
-                    : f === "pendiente" || f === "con-contexto"
+                    : f === "pendiente"
                       ? "bg-voraz-gold/10 text-voraz-gold"
-                      : f === "posgrado" || f === "con-encuesta"
+                      : f === "posgrado"
                         ? "bg-score-bajo/10 text-score-bajo"
                         : "bg-voraz-black text-voraz-white shadow-sm"
                   : "bg-voraz-white text-voraz-gray-500 hover:bg-voraz-gray-50 hover:text-voraz-black"
