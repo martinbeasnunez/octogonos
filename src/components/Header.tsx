@@ -8,7 +8,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-voraz-cream/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 bg-voraz-black/95 backdrop-blur-sm">
       <div className="mx-auto flex h-11 max-w-4xl items-center justify-between px-6 lg:max-w-6xl">
         {/* Brand — VORAZ logo */}
         <Link
@@ -21,7 +21,7 @@ export default function Header() {
             alt="VORAZ"
             width={80}
             height={30}
-            className="h-6 w-auto"
+            className="h-6 w-auto brightness-0 invert"
             priority
           />
           <span className="inline-block h-1 w-1 rounded-full bg-voraz-red transition-transform duration-300 group-hover:scale-150" />
@@ -31,13 +31,13 @@ export default function Header() {
         <nav className="hidden gap-5 text-[11px] sm:flex">
           <Link
             href="/metodologia"
-            className="relative py-1 text-voraz-gray-500 transition-colors hover:text-voraz-black after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:w-0 after:bg-voraz-red after:transition-all after:duration-300 hover:after:w-full"
+            className="relative py-1 text-white/60 transition-colors hover:text-white after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:w-0 after:bg-voraz-red after:transition-all after:duration-300 hover:after:w-full"
           >
             Metodología
           </Link>
           <Link
             href="/correcciones"
-            className="relative py-1 text-voraz-gray-500 transition-colors hover:text-voraz-black after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:w-0 after:bg-voraz-red after:transition-all after:duration-300 hover:after:w-full"
+            className="relative py-1 text-white/60 transition-colors hover:text-white after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:w-0 after:bg-voraz-red after:transition-all after:duration-300 hover:after:w-full"
           >
             Correcciones
           </Link>
@@ -46,11 +46,11 @@ export default function Header() {
         {/* Mobile hamburger */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="flex h-7 w-7 items-center justify-center rounded-md transition-colors hover:bg-voraz-gray-100 sm:hidden"
+          className="flex h-7 w-7 items-center justify-center rounded-md transition-colors hover:bg-white/10 sm:hidden"
           aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
         >
           <svg
-            className="h-4 w-4 text-voraz-black"
+            className="h-4 w-4 text-white"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={2}
@@ -75,7 +75,7 @@ export default function Header() {
 
       {/* Mobile menu — overlay dropdown */}
       <div
-        className={`absolute left-0 right-0 top-full overflow-hidden border-b border-voraz-gray-100 bg-voraz-cream/98 backdrop-blur-md transition-all duration-300 sm:hidden ${
+        className={`absolute left-0 right-0 top-full overflow-hidden border-b border-white/10 bg-voraz-black/98 backdrop-blur-md transition-all duration-300 sm:hidden ${
           menuOpen
             ? "max-h-40 opacity-100"
             : "pointer-events-none max-h-0 opacity-0"
@@ -85,22 +85,19 @@ export default function Header() {
           <Link
             href="/metodologia"
             onClick={() => setMenuOpen(false)}
-            className="rounded-lg px-3 py-2.5 text-sm text-voraz-gray-600 transition-colors hover:bg-voraz-gray-50 hover:text-voraz-black"
+            className="rounded-lg px-3 py-2.5 text-sm text-white/70 transition-colors hover:bg-white/10 hover:text-white"
           >
             Metodología
           </Link>
           <Link
             href="/correcciones"
             onClick={() => setMenuOpen(false)}
-            className="rounded-lg px-3 py-2.5 text-sm text-voraz-gray-600 transition-colors hover:bg-voraz-gray-50 hover:text-voraz-black"
+            className="rounded-lg px-3 py-2.5 text-sm text-white/70 transition-colors hover:bg-white/10 hover:text-white"
           >
             Correcciones
           </Link>
         </nav>
       </div>
-
-      {/* Bottom gradient line */}
-      <div className="h-px bg-gradient-to-r from-transparent via-voraz-gray-200 to-transparent" />
     </header>
   );
 }
