@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -9,18 +10,20 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-voraz-cream/95 backdrop-blur-sm">
       <div className="mx-auto flex h-11 max-w-4xl items-center justify-between px-6 lg:max-w-6xl">
-        {/* Brand — compact */}
+        {/* Brand — VORAZ logo */}
         <Link
           href="/"
-          className="group flex items-center gap-1.5"
+          className="group flex items-center gap-2"
           onClick={() => setMenuOpen(false)}
         >
-          <span className="font-display text-[11px] font-black uppercase tracking-[0.15em] text-voraz-black">
-            Octógonos
-          </span>
-          <span className="hidden text-[9px] font-medium text-voraz-gray-400 sm:inline">
-            por VORAZ
-          </span>
+          <Image
+            src="/logo-voraz.png"
+            alt="VORAZ"
+            width={80}
+            height={30}
+            className="h-6 w-auto"
+            priority
+          />
           <span className="inline-block h-1 w-1 rounded-full bg-voraz-red transition-transform duration-300 group-hover:scale-150" />
         </Link>
 
