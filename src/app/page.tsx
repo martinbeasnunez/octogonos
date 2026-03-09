@@ -75,9 +75,9 @@ export default function Home() {
 
       {/* Sticky title bar — appears when hero scrolls out */}
       <StickyBar observeId="hero-title">
-        <div className="border-b border-voraz-gray-100 bg-voraz-cream/95 backdrop-blur-sm">
+        <div className="border-b border-white/10 bg-voraz-black/95 backdrop-blur-sm">
           <div className="mx-auto flex max-w-4xl items-center justify-between px-6 py-2.5 lg:max-w-6xl">
-            <span className="font-display text-sm font-bold uppercase tracking-tight text-voraz-black">
+            <span className="font-display text-sm font-bold uppercase tracking-tight text-white">
               Los octógonos de los candidatos <span className="text-voraz-red">x VORAZ</span>
             </span>
             <span className="text-[10px] font-medium uppercase tracking-wider text-voraz-red">
@@ -91,7 +91,7 @@ export default function Home() {
       <div className="mx-auto max-w-4xl px-6 lg:max-w-6xl">
         <div className="mb-8 pt-8">
           <div className="mb-4">
-            <span className="font-display text-[10px] font-bold uppercase tracking-[0.2em] text-voraz-gray-400">
+            <span className="font-display text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">
               Explorar candidatos
             </span>
           </div>

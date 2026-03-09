@@ -21,23 +21,23 @@ export default function Header() {
             alt="VORAZ"
             width={80}
             height={30}
-            className="h-6 w-auto brightness-0 invert"
+            className="h-6 w-auto"
             priority
           />
-          <span className="inline-block h-1 w-1 rounded-full bg-voraz-red transition-transform duration-300 group-hover:scale-150" />
+          <span className="inline-block h-1 w-1 rounded-full bg-white transition-transform duration-300 group-hover:scale-150" />
         </Link>
 
         {/* Desktop nav */}
         <nav className="hidden gap-5 text-[11px] sm:flex">
           <Link
             href="/metodologia"
-            className="relative py-1 text-white/60 transition-colors hover:text-white after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:w-0 after:bg-voraz-red after:transition-all after:duration-300 hover:after:w-full"
+            className="relative py-1 text-white/60 transition-colors hover:text-white after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
           >
             Metodología
           </Link>
           <Link
             href="/correcciones"
-            className="relative py-1 text-white/60 transition-colors hover:text-white after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:w-0 after:bg-voraz-red after:transition-all after:duration-300 hover:after:w-full"
+            className="relative py-1 text-white/60 transition-colors hover:text-white after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
           >
             Correcciones
           </Link>

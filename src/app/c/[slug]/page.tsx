@@ -71,7 +71,7 @@ export default async function CandidatePage({
       <div className="mx-auto max-w-4xl px-4 pb-10 pt-6 sm:px-6 sm:pb-12 sm:pt-8">
         <Link
           href="/"
-          className="mb-6 inline-flex items-center gap-1.5 text-sm text-voraz-gray-400 transition-colors hover:text-voraz-black sm:mb-8"
+          className="mb-6 inline-flex items-center gap-1.5 text-sm text-voraz-gray-400 transition-colors hover:text-white sm:mb-8"
         >
           <span className="transition-transform duration-200 hover:-translate-x-0.5">←</span>
           Todos los candidatos
@@ -86,7 +86,7 @@ export default async function CandidatePage({
             className="h-20 w-20 shrink-0 rounded-full object-cover bg-voraz-gray-100 shadow-[var(--shadow-card)] sm:h-24 sm:w-24"
           />
           <div className="min-w-0">
-            <h1 className="font-display text-3xl font-black uppercase leading-[0.95] tracking-tight text-voraz-black sm:text-5xl lg:text-6xl">
+            <h1 className="font-display text-3xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-6xl">
               {candidate.name}
             </h1>
             <div className="my-3 h-1 w-12 bg-voraz-red sm:my-4" />
@@ -99,11 +99,11 @@ export default async function CandidatePage({
 
       {/* Sticky candidate bar — appears when name scrolls out */}
       <StickyBar observeId="candidate-name">
-        <div className="border-b border-voraz-gray-100 bg-voraz-cream/95 backdrop-blur-sm">
+        <div className="border-b border-white/10 bg-voraz-black/95 backdrop-blur-sm">
           <div className="mx-auto flex max-w-4xl items-center gap-3 px-6 py-2">
             <Link
               href="/"
-              className="shrink-0 text-voraz-gray-400 transition-colors hover:text-voraz-black"
+              className="shrink-0 text-voraz-gray-400 transition-colors hover:text-white"
             >
               ←
             </Link>
@@ -112,9 +112,9 @@ export default async function CandidatePage({
               alt=""
               width={28}
               height={28}
-              className="h-7 w-7 shrink-0 rounded-full object-cover bg-voraz-gray-100"
+              className="h-7 w-7 shrink-0 rounded-full object-cover bg-white/10"
             />
-            <span className="truncate font-display text-sm font-bold uppercase tracking-tight text-voraz-black">
+            <span className="truncate font-display text-sm font-bold uppercase tracking-tight text-white">
               {candidate.name}
             </span>
             <span className="hidden shrink-0 text-[10px] text-voraz-gray-400 sm:inline">

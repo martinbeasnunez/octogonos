@@ -43,7 +43,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className="bg-voraz-cream font-sans antialiased">
+      <body className="bg-voraz-black font-sans antialiased">
         <div className="flex min-h-screen flex-col">
           <Header />
           <main className="flex-1">{children}</main>

@@ -31,7 +31,7 @@ export default function SearchBar() {
   return (
     <div>
       {/* Sticky search + filters on mobile */}
-      <div className="sticky top-11 z-40 -mx-6 bg-voraz-cream/95 px-6 pb-3 pt-2 backdrop-blur-sm sm:static sm:mx-0 sm:bg-transparent sm:px-0 sm:pb-0 sm:pt-0 sm:backdrop-blur-none">
+      <div className="sticky top-11 z-40 -mx-6 bg-voraz-black/95 px-6 pb-3 pt-2 backdrop-blur-sm sm:static sm:mx-0 sm:bg-transparent sm:px-0 sm:pb-0 sm:pt-0 sm:backdrop-blur-none">
         <div className="relative mb-3 sm:mb-4">
           {/* Search icon */}
           <svg
@@ -55,14 +55,14 @@ export default function SearchBar() {
             placeholder="Buscar candidato o partido..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="w-full rounded-xl bg-voraz-white py-3 pl-11 pr-20 text-sm text-voraz-dark shadow-[var(--shadow-search)] placeholder:text-voraz-gray-400 transition-shadow duration-300 focus:shadow-[var(--shadow-card-hover)] focus:outline-none sm:py-4 sm:pl-12 sm:pr-24"
+            className="w-full rounded-xl bg-white/10 py-3 pl-11 pr-20 text-sm text-white shadow-none placeholder:text-white/40 transition-shadow duration-300 focus:bg-white/15 focus:outline-none focus:ring-1 focus:ring-white/20 sm:py-4 sm:pl-12 sm:pr-24"
           />
 
           <div className="absolute right-4 top-1/2 flex -translate-y-1/2 items-center gap-3">
             {query && (
               <button
                 onClick={() => setQuery("")}
-                className="rounded-full bg-voraz-gray-100 px-3 py-1 text-[11px] font-semibold text-voraz-gray-500 transition-colors hover:bg-voraz-red/10 hover:text-voraz-red"
+                className="rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold text-white/60 transition-colors hover:bg-voraz-red/20 hover:text-voraz-red"
               >
                 Limpiar
               </button>
@@ -73,7 +73,7 @@ export default function SearchBar() {
         {/* Sort + Filter bar */}
         <div className="flex flex-wrap items-center gap-1.5 sm:gap-x-4">
           {/* Sort */}
-          <span className="text-[10px] font-semibold uppercase tracking-wider text-voraz-gray-400">Ordenar</span>
+          <span className="text-[10px] font-semibold uppercase tracking-wider text-white/40">Ordenar</span>
           {([
             { key: "encuestas" as SortOption, label: "Mayor %" },
             { key: "az" as SortOption, label: "A → Z" },
@@ -83,8 +83,8 @@ export default function SearchBar() {
               onClick={() => setSort(s.key)}
               className={`rounded-full px-3 py-1.5 text-[11px] font-bold transition-all duration-200 ${
                 sort === s.key
-                  ? "bg-score-bajo text-white shadow-sm"
-                  : "bg-voraz-white text-voraz-gray-500 hover:bg-voraz-gray-50 hover:text-voraz-black"
+                  ? "bg-voraz-red text-white shadow-sm"
+                  : "bg-white/10 text-white/60 hover:bg-white/15 hover:text-white"
               }`}
             >
               {s.label}
@@ -92,10 +92,10 @@ export default function SearchBar() {
           ))}
 
           {/* Divider on desktop */}
-          <span className="hidden h-4 w-px bg-voraz-gray-200 sm:block" />
+          <span className="hidden h-4 w-px bg-white/20 sm:block" />
 
           {/* Filter */}
-          <span className="text-[10px] font-semibold uppercase tracking-wider text-voraz-gray-400">Filtrar</span>
+          <span className="text-[10px] font-semibold uppercase tracking-wider text-white/40">Filtrar</span>
           {filterOptions.map((f) => (
             <button
               key={f}
@@ -103,13 +103,13 @@ export default function SearchBar() {
               className={`rounded-full px-3 py-1.5 text-[11px] font-bold transition-all duration-200 ${
                 filter === f
                   ? f === "sentencia"
-                    ? "bg-voraz-red/10 text-voraz-red"
+                    ? "bg-voraz-red/20 text-voraz-red"
                     : f === "pendiente"
-                      ? "bg-voraz-gold/10 text-voraz-gold"
+                      ? "bg-voraz-gold/20 text-voraz-gold"
                       : f === "posgrado"
-                        ? "bg-score-bajo/10 text-score-bajo"
-                        : "bg-voraz-black text-voraz-white shadow-sm"
-                  : "bg-voraz-white text-voraz-gray-500 hover:bg-voraz-gray-50 hover:text-voraz-black"
+                        ? "bg-score-bajo/20 text-score-bajo"
+                        : "bg-white/20 text-white shadow-sm"
+                  : "bg-white/10 text-white/60 hover:bg-white/15 hover:text-white"
               }`}
             >
               {filterLabels[f]}
@@ -120,11 +120,11 @@ export default function SearchBar() {
 
       {/* Result count */}
       <div className="mb-4 mt-3">
-        <p className="text-xs text-voraz-gray-400">
+        <p className="text-xs text-white/40">
           {results.length} de {candidates.length} candidatos{sort === "encuestas" ? " — ordenados por encuestas" : " — orden alfabético"}
         </p>
         {sort === "encuestas" && (
-          <p className="text-[10px] text-voraz-gray-300">
+          <p className="text-[10px] text-white/30">
             Promedio de encuestas publicadas en medios — Actualizado 2026
           </p>
         )}
@@ -133,10 +133,10 @@ export default function SearchBar() {
       {/* No results state */}
       {results.length === 0 && (
         <div className="py-16 text-center">
-          <p className="font-display text-lg font-bold uppercase text-voraz-gray-400">
+          <p className="font-display text-lg font-bold uppercase text-white/40">
             Sin resultados
           </p>
-          <p className="mt-2 text-sm text-voraz-gray-400">
+          <p className="mt-2 text-sm text-white/40">
             {query
               ? `No se encontraron candidatos para "${query}"`
               : "No hay candidatos con ese filtro"}
@@ -144,7 +144,7 @@ export default function SearchBar() {
           {filter !== "todos" && (
             <button
               onClick={() => setFilter("todos")}
-              className="mt-4 rounded-full bg-voraz-black px-4 py-2 text-xs font-bold text-voraz-white transition-colors hover:bg-voraz-red"
+              className="mt-4 rounded-full bg-voraz-red px-4 py-2 text-xs font-bold text-white transition-colors hover:bg-voraz-red/80"
             >
               Mostrar todos
             </button>

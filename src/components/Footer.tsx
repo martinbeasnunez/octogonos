@@ -3,8 +3,8 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer>
-      {/* Gradient transition from cream to dark */}
-      <div className="h-16 bg-gradient-to-b from-voraz-cream to-voraz-dark" />
+      {/* Gradient transition to dark */}
+      <div className="h-16 bg-gradient-to-b from-voraz-black to-voraz-dark" />
 
       <div className="bg-voraz-dark">
         <div className="mx-auto max-w-4xl px-6 pb-10 pt-8 lg:max-w-6xl">
