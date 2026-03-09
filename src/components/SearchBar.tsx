@@ -6,6 +6,7 @@ import {
   queryCandidates,
   filterLabels,
   type FilterOption,
+  type SortOption,
 } from "@/data/candidates";
 import CandidateCard from "./CandidateCard";
 
@@ -19,11 +20,12 @@ const filterOptions: FilterOption[] = [
 
 export default function SearchBar() {
   const [query, setQuery] = useState("");
+  const [sort, setSort] = useState<SortOption>("encuestas");
   const [filter, setFilter] = useState<FilterOption>("todos");
 
   const results = useMemo(
-    () => queryCandidates(query, "az", filter),
-    [query, filter]
+    () => queryCandidates(query, sort, filter),
+    [query, sort, filter]
   );
 
   return (
@@ -68,36 +70,64 @@ export default function SearchBar() {
           </div>
         </div>
 
-        {/* Filter bar */}
-        <div className="flex flex-wrap items-center gap-1.5">
+        {/* Sort + Filter bar */}
+        <div className="flex flex-wrap items-center gap-1.5 sm:gap-x-4">
+          {/* Sort */}
+          <span className="text-[10px] font-semibold uppercase tracking-wider text-voraz-gray-300">Ordenar</span>
+          {([
+            { key: "encuestas" as SortOption, label: "Mayor %" },
+            { key: "az" as SortOption, label: "A → Z" },
+          ]).map((s) => (
+            <button
+              key={s.key}
+              onClick={() => setSort(s.key)}
+              className={`rounded-full px-3 py-1.5 text-[11px] font-bold transition-all duration-200 ${
+                sort === s.key
+                  ? "bg-score-bajo text-white shadow-sm"
+                  : "bg-voraz-white text-voraz-gray-500 hover:bg-voraz-gray-50 hover:text-voraz-black"
+              }`}
+            >
+              {s.label}
+            </button>
+          ))}
+
+          {/* Divider on desktop */}
+          <span className="hidden h-4 w-px bg-voraz-gray-200 sm:block" />
+
+          {/* Filter */}
           <span className="text-[10px] font-semibold uppercase tracking-wider text-voraz-gray-300">Filtrar</span>
-            {filterOptions.map((f) => (
-              <button
-                key={f}
-                onClick={() => setFilter(f === filter ? "todos" : f)}
-                className={`rounded-full px-3 py-1.5 text-[11px] font-bold transition-all duration-200 ${
-                  filter === f
-                    ? f === "sentencia"
-                      ? "bg-voraz-red/10 text-voraz-red"
-                      : f === "pendiente"
-                        ? "bg-voraz-gold/10 text-voraz-gold"
-                        : f === "posgrado"
-                          ? "bg-score-bajo/10 text-score-bajo"
-                          : "bg-voraz-black text-voraz-white shadow-sm"
-                    : "bg-voraz-white text-voraz-gray-500 hover:bg-voraz-gray-50 hover:text-voraz-black"
-                }`}
-              >
-                {filterLabels[f]}
-              </button>
-            ))}
+          {filterOptions.map((f) => (
+            <button
+              key={f}
+              onClick={() => setFilter(f === filter ? "todos" : f)}
+              className={`rounded-full px-3 py-1.5 text-[11px] font-bold transition-all duration-200 ${
+                filter === f
+                  ? f === "sentencia"
+                    ? "bg-voraz-red/10 text-voraz-red"
+                    : f === "pendiente"
+                      ? "bg-voraz-gold/10 text-voraz-gold"
+                      : f === "posgrado"
+                        ? "bg-score-bajo/10 text-score-bajo"
+                        : "bg-voraz-black text-voraz-white shadow-sm"
+                  : "bg-voraz-white text-voraz-gray-500 hover:bg-voraz-gray-50 hover:text-voraz-black"
+              }`}
+            >
+              {filterLabels[f]}
+            </button>
+          ))}
         </div>
       </div>
 
       {/* Result count */}
       <div className="mb-4 mt-3">
         <p className="text-xs text-voraz-gray-400">
-          {results.length} de {candidates.length} candidatos
+          {results.length} de {candidates.length} candidatos{sort === "encuestas" ? " — ordenados por encuestas" : " — orden alfabético"}
         </p>
+        {sort === "encuestas" && (
+          <p className="text-[10px] text-voraz-gray-300">
+            Promedio de encuestas publicadas en medios — Actualizado 2026
+          </p>
+        )}
       </div>
 
       {/* No results state */}
