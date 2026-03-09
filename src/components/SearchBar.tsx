@@ -73,7 +73,7 @@ export default function SearchBar() {
         {/* Sort + Filter bar */}
         <div className="flex flex-wrap items-center gap-1.5 sm:gap-x-4">
           {/* Sort */}
-          <span className="text-[10px] font-semibold uppercase tracking-wider text-voraz-gray-300">Ordenar</span>
+          <span className="text-[10px] font-semibold uppercase tracking-wider text-voraz-gray-400">Ordenar</span>
           {([
             { key: "encuestas" as SortOption, label: "Mayor %" },
             { key: "az" as SortOption, label: "A → Z" },
@@ -95,7 +95,7 @@ export default function SearchBar() {
           <span className="hidden h-4 w-px bg-voraz-gray-200 sm:block" />
 
           {/* Filter */}
-          <span className="text-[10px] font-semibold uppercase tracking-wider text-voraz-gray-300">Filtrar</span>
+          <span className="text-[10px] font-semibold uppercase tracking-wider text-voraz-gray-400">Filtrar</span>
           {filterOptions.map((f) => (
             <button
               key={f}

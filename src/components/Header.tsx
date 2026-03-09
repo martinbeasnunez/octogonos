@@ -8,7 +8,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-voraz-black/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 bg-voraz-red backdrop-blur-sm">
       <div className="mx-auto flex h-11 max-w-4xl items-center justify-between px-6 lg:max-w-6xl">
         {/* Brand — VORAZ logo */}
         <Link
@@ -75,7 +75,7 @@ export default function Header() {
 
       {/* Mobile menu — overlay dropdown */}
       <div
-        className={`absolute left-0 right-0 top-full overflow-hidden border-b border-white/10 bg-voraz-black/98 backdrop-blur-md transition-all duration-300 sm:hidden ${
+        className={`absolute left-0 right-0 top-full overflow-hidden border-b border-white/20 bg-voraz-red/98 backdrop-blur-md transition-all duration-300 sm:hidden ${
           menuOpen
             ? "max-h-40 opacity-100"
             : "pointer-events-none max-h-0 opacity-0"
