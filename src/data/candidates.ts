@@ -1049,8 +1049,8 @@ export const candidates: Candidate[] = [
         }      ]
     },
     "plan": {
-      "score": "Medio",
-      "explanation": "Plan de gobierno registrado pero sin documentos descargables al momento de la consulta.",
+      "score": "Alto",
+      "explanation": "Plan de gobierno registrado ante el JNE pero sin documentos descargables al momento de la consulta.",
       "sources": [
         {
           "title": "Fórmula presidencial — JNE Voto Informado",
