@@ -1,66 +1,65 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer>
-      {/* Gradient transition to dark */}
-      <div className="h-16 bg-gradient-to-b from-voraz-black to-voraz-dark" />
-
-      <div className="bg-voraz-dark">
-        <div className="mx-auto max-w-4xl px-6 pb-10 pt-8 lg:max-w-6xl">
-          <div className="mb-6 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="font-display text-base font-black uppercase tracking-[0.1em] text-voraz-white sm:text-lg">
-                  Octógonos
-                </span>
-                <span className="inline-block h-1.5 w-1.5 rounded-full bg-voraz-red" />
-              </div>
-              <p className="mt-1 text-[10px] text-voraz-gray-500">
-                por <span className="font-bold tracking-wider text-voraz-gray-400">VORAZ</span>
-              </p>
-              <p className="mt-2 text-xs leading-relaxed text-voraz-gray-400">
-                Información pública organizada por IA. No afirmamos culpabilidad.
-              </p>
-            </div>
-            <nav className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-voraz-gray-400">
-              <Link
-                href="/metodologia"
-                className="transition-colors hover:text-voraz-cream"
-              >
-                Metodología
-              </Link>
-              <Link
-                href="/correcciones"
-                className="transition-colors hover:text-voraz-cream"
-              >
-                Correcciones
-              </Link>
-              <Link
-                href="/terminos"
-                className="transition-colors hover:text-voraz-cream"
-              >
-                Términos
-              </Link>
-              <Link
-                href="/privacidad"
-                className="transition-colors hover:text-voraz-cream"
-              >
-                Privacidad
-              </Link>
-            </nav>
+    <footer className="bg-voraz-red">
+      <div className="mx-auto max-w-4xl px-6 pb-10 pt-10 lg:max-w-6xl">
+        {/* Brand */}
+        <div className="mb-4">
+          <span className="font-display text-lg font-black uppercase tracking-tight text-white sm:text-xl">
+            Los octógonos de los candidatos
+          </span>
+          <div className="mt-2 flex items-center gap-2">
+            <span className="text-sm text-white/70">por</span>
+            <Image
+              src="/logo-voraz.png"
+              alt="VORAZ"
+              width={80}
+              height={30}
+              className="h-5 w-auto"
+            />
           </div>
-
-          {/* Gradient divider */}
-          <div className="mb-6 h-px bg-gradient-to-r from-transparent via-voraz-gray-700 to-transparent" />
-
-          <p className="text-[11px] leading-relaxed text-voraz-gray-500">
-            Este sitio organiza y resume información de fuentes públicas
-            mediante inteligencia artificial. No realiza acusaciones, no afirma
-            culpabilidad y no reemplaza el criterio del lector. Revisa siempre
-            las fuentes originales.
+          <p className="mt-3 text-sm leading-relaxed text-white/80">
+            Información pública organizada por IA. No afirmamos culpabilidad.
           </p>
         </div>
+
+        {/* Nav links — bold white uppercase */}
+        <nav className="mb-6 flex flex-wrap gap-x-6 gap-y-2">
+          <Link
+            href="/metodologia"
+            className="font-display text-sm font-bold uppercase tracking-wide text-white transition-colors hover:text-white/70"
+          >
+            Metodología
+          </Link>
+          <Link
+            href="/correcciones"
+            className="font-display text-sm font-bold uppercase tracking-wide text-white transition-colors hover:text-white/70"
+          >
+            Correcciones
+          </Link>
+          <Link
+            href="/terminos"
+            className="font-display text-sm font-bold uppercase tracking-wide text-white transition-colors hover:text-white/70"
+          >
+            Términos
+          </Link>
+          <Link
+            href="/privacidad"
+            className="font-display text-sm font-bold uppercase tracking-wide text-white transition-colors hover:text-white/70"
+          >
+            Privacidad
+          </Link>
+        </nav>
+
+        {/* Legal text */}
+        <p className="text-xs leading-relaxed text-white/60">
+          Este sitio organiza y resume información de fuentes públicas
+          mediante inteligencia artificial. No realiza acusaciones, no afirma
+          culpabilidad y no reemplaza el criterio del lector. Revisa siempre
+          las fuentes originales.
+        </p>
       </div>
     </footer>
   );

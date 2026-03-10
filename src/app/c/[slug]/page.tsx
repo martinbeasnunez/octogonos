@@ -67,32 +67,34 @@ export default async function CandidatePage({
   return (
     <div>
       <CandidateTracker slug={candidate.slug} name={candidate.name} />
-      {/* Candidate header */}
-      <div className="mx-auto max-w-4xl px-4 pb-10 pt-6 sm:px-6 sm:pb-12 sm:pt-8">
-        <Link
-          href="/"
-          className="mb-6 inline-flex items-center gap-1.5 text-sm text-voraz-gray-400 transition-colors hover:text-white sm:mb-8"
-        >
-          <span className="transition-transform duration-200 hover:-translate-x-0.5">←</span>
-          Todos los candidatos
-        </Link>
+      {/* Candidate header — white bg per Figma */}
+      <div className="bg-white">
+        <div className="mx-auto max-w-4xl px-4 pb-10 pt-6 sm:px-6 sm:pb-12 sm:pt-8">
+          <Link
+            href="/"
+            className="mb-6 inline-flex items-center gap-1.5 text-sm text-voraz-gray-400 transition-colors hover:text-voraz-black sm:mb-8"
+          >
+            <span className="transition-transform duration-200 hover:-translate-x-0.5">←</span>
+            Todos los candidatos
+          </Link>
 
-        <div id="candidate-name" className="flex items-start gap-5 animate-hero-reveal sm:gap-6">
-          <Image
-            src={`/photos/${candidate.slug}.jpg`}
-            alt={candidate.name}
-            width={96}
-            height={96}
-            className="h-20 w-20 shrink-0 rounded-full object-cover bg-voraz-gray-100 shadow-[var(--shadow-card)] sm:h-24 sm:w-24"
-          />
-          <div className="min-w-0">
-            <h1 className="font-display text-3xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-6xl">
-              {candidate.name}
-            </h1>
-            <div className="my-3 h-1 w-12 bg-voraz-red sm:my-4" />
-            <p className="text-sm tracking-wide text-voraz-gray-500">
-              {candidate.party}
-            </p>
+          <div id="candidate-name" className="flex items-start gap-5 animate-hero-reveal sm:gap-6">
+            <Image
+              src={`/photos/${candidate.slug}.jpg`}
+              alt={candidate.name}
+              width={96}
+              height={96}
+              className="h-20 w-20 shrink-0 rounded-full object-cover bg-voraz-gray-100 shadow-[var(--shadow-card)] sm:h-24 sm:w-24"
+            />
+            <div className="min-w-0">
+              <h1 className="font-display text-3xl font-black uppercase leading-[0.95] tracking-tight text-voraz-black sm:text-5xl lg:text-6xl">
+                {candidate.name}
+              </h1>
+              <div className="my-3 h-1 w-12 bg-voraz-red sm:my-4" />
+              <p className="text-sm tracking-wide text-voraz-gray-500">
+                {candidate.party}
+              </p>
+            </div>
           </div>
         </div>
       </div>
