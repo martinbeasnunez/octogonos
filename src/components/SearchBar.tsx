@@ -5,6 +5,7 @@ import {
   candidates,
   queryCandidates,
   filterLabels,
+  POLL_SOURCES,
   type FilterOption,
   type SortOption,
 } from "@/data/candidates";
@@ -127,7 +128,15 @@ export default function SearchBar() {
           </p>
           {sort === "encuestas" && (
             <p className="text-[10px] text-white/30">
-              Promedio de encuestas publicadas en medios — Actualizado 2026
+              Fuentes: {POLL_SOURCES.firms.join(', ')} ·{' '}
+              <a
+                href={POLL_SOURCES.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-white/20 hover:text-white/50"
+              >
+                vía {POLL_SOURCES.aggregator}
+              </a>
             </p>
           )}
         </div>

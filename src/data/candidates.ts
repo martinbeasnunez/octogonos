@@ -1723,10 +1723,18 @@ export function getFeasibility(slug: string): FeasibilityScore | undefined {
 }
 
 /**
- * Datos de encuestas nacionales — promedio de encuestas publicadas en medios.
+ * Datos de encuestas nacionales — promedio ponderado de encuestadoras.
+ * Fuentes: IEP, Ipsos, Datum, CPI (vía condorlatam.com/pe/encuestas).
  * Última actualización: 1 marzo 2026.
  * Solo incluye candidatos con intención de voto reportada.
  */
+export const POLL_SOURCES = {
+  firms: ['IEP', 'Ipsos', 'Datum', 'CPI'] as const,
+  aggregator: 'CONDOR Latam',
+  url: 'https://www.condorlatam.com/pe/encuestas',
+  lastUpdated: '2026-03-01',
+};
+
 export const pollData: Record<string, { order: number; pct: number }> = {
   "keiko-sofia-fujimori-higuchi": { order: 1, pct: 13.2 },
   "rafael-bernardo-lopez-aliaga-cazorla": { order: 2, pct: 12.5 },

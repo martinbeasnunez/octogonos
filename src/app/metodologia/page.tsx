@@ -307,10 +307,33 @@ export default function MetodologiaPage() {
           <section>
             <SectionLabel>Datos de encuestas</SectionLabel>
             <div className="rounded-2xl bg-voraz-white p-6 shadow-[var(--shadow-card)]">
-              <p className="mb-3 text-sm leading-relaxed text-voraz-gray-600">
+              <p className="mb-4 text-sm leading-relaxed text-voraz-gray-600">
                 El porcentaje que se muestra junto a cada candidato es un
-                promedio de encuestas publicadas por las principales
-                encuestadoras del país en medios nacionales.
+                promedio ponderado calculado a partir de encuestadoras
+                reconocidas a nivel nacional:
+              </p>
+              <div className="mb-4 flex flex-wrap gap-2">
+                {['IEP', 'Ipsos', 'Datum', 'CPI'].map((firm) => (
+                  <span
+                    key={firm}
+                    className="inline-flex rounded-full bg-voraz-cream px-3 py-1 text-[11px] font-bold text-voraz-black"
+                  >
+                    {firm}
+                  </span>
+                ))}
+              </div>
+              <p className="mb-3 text-sm leading-relaxed text-voraz-gray-600">
+                Los datos son agregados por{' '}
+                <a
+                  href="https://www.condorlatam.com/pe/encuestas"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-voraz-red underline decoration-voraz-red/30 hover:decoration-voraz-red"
+                >
+                  CONDOR Latam
+                </a>
+                , una plataforma independiente que recopila y promedia
+                resultados de las principales encuestadoras del Perú.
               </p>
               <p className="text-[11px] text-voraz-gray-400">
                 Datos actualizados periódicamente · No representa una predicción electoral
