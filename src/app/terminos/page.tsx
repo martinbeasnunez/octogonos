@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 
+export const dynamic = "force-dynamic";
+
 interface SitePage {
   title: string;
   content: string;
