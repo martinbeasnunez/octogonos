@@ -66,21 +66,11 @@ export default async function TerminosPage() {
           <>
             <div className="rounded-2xl bg-voraz-white p-6 shadow-[var(--shadow-card)] sm:p-10">
               <div
-                className="prose prose-sm max-w-none text-voraz-gray-600 prose-headings:font-display prose-headings:uppercase prose-headings:tracking-tight prose-headings:text-voraz-black prose-a:text-voraz-red prose-a:no-underline hover:prose-a:underline prose-strong:text-voraz-black prose-li:marker:text-voraz-red"
+                className="prose prose-xs max-w-none text-xs text-voraz-gray-600 prose-headings:font-display prose-headings:uppercase prose-headings:tracking-tight prose-headings:text-voraz-black prose-a:text-voraz-red prose-a:no-underline hover:prose-a:underline prose-strong:text-voraz-black prose-li:marker:text-voraz-red"
                 dangerouslySetInnerHTML={{ __html: page.content }}
               />
             </div>
 
-            {page.updated_at && (
-              <p className="mt-6 text-center text-[11px] text-voraz-gray-400">
-                Última actualización:{" "}
-                {new Date(page.updated_at).toLocaleDateString("es-PE", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </p>
-            )}
           </>
         ) : (
           <div className="rounded-2xl bg-voraz-white p-10 text-center shadow-[var(--shadow-card)]">
