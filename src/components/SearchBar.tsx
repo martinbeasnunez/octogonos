@@ -31,7 +31,7 @@ export default function SearchBar() {
   return (
     <div>
       {/* Sticky search + filters on mobile */}
-      <div className="sticky top-11 z-40 -mx-6 bg-voraz-black/95 px-6 pb-3 pt-2 backdrop-blur-sm sm:static sm:mx-0 sm:bg-transparent sm:px-0 sm:pb-0 sm:pt-0 sm:backdrop-blur-none">
+      <div className="sticky top-11 z-40 -mx-6 bg-voraz-black/95 px-6 pb-3 pt-2 backdrop-blur-sm sm:-mx-0 sm:px-0">
         <div className="relative mb-3 sm:mb-4">
           {/* Search icon */}
           <svg
