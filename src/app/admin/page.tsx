@@ -1,8 +1,21 @@
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, lazy, Suspense } from 'react';
 import Link from 'next/link';
-import RichTextEditor from '@/components/RichTextEditor';
+import AnalyticsDashboard from '@/components/admin/AnalyticsDashboard';
+
+const LazyRichTextEditor = lazy(() => import('@/components/RichTextEditor'));
+
+function RichTextEditor(props: { content: string; onChange: (html: string) => void; placeholder?: string }) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return <div className="h-[200px] animate-pulse rounded-lg bg-voraz-gray-100" />;
+  return (
+    <Suspense fallback={<div className="h-[200px] animate-pulse rounded-lg bg-voraz-gray-100" />}>
+      <LazyRichTextEditor {...props} />
+    </Suspense>
+  );
+}
 
 // ── Types ──────────────────────────────────────────────────────
 
@@ -15,16 +28,6 @@ interface Correction {
   correction_text: string;
   status: 'pending' | 'reviewed' | 'published' | 'rejected';
   created_at: string;
-}
-
-interface Analytics {
-  totalPageViews: number;
-  totalCorrectionsFiled: number;
-  uniqueVisitors: number;
-  mostViewedCandidates: Array<{ name: string; views: number }>;
-  topReferrers: Array<{ referrer: string; count: number }>;
-  corrections: Correction[];
-  lastUpdated: string;
 }
 
 interface HealthIssue {
@@ -147,7 +150,7 @@ function issueTypeColor(type: string): string {
 // ── Component ──────────────────────────────────────────────────
 
 export default function AdminPage() {
-  const [analytics, setAnalytics] = useState<Analytics | null>(null);
+  const [corrections, setCorrections] = useState<Correction[]>([]);
   const [health, setHealth] = useState<HealthData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -171,12 +174,14 @@ export default function AdminPage() {
   const fetchAll = async () => {
     setLoading(true);
     try {
-      const [analyticsRes, healthRes] = await Promise.all([
-        fetch('/api/analytics'),
+      const [correctionsRes, healthRes] = await Promise.all([
+        fetch('/api/analytics?period=all'),
         fetch('/api/health'),
       ]);
-      if (!analyticsRes.ok) throw new Error('Failed to fetch analytics');
-      setAnalytics(await analyticsRes.json());
+      if (correctionsRes.ok) {
+        const data = await correctionsRes.json();
+        setCorrections(data.corrections ?? []);
+      }
       if (healthRes.ok) setHealth(await healthRes.json());
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Error fetching data');
@@ -376,7 +381,7 @@ export default function AdminPage() {
             Admin
           </h1>
           <p className="mt-2 text-sm text-voraz-gray-500">
-            Insights y datos de uso del sitio
+            Panel de administración
           </p>
         </div>
         <button
@@ -394,37 +399,10 @@ export default function AdminPage() {
         </div>
       )}
 
-      {/* Key metrics */}
-      {loading ? (
-        <div className="text-center py-12">
-          <p className="text-voraz-gray-500">Cargando datos...</p>
-        </div>
-      ) : !analytics ? (
-        <div className="rounded-2xl bg-voraz-white p-8 text-center shadow-[var(--shadow-card)]">
-          <p className="text-voraz-gray-500">Sin datos disponibles</p>
-          <p className="mt-2 text-xs text-voraz-gray-400">Configure Supabase para ver analytics</p>
-        </div>
-      ) : (
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 mb-8">
-          {[
-            { label: 'Vistas de página', value: analytics.totalPageViews, color: 'text-voraz-red' },
-            { label: 'Visitantes únicos', value: analytics.uniqueVisitors, color: 'text-voraz-black' },
-            { label: 'Correcciones enviadas', value: analytics.totalCorrectionsFiled, color: 'text-voraz-gold' },
-            {
-              label: 'Última actualización',
-              value: new Date(analytics.lastUpdated).toLocaleDateString('es-PE'),
-              color: 'text-voraz-gray-500',
-            },
-          ].map((metric) => (
-            <div key={metric.label} className="rounded-2xl bg-voraz-white p-6 shadow-[var(--shadow-card)]">
-              <p className="text-[11px] font-bold uppercase tracking-wider text-voraz-gray-500">{metric.label}</p>
-              <p className={`mt-2 font-display text-3xl font-black ${metric.color}`}>
-                {typeof metric.value === 'number' ? metric.value.toLocaleString('es-PE') : metric.value}
-              </p>
-            </div>
-          ))}
-        </div>
-      )}
+      {/* ═══ ANALYTICS DASHBOARD ═══ */}
+      <div className="mb-8">
+        <AnalyticsDashboard />
+      </div>
 
       {/* ═══ HEALTH PANEL ═══ */}
       {health && (
@@ -1011,57 +989,18 @@ export default function AdminPage() {
         </div>
       )}
 
-      {/* ═══ TABLES ═══ */}
-      {analytics && (
-        <div className="grid gap-6 lg:grid-cols-2">
-          <div className="rounded-2xl bg-voraz-white p-6 shadow-[var(--shadow-card)]">
-            <h2 className="mb-4 font-display text-sm font-bold uppercase tracking-wider text-voraz-black">
-              Candidatos más vistos
-            </h2>
-            <div className="space-y-3">
-              {analytics.mostViewedCandidates.length === 0 ? (
-                <p className="text-xs text-voraz-gray-400">Sin datos</p>
-              ) : (
-                analytics.mostViewedCandidates.map((c, i) => (
-                  <div key={i} className="flex items-center justify-between">
-                    <span className="text-sm text-voraz-gray-600">{c.name}</span>
-                    <span className="font-bold text-voraz-red">{c.views}</span>
-                  </div>
-                ))
-              )}
-            </div>
-          </div>
-          <div className="rounded-2xl bg-voraz-white p-6 shadow-[var(--shadow-card)]">
-            <h2 className="mb-4 font-display text-sm font-bold uppercase tracking-wider text-voraz-black">
-              Top referrers
-            </h2>
-            <div className="space-y-3">
-              {analytics.topReferrers.length === 0 ? (
-                <p className="text-xs text-voraz-gray-400">Sin datos</p>
-              ) : (
-                analytics.topReferrers.map((r, i) => (
-                  <div key={i} className="flex items-center justify-between">
-                    <span className="text-sm text-voraz-gray-600">{r.referrer || 'Direct'}</span>
-                    <span className="font-bold text-voraz-black">{r.count}</span>
-                  </div>
-                ))
-              )}
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* ═══ CORRECTIONS LIST ═══ */}
-      {analytics && (
+      {!loading && (
         <div className="mt-6 rounded-2xl bg-voraz-white p-6 shadow-[var(--shadow-card)]">
           <h2 className="mb-4 font-display text-sm font-bold uppercase tracking-wider text-voraz-black">
             Correcciones recibidas
           </h2>
-          {analytics.corrections.length === 0 ? (
+          {corrections.length === 0 ? (
             <p className="text-xs text-voraz-gray-400">No hay correcciones</p>
           ) : (
             <div className="space-y-3">
-              {analytics.corrections.map((c) => (
+              {corrections.map((c) => (
                 <div key={c.id} className="rounded-xl bg-voraz-cream/60 p-4 ring-1 ring-voraz-black/5">
                   <div className="flex items-start justify-between gap-3">
                     <div className="min-w-0">
