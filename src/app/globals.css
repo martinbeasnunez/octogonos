@@ -142,20 +142,26 @@ html {
   clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
 }
 
-/* ── Badge shimmer — brillo sutil periódico en los labels ── */
+/* ── Badge shimmer — brillo periódico en los labels ── */
 
 @keyframes badge-shimmer {
-  0%, 82%, 100% {
-    box-shadow: inset 0 0 0 0 transparent, 0 0 0 0 transparent;
+  0%, 78%, 100% {
+    box-shadow: 0 0 0 0 transparent;
+    filter: brightness(1);
+    transform: scale(1);
   }
-  88% {
-    box-shadow: inset 0 0 6px -1px currentColor, 0 0 8px 0 currentColor;
+  86% {
+    box-shadow: 0 0 16px 4px currentColor;
+    filter: brightness(1.4);
+    transform: scale(1.08);
   }
-  94% {
-    box-shadow: inset 0 0 2px 0 transparent, 0 0 3px 0 transparent;
+  92% {
+    box-shadow: 0 0 0 0 transparent;
+    filter: brightness(1);
+    transform: scale(1);
   }
 }
 
 @utility animate-badge-shimmer {
-  animation: badge-shimmer 9s ease-in-out infinite;
+  animation: badge-shimmer 7s ease-in-out infinite;
 }

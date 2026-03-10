@@ -18,8 +18,8 @@ const pillarShort: Record<PillarType, string> = {
 
 const shimmerDelay: Record<PillarType, string> = {
   education: "0s",
-  legal: "3s",
-  plan: "6s",
+  legal: "2.3s",
+  plan: "4.6s",
 };
 
 function PillarBadge({
@@ -112,7 +112,7 @@ export default function CandidateCard({
         {feasibility ? (
           <span
             className={`animate-badge-shimmer inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider ${getBadgeColor("plan", candidate.plan.score)}`}
-            style={{ animationDelay: "6s" }}
+            style={{ animationDelay: "4.6s" }}
           >
             <span className="opacity-50">PLAN</span>
             <span className={`font-black ${feasColor}`}>
