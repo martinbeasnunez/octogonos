@@ -31,8 +31,19 @@ export async function generateMetadata({
   const candidate = getCandidateBySlug(slug);
   if (!candidate) return { title: "Candidato no encontrado" };
   return {
-    title: `${candidate.name} — Octógonos`,
-    description: `Octógonos de ${candidate.name} (${candidate.party}): educación, situación legal y plan de gobierno.`,
+    title: `${candidate.name} — Octógonos x VORAZ | Elecciones 2026`,
+    description: `Los octógonos de ${candidate.name} (${candidate.party}): educación, alertas legales y viabilidad del plan de gobierno. Con IA y fuentes públicas oficiales.`,
+    openGraph: {
+      title: `Los Octógonos de ${candidate.name} x VORAZ`,
+      description: `Educación, alertas legales y viabilidad del plan de gobierno de ${candidate.name} (${candidate.party}) — Elecciones 2026.`,
+      images: [
+        {
+          url: "https://octogonos.vercel.app/og-image.png",
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
   };
 }
 

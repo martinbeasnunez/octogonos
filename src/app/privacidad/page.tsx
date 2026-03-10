@@ -22,9 +22,9 @@ async function getPage(): Promise<SitePage | null> {
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPage();
   return {
-    title: `${page?.title ?? "Política de Privacidad"} — Octógonos`,
+    title: `${page?.title ?? "Política de Privacidad"} — Octógonos x VORAZ`,
     description:
-      "Política de privacidad de Octógonos, la plataforma de información electoral del Perú.",
+      "Política de privacidad de Octógonos x VORAZ, plataforma de información electoral con IA — Elecciones 2026.",
   };
 }
 

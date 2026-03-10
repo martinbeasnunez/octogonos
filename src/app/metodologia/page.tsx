@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Metodología — Octógonos",
+  title: "Metodología — Octógonos x VORAZ | Elecciones 2026",
   description:
-    "Cómo funciona Octógonos: organizamos información pública de candidatos presidenciales peruanos con IA para que votes informado.",
+    "Cómo funciona: organizamos información pública de cada candidato presidencial con IA y fuentes oficiales. Porque si algo tiene octógonos, todos tenemos el derecho de saberlo.",
 };
 
 export default function MetodologiaPage() {

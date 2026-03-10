@@ -22,9 +22,9 @@ async function getPage(): Promise<SitePage | null> {
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPage();
   return {
-    title: `${page?.title ?? "Términos y Condiciones"} — Octógonos`,
+    title: `${page?.title ?? "Términos y Condiciones"} — Octógonos x VORAZ`,
     description:
-      "Términos y condiciones de uso de Octógonos, la plataforma de información electoral del Perú.",
+      "Términos y condiciones de uso de Octógonos x VORAZ, plataforma de información electoral con IA — Elecciones 2026.",
   };
 }
 

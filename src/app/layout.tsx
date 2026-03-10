@@ -9,29 +9,30 @@ export const metadata: Metadata = {
     icon: "/favicon.png",
     apple: "/favicon.png",
   },
-  title: "Octógonos de candidatos + IA",
+  title: "Los Octógonos de los Candidatos x VORAZ | Elecciones 2026",
   description:
-    "Toda la info de cada candidato presidencial 2026 en un solo lugar. Educación, historial legal y plan de gobierno — con fuentes oficiales del JNE. Powered by VORAZ.",
+    "Porque si algo tiene octógonos, todos tenemos el derecho de saberlo. Educación, alertas legales y viabilidad de cada candidato presidencial — con IA y fuentes públicas oficiales.",
   openGraph: {
-    title: "Octógonos de candidatos + IA",
+    title: "Los Octógonos de los Candidatos x VORAZ",
     description:
-      "Educación, historial legal y plan de gobierno de cada candidato. Con fuentes oficiales. Análisis con IA. Powered by VORAZ.",
+      "Porque si algo tiene octógonos, todos tenemos el derecho de saberlo. Educación, alertas legales y viabilidad de cada candidato — Elecciones 2026.",
     type: "website",
     url: "https://octogonos.vercel.app",
-    siteName: "Octógonos",
+    siteName: "Octógonos x VORAZ",
     images: [
       {
         url: "https://octogonos.vercel.app/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Octógonos de candidatos + IA",
+        alt: "Los Octógonos de los Candidatos x VORAZ — Elecciones 2026",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Octógonos de candidatos + IA",
-    description: "Educación, historial legal y plan de gobierno. Con IA.",
+    title: "Los Octógonos de los Candidatos x VORAZ",
+    description:
+      "Porque si algo tiene octógonos, todos tenemos el derecho de saberlo. Elecciones 2026 — con IA y fuentes oficiales.",
     images: ["https://octogonos.vercel.app/og-image.png"],
   },
 };
