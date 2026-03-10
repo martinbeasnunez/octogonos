@@ -72,8 +72,8 @@
 }
 
 body {
-  background: var(--color-voraz-cream);
-  color: var(--color-voraz-dark);
+  background: var(--color-voraz-black);
+  color: var(--color-voraz-white);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
