@@ -323,17 +323,9 @@ export default function MetodologiaPage() {
                 ))}
               </div>
               <p className="mb-3 text-sm leading-relaxed text-voraz-gray-600">
-                Los datos son agregados por{' '}
-                <a
-                  href="https://www.condorlatam.com/pe/encuestas"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium text-voraz-red underline decoration-voraz-red/30 hover:decoration-voraz-red"
-                >
-                  CONDOR Latam
-                </a>
-                , una plataforma independiente que recopila y promedia
-                resultados de las principales encuestadoras del Perú.
+                Estas encuestadoras publican sus resultados en medios
+                nacionales. El porcentaje mostrado es un promedio de sus
+                mediciones más recientes.
               </p>
               <p className="text-[11px] text-voraz-gray-400">
                 Datos actualizados periódicamente · No representa una predicción electoral

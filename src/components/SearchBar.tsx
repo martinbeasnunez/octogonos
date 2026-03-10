@@ -128,15 +128,7 @@ export default function SearchBar() {
           </p>
           {sort === "encuestas" && (
             <p className="text-[10px] text-white/30">
-              Fuentes: {POLL_SOURCES.firms.join(', ')} ·{' '}
-              <a
-                href={POLL_SOURCES.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline decoration-white/20 hover:text-white/50"
-              >
-                vía {POLL_SOURCES.aggregator}
-              </a>
+              Fuentes: {POLL_SOURCES.firms.join(', ')}
             </p>
           )}
         </div>

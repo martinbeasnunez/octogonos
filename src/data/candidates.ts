@@ -1723,15 +1723,13 @@ export function getFeasibility(slug: string): FeasibilityScore | undefined {
 }
 
 /**
- * Datos de encuestas nacionales — promedio ponderado de encuestadoras.
- * Fuentes: IEP, Ipsos, Datum, CPI (vía condorlatam.com/pe/encuestas).
+ * Datos de encuestas nacionales — promedio de encuestadoras reconocidas.
+ * Fuentes: IEP, Ipsos, Datum, CPI.
  * Última actualización: 1 marzo 2026.
  * Solo incluye candidatos con intención de voto reportada.
  */
 export const POLL_SOURCES = {
   firms: ['IEP', 'Ipsos', 'Datum', 'CPI'] as const,
-  aggregator: 'CONDOR Latam',
-  url: 'https://www.condorlatam.com/pe/encuestas',
   lastUpdated: '2026-03-01',
 };
 
