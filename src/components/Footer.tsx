@@ -8,7 +8,7 @@ export default function Footer() {
         {/* Brand */}
         <div className="mb-4">
           <span className="font-display text-lg font-black uppercase tracking-tight text-white sm:text-xl">
-            Octógonos
+            Los Octógonos de los Candidatos
           </span>
           <div className="mt-2 flex items-center gap-2">
             <span className="text-sm text-white/70">por</span>

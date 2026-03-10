@@ -118,54 +118,57 @@ export default function SearchBar() {
         </div>
       </div>
 
-      {/* Result count */}
-      <div className="mb-4 mt-3">
-        <p className="text-xs text-white/40">
-          {results.length} de {candidates.length} candidatos{sort === "encuestas" ? " — ordenados por encuestas" : " — orden alfabético"}
-        </p>
-        {sort === "encuestas" && (
-          <p className="text-[10px] text-white/30">
-            Promedio de encuestas publicadas en medios — Actualizado 2026
+      {/* Results area — min-height keeps results visible while sticky bar is active */}
+      <div className="min-h-[60vh]">
+        {/* Result count */}
+        <div className="mb-4 mt-3">
+          <p className="text-xs text-white/40">
+            {results.length} de {candidates.length} candidatos{sort === "encuestas" ? " — ordenados por encuestas" : " — orden alfabético"}
           </p>
-        )}
-      </div>
-
-      {/* No results state */}
-      {results.length === 0 && (
-        <div className="py-16 text-center">
-          <p className="font-display text-lg font-bold uppercase text-white/40">
-            Sin resultados
-          </p>
-          <p className="mt-2 text-sm text-white/40">
-            {query
-              ? `No se encontraron candidatos para "${query}"`
-              : "No hay candidatos con ese filtro"}
-          </p>
-          {filter !== "todos" && (
-            <button
-              onClick={() => setFilter("todos")}
-              className="mt-4 rounded-full bg-voraz-red px-4 py-2 text-xs font-bold text-white transition-colors hover:bg-voraz-red/80"
-            >
-              Mostrar todos
-            </button>
+          {sort === "encuestas" && (
+            <p className="text-[10px] text-white/30">
+              Promedio de encuestas publicadas en medios — Actualizado 2026
+            </p>
           )}
         </div>
-      )}
 
-      {/* Card grid */}
-      {results.length > 0 && (
-        <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          {results.map((candidate, i) => (
-            <div
-              key={candidate.slug}
-              className="animate-fade-in-up"
-              style={{ animationDelay: `${Math.min(i * 50, 300)}ms` }}
-            >
-              <CandidateCard candidate={candidate} />
-            </div>
-          ))}
-        </div>
-      )}
+        {/* No results state */}
+        {results.length === 0 && (
+          <div className="py-16 text-center">
+            <p className="font-display text-lg font-bold uppercase text-white/40">
+              Sin resultados
+            </p>
+            <p className="mt-2 text-sm text-white/40">
+              {query
+                ? `No se encontraron candidatos para "${query}"`
+                : "No hay candidatos con ese filtro"}
+            </p>
+            {filter !== "todos" && (
+              <button
+                onClick={() => setFilter("todos")}
+                className="mt-4 rounded-full bg-voraz-red px-4 py-2 text-xs font-bold text-white transition-colors hover:bg-voraz-red/80"
+              >
+                Mostrar todos
+              </button>
+            )}
+          </div>
+        )}
+
+        {/* Card grid */}
+        {results.length > 0 && (
+          <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            {results.map((candidate, i) => (
+              <div
+                key={candidate.slug}
+                className="animate-fade-in-up"
+                style={{ animationDelay: `${Math.min(i * 50, 300)}ms` }}
+              >
+                <CandidateCard candidate={candidate} />
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
