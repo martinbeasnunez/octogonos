@@ -20,7 +20,7 @@ const filterOptions: FilterOption[] = [
 
 export default function SearchBar() {
   const [query, setQuery] = useState("");
-  const [sort, setSort] = useState<SortOption>("encuestas");
+  const [sort, setSort] = useState<SortOption>("az");
   const [filter, setFilter] = useState<FilterOption>("todos");
 
   const results = useMemo(
