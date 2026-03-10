@@ -131,10 +131,10 @@ export default function CorreccionsPage() {
                   <button
                     key={c.slug}
                     onClick={() => handleCandidateSelect(c.slug, c.name)}
-                    className="w-full text-left rounded-lg bg-voraz-gray-50 px-4 py-3 text-sm transition-colors hover:bg-voraz-red/10 hover:text-voraz-red"
+                    className="w-full text-left rounded-lg bg-voraz-gray-50 px-4 py-3 text-sm text-voraz-gray-600 transition-colors hover:bg-voraz-red/10 hover:text-voraz-red"
                   >
-                    <span className="font-bold">{c.name}</span>
-                    <span className="text-voraz-gray-400 ml-2">({c.party})</span>
+                    <span className="font-bold text-voraz-black">{c.name}</span>
+                    <span className="text-voraz-gray-500 ml-2">({c.party})</span>
                   </button>
                 ))}
               </div>
