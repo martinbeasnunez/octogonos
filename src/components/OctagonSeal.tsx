@@ -67,11 +67,11 @@ export default function OctagonSeal({
         ? "bg-score-neutro/15 opacity-80"
         : "bg-score-bajo/12 opacity-70";
 
-  // Pillar name = siempre blanco legible (el color va en el score, no en el título)
-  const pillarNameColor = "text-white/70";
+  // Pillar name = oscuro sobre fondo blanco
+  const pillarNameColor = "text-voraz-black/70";
 
-  // Divider — blanco visible
-  const dividerColor = "bg-white/25";
+  // Divider
+  const dividerColor = "bg-voraz-black/15";
 
   // Solo pulsa en legal con sentencias
   const shouldPulse = pillar === "legal" && score === "Alto";
@@ -96,10 +96,10 @@ export default function OctagonSeal({
         <div className={`clip-octagon absolute inset-0 ${ringColor}`} />
 
         {/* Body */}
-        <div className="clip-octagon absolute inset-[5px] bg-voraz-black" />
+        <div className="clip-octagon absolute inset-[5px] bg-white" />
 
         {/* Inner glow */}
-        <div className="clip-octagon absolute inset-[5px] bg-gradient-to-br from-white/[0.06] via-transparent to-transparent" />
+        <div className="clip-octagon absolute inset-[5px] bg-gradient-to-br from-black/[0.03] via-transparent to-transparent" />
 
         {/* Context indicator */}
         {hasContext && (
@@ -119,7 +119,7 @@ export default function OctagonSeal({
               <span className={`font-display text-3xl font-black tracking-tight sm:text-4xl ${labelColor}`}>
                 {feasibilityScore}
               </span>
-              <span className="font-display text-sm font-bold text-white/40">
+              <span className="font-display text-sm font-bold text-voraz-black/40">
                 /10
               </span>
             </div>
