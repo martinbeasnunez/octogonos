@@ -540,53 +540,6 @@ export const candidates: Candidate[] = [
     }
   },
   {
-    "name": "Napoleon Becerra Garcia",
-    "slug": "napoleon-becerra-garcia",
-    "party": "Partido de los Trabajadores y Emprendedores Pte - Peru",
-    "education": {
-      "score": "Medio",
-      "explanation": "Licenciado en Administración — Universidad Inca Garcilaso de la Vega Asociación Civil (concluido). Bachiller en Ciencias Administrativas — Universidad Inca Garcilaso de la Vega Asociación Civil (concluido).",
-      "sources": [
-        {
-          "title": "Hoja de vida — JNE Voto Informado",
-          "url": "https://votoinformado.jne.gob.pe/hoja-vida/2939/08058852"
-        },
-        {
-          "title": "Verificar grado — SUNEDU",
-          "url": "https://enlinea.sunedu.gob.pe/"
-        }
-      ]
-    },
-    "legal": {
-      "score": "Bajo",
-      "explanation": "Presenta una anotación por proceso civil ante el JNE.",
-      "sources": [
-        {
-          "title": "Hoja de vida — JNE Voto Informado",
-          "url": "https://votoinformado.jne.gob.pe/hoja-vida/2939/08058852"
-        }      ],
-      "context": {
-        "text": "En junio de 2025, La República reportó que Napoleón Becerra, precandidato presidencial y presidente del Partido de los Trabajadores y Emprendedores (PTE), fue denunciado por presunta violencia sexual durante un evento político en Piura.",
-        "source": "La República",
-        "sourceUrl": "https://larepublica.pe/politica/2025/06/27/elecciones-2026-napoleon-becerra-precandidato-presidencial-es-denunciado-por-presunta-ataque-sexual-hnews-1838430"
-      }
-    },
-    "plan": {
-      "score": "Bajo",
-      "explanation": "Plantea erradicar pobreza, nueva Constitución, educación y salud gratuitas, reforma tributaria, banco para pequeños productores y lucha contra la corrupción.",
-      "sources": [
-        {
-          "title": "Fórmula presidencial — JNE Voto Informado",
-          "url": "https://votoinformado.jne.gob.pe/formula-presidencial/2939"
-        },
-        {
-          "title": "Plan de gobierno completo (PDF)",
-          "url": "https://mpesije.jne.gob.pe/docs/6988c030-5c2b-40d8-b656-dc48899d4d8c.pdf"
-        }
-      ]
-    }
-  },
-  {
     "name": "Alfonso Carlos Espa y Garces-Alvear",
     "slug": "alfonso-carlos-espa-y-garces-alvear",
     "party": "Partido Sicreo",
