@@ -203,22 +203,24 @@ export async function GET(request: NextRequest) {
       priorVisitorIds = new Set(priorRows.map((r) => r.visitor_id));
     }
 
-    // ── 4) Last 7 days breakdown (always) ──────────────────
-    const sevenAgo = new Date();
-    sevenAgo.setDate(sevenAgo.getDate() - 7);
-    sevenAgo.setHours(0, 0, 0, 0);
+    // ── 4) Last 7 days breakdown (always, Lima timezone) ───
+    const last7 = getLast7Days();
+    // Use the earliest date from last7 to query (it's already Lima-aware)
+    const sevenAgoStr = last7[0].date + 'T05:00:00.000Z'; // midnight Lima = 05:00 UTC
     const weekRows = await fetchAllRows<{ visitor_id: string; created_at: string }>(
       db,
       'page_views',
       'visitor_id, created_at',
-      (q: any) => q.gte('created_at', sevenAgo.toISOString())
+      (q: any) => q.gte('created_at', sevenAgoStr)
     );
 
-    const last7 = getLast7Days();
     const dailyMap = new Map<string, { views: number; visitors: Set<string> }>();
     last7.forEach((d) => dailyMap.set(d.date, { views: 0, visitors: new Set() }));
     weekRows.forEach((r) => {
-      const day = r.created_at?.split('T')[0];
+      // Convert UTC created_at to Lima date (UTC-5)
+      const utc = new Date(r.created_at);
+      const lima = new Date(utc.getTime() - 5 * 60 * 60 * 1000);
+      const day = lima.toISOString().split('T')[0];
       const bucket = dailyMap.get(day);
       if (bucket) {
         bucket.views++;
