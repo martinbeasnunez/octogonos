@@ -24,7 +24,6 @@ interface Insight {
 // ── Helpers ──────────────────────────────────────────────────────
 
 function slugToLabel(path: string): string {
-  // "/c/keiko-fujimori" → "Keiko Fujimori"
   const slug = path.replace(/^\/(c|candidato)\//, '');
   return slug
     .split('-')
@@ -37,6 +36,35 @@ function pctChange(current: number, previous: number): number | null {
   return Math.round(((current - previous) / previous) * 100);
 }
 
+/**
+ * Fetch ALL rows from a Supabase query, paginating in chunks of 1000.
+ * Supabase caps `.select()` at 1000 rows by default.
+ */
+async function fetchAllRows<T>(
+  db: any,
+  table: string,
+  select: string,
+  filters: (query: any) => any
+): Promise<T[]> {
+  const PAGE_SIZE = 1000;
+  let allRows: T[] = [];
+  let offset = 0;
+  let hasMore = true;
+
+  while (hasMore) {
+    let query = db.from(table).select(select).range(offset, offset + PAGE_SIZE - 1);
+    query = filters(query);
+    const { data, error } = await query;
+    if (error) throw error;
+    const rows = (data || []) as T[];
+    allRows = allRows.concat(rows);
+    hasMore = rows.length === PAGE_SIZE;
+    offset += PAGE_SIZE;
+  }
+
+  return allRows;
+}
+
 function generateInsights(
   periodViews: PageView[],
   dailyViews: Array<{ label: string; views: number; visitors: number }>,
@@ -45,7 +73,6 @@ function generateInsights(
 ): Insight[] {
   const insights: Insight[] = [];
 
-  // 1) Peak day
   const nonEmpty = dailyViews.filter((d) => d.views > 0);
   if (nonEmpty.length > 0) {
     const peak = nonEmpty.reduce((a, b) => (b.views > a.views ? b : a));
@@ -55,7 +82,6 @@ function generateInsights(
     });
   }
 
-  // 2) Growth trend
   if (compChange !== null && compChange !== 0) {
     insights.push(
       compChange > 0
@@ -64,7 +90,6 @@ function generateInsights(
     );
   }
 
-  // 3) Direct vs referred
   const directCount = periodViews.filter(
     (v) => !v.referrer || v.referrer === 'Direct'
   ).length;
@@ -84,7 +109,6 @@ function generateInsights(
     }
   }
 
-  // 4) Avg daily visitors (week / all)
   if (['week', 'all'].includes(period) && nonEmpty.length > 0) {
     const avg = Math.round(
       nonEmpty.reduce((s, d) => s + d.visitors, 0) / nonEmpty.length
@@ -136,60 +160,64 @@ export async function GET(request: NextRequest) {
     : 'all';
 
   try {
-    // Prefer admin client (bypasses RLS) for reading analytics data
     const db = supabaseAdmin || supabase;
     if (!db) throw new Error('Supabase not configured');
 
     const range = getDateRange(period);
     const compRange = getComparisonRange(period);
 
-    // ── 1) Page views for the selected period ──────────────
-    const pvQuery = (db as any)
-      .from('page_views')
-      .select('visitor_id, page_path, referrer, created_at')
-      .gte('created_at', range.start.toISOString())
-      .lt('created_at', range.end.toISOString());
-
-    const { data: periodViews, error: pvErr } = await pvQuery;
-    if (pvErr) throw pvErr;
-    const views: PageView[] = periodViews || [];
+    // ── 1) Page views for the selected period (ALL rows, paginated) ──
+    const views = await fetchAllRows<PageView>(
+      db,
+      'page_views',
+      'visitor_id, page_path, referrer, created_at',
+      (q: any) =>
+        q
+          .gte('created_at', range.start.toISOString())
+          .lt('created_at', range.end.toISOString())
+    );
 
     // ── 2) Comparison period views ─────────────────────────
-    let compViews: PageView[] = [];
+    let compViews: Array<{ visitor_id: string }> = [];
     if (compRange) {
-      const { data, error } = await (db as any)
-        .from('page_views')
-        .select('visitor_id')
-        .gte('created_at', compRange.start.toISOString())
-        .lt('created_at', compRange.end.toISOString());
-      if (!error && data) compViews = data;
+      compViews = await fetchAllRows<{ visitor_id: string }>(
+        db,
+        'page_views',
+        'visitor_id',
+        (q: any) =>
+          q
+            .gte('created_at', compRange.start.toISOString())
+            .lt('created_at', compRange.end.toISOString())
+      );
     }
 
     // ── 3) Prior visitors (for new vs returning) ───────────
     let priorVisitorIds = new Set<string>();
     if (period !== 'all') {
-      const { data } = await (db as any)
-        .from('page_views')
-        .select('visitor_id')
-        .lt('created_at', range.start.toISOString());
-      if (data) {
-        priorVisitorIds = new Set(data.map((r: any) => r.visitor_id));
-      }
+      const priorRows = await fetchAllRows<{ visitor_id: string }>(
+        db,
+        'page_views',
+        'visitor_id',
+        (q: any) => q.lt('created_at', range.start.toISOString())
+      );
+      priorVisitorIds = new Set(priorRows.map((r) => r.visitor_id));
     }
 
     // ── 4) Last 7 days breakdown (always) ──────────────────
     const sevenAgo = new Date();
     sevenAgo.setDate(sevenAgo.getDate() - 7);
     sevenAgo.setHours(0, 0, 0, 0);
-    const { data: weekRaw } = await (db as any)
-      .from('page_views')
-      .select('visitor_id, created_at')
-      .gte('created_at', sevenAgo.toISOString());
+    const weekRows = await fetchAllRows<{ visitor_id: string; created_at: string }>(
+      db,
+      'page_views',
+      'visitor_id, created_at',
+      (q: any) => q.gte('created_at', sevenAgo.toISOString())
+    );
 
     const last7 = getLast7Days();
     const dailyMap = new Map<string, { views: number; visitors: Set<string> }>();
     last7.forEach((d) => dailyMap.set(d.date, { views: 0, visitors: new Set() }));
-    (weekRaw || []).forEach((r: any) => {
+    weekRows.forEach((r) => {
       const day = r.created_at?.split('T')[0];
       const bucket = dailyMap.get(day);
       if (bucket) {
@@ -238,7 +266,7 @@ export async function GET(request: NextRequest) {
       });
     }
 
-    const compUniqueVisitors = new Set(compViews.map((v: any) => v.visitor_id)).size;
+    const compUniqueVisitors = new Set(compViews.map((v) => v.visitor_id)).size;
     const pageViewsChange = compRange ? pctChange(views.length, compViews.length) : null;
     const visitorsChange = compRange
       ? pctChange(uniqueVisitors, compUniqueVisitors)
