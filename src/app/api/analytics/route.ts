@@ -1,4 +1,4 @@
-import { supabase } from '@/lib/supabase';
+import { supabase, supabaseAdmin } from '@/lib/supabase';
 import { NextRequest, NextResponse } from 'next/server';
 import {
   type AnalyticsPeriod,
@@ -136,13 +136,15 @@ export async function GET(request: NextRequest) {
     : 'all';
 
   try {
-    if (!supabase) throw new Error('Supabase not configured');
+    // Prefer admin client (bypasses RLS) for reading analytics data
+    const db = supabaseAdmin || supabase;
+    if (!db) throw new Error('Supabase not configured');
 
     const range = getDateRange(period);
     const compRange = getComparisonRange(period);
 
     // ── 1) Page views for the selected period ──────────────
-    const pvQuery = (supabase as any)
+    const pvQuery = (db as any)
       .from('page_views')
       .select('visitor_id, page_path, referrer, created_at')
       .gte('created_at', range.start.toISOString())
@@ -155,7 +157,7 @@ export async function GET(request: NextRequest) {
     // ── 2) Comparison period views ─────────────────────────
     let compViews: PageView[] = [];
     if (compRange) {
-      const { data, error } = await (supabase as any)
+      const { data, error } = await (db as any)
         .from('page_views')
         .select('visitor_id')
         .gte('created_at', compRange.start.toISOString())
@@ -166,7 +168,7 @@ export async function GET(request: NextRequest) {
     // ── 3) Prior visitors (for new vs returning) ───────────
     let priorVisitorIds = new Set<string>();
     if (period !== 'all') {
-      const { data } = await (supabase as any)
+      const { data } = await (db as any)
         .from('page_views')
         .select('visitor_id')
         .lt('created_at', range.start.toISOString());
@@ -179,7 +181,7 @@ export async function GET(request: NextRequest) {
     const sevenAgo = new Date();
     sevenAgo.setDate(sevenAgo.getDate() - 7);
     sevenAgo.setHours(0, 0, 0, 0);
-    const { data: weekRaw } = await (supabase as any)
+    const { data: weekRaw } = await (db as any)
       .from('page_views')
       .select('visitor_id, created_at')
       .gte('created_at', sevenAgo.toISOString());
@@ -206,7 +208,7 @@ export async function GET(request: NextRequest) {
     });
 
     // ── 5) Corrections count for period ────────────────────
-    let corrQuery = (supabase as any)
+    let corrQuery = (db as any)
       .from('corrections')
       .select('*', { count: 'exact', head: true });
     if (period !== 'all') {
@@ -217,7 +219,7 @@ export async function GET(request: NextRequest) {
     const { count: corrCount } = await corrQuery;
 
     // ── 6) All corrections (for list in admin) ─────────────
-    const { data: allCorrections } = await (supabase as any)
+    const { data: allCorrections } = await (db as any)
       .from('corrections')
       .select('*')
       .order('created_at', { ascending: false });
