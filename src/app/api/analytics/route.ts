@@ -122,6 +122,8 @@ function emptyResponse(period: AnalyticsPeriod) {
   });
 }
 
+export const dynamic = 'force-dynamic';
+
 // ── GET handler ──────────────────────────────────────────────────
 
 export async function GET(request: NextRequest) {
