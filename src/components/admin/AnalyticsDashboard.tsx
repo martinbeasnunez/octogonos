@@ -436,6 +436,7 @@ export default function AnalyticsDashboard() {
               year: 'numeric',
               hour: '2-digit',
               minute: '2-digit',
+              timeZone: 'America/Lima',
             })}
             {loading && ' · cargando...'}
           </p>
