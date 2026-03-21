@@ -1301,8 +1301,8 @@ export const candidates: Candidate[] = [
           "url": "https://votoinformado.jne.gob.pe/hoja-vida/2218/06466585"
         }      ],
       "context": {
-        "text": "Según La República, en enero de 2026, el Poder Judicial confirmó la detención preventiva por 24 meses contra Vladimir Cerrón por presunta organización criminal y lavado de activos.",
-        "source": "La República",
+        "text": "Según RPP, en enero de 2026, el Poder Judicial confirmó la detención preventiva por 24 meses contra Vladimir Cerrón por presunta organización criminal y lavado de activos.",
+        "source": "RPP",
         "sourceUrl": "https://rpp.pe/politica/judiciales/pj-confirmo-detencion-preventiva-contra-vladimir-cerron-por-presunta-organizacion-criminal-y-lavado-de-activos-noticia-1670983"
       }
     },
